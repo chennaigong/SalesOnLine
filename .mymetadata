@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SalesOnLine"
+  id="myeclipse.1342853449709"
+  context-root="/SalesOnLine"
+  j2ee-spec="1.4"
+  archive="SalesOnLine.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

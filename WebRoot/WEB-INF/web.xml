@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>   
+		<param-value>/WEB-INF/classes/applicationContext.xml,/WEB-INF/classes/daoContext.xml</param-value>   
+	</context-param>
+    <filter>   
+        <filter-name>openSessionInView</filter-name>   
+        <filter-class>   
+            org.springframework.orm.hibernate3.support.OpenSessionInViewFilter   
+        </filter-class>   
+    </filter>   
+    <filter-mapping>   
+        <filter-name>openSessionInView</filter-name>   
+        <url-pattern>*.action</url-pattern>   
+    </filter-mapping>
+	<!-- 鍔犱簡struts2-spring-plugin.jar鍚庡繀椤讳娇鐢ㄧ洃鍚櫒-->
+	<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+	<filter>
+		<filter-name>srtuts-cleanup</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+	</filter>
+	<filter>
+	<filter-name>struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+	 	<filter-name>srtuts-cleanup</filter-name>
+	 	<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+	<filter-name>struts2</filter-name>
+	<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	
+	 <servlet>
+		<servlet-name>JspSupportServlet</servlet-name>
+		<servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<listener>
+		<listener-class>
+			Listener.WebListener
+		</listener-class>
+	</listener>
+  	<!-- <servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>
+			net.fckeditor.connector.ConnectorServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
+	</servlet-mapping>	-->	
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>

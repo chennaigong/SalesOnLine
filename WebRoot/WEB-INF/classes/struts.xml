@@ -1,0 +1,51 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<include file="struts-default.xml"/>
+<constant name="struts.multipart.maxSize" value="1073741824000"/> 
+<constant name="struts.i18n.encoding" value="utf-8"></constant>
+
+	<package name="default"  extends="struts-default" namespace="/">
+	    <!-- 交易订单列表 -->
+		<action name="index" class="Action.IndexAction" method="index">
+			<result name="success" type="freemarker">index.ftl</result>
+			<result name="gotourl" type="freemarker">tradeindex.ftl</result>
+		</action> 
+		<!-- ajax获取交易订单列表 -->
+		<action name="tradeList" class="Action.TradesAction" method="tradeList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		<!-- 评价列表 -->
+		<action name="rateIndex" class="Action.RatesAction" method="rateIndex">
+			<result name="success" type="freemarker">rateindex.ftl</result>
+		</action>
+		<!-- ajax获取评价列表 -->
+		<action name="rateList" class="Action.RatesAction" method="rateList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		<!-- 物流公司列表 -->
+		<action name="logisticsIndex" class="Action.LogisticsAction" method="logisticsIndex">
+			<result name="success" type="freemarker">logisticsindex.ftl</result>
+		</action> 
+		<!-- ajax获取物流公司列表 -->
+		<action name="logisticsList" class="Action.LogisticsAction" method="logisticsList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		<!-- 发货 -->
+		<action name="logicsticsSend" class="Action.LogisticsAction" method="logicsticsSend">
+			<result name="success" type="freemarker">logisticssend.ftl</result>
+		</action>
+		 <!-- 买家列表 -->
+		<action name="buyerIndex" class="Action.BuyerAction" method="buyerIndex">
+			<result name="success" type="freemarker">buyerIndex.ftl</result>
+		</action>
+		 <!-- ajax获取买家列表 -->
+		<action name="buyerList" class="Action.BuyerAction" method="buyerList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
+

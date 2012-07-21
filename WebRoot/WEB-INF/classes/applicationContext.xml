@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     
+   
+  <!-- 连接数据库，sessionfactory初始化 --> 
+    <!--定义了Hibernate的SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="configLocation">
+           <value>classpath:hibernate.cfg.xml</value>
+        </property>
+    </bean>
+	
+	<!-- 开启事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+	    <!--  事务拦截器bean需要依赖注入一个事务管理器 -->
+        <property name="transactionManager" ref="transactionManager"/>
+    	<property name="transactionAttributes">
+		    <!--  下面定义事务传播属性-->
+		    <props>
+			    <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+		    	<prop key="*">PROPAGATION_REQUIRED,-Exception</prop>
+		    	<prop key="*">ISOLATION_SERIALIZABLE</prop>
+		    </props>
+	    </property>
+	</bean>  
+    <!-- 定义BeanNameAutoProxyCreator-->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+	    <!--  指定对满足哪些bean name的bean自动生成业务代理 -->
+	    <property name="beanNames">
+            <!--  下面是所有需要自动创建事务代理的bean-->
+            <list>
+                <value>loginservice</value>
+                
+            </list>
+            <!--  此处可增加其他需要自动创建事务代理的bean-->
+	    </property>
+        <!--  下面定义BeanNameAutoProxyCreator所需的事务拦截器-->
+        <property name="interceptorNames">
+            <list>
+                <!-- 此处可增加其他新的Interceptor -->
+                <value>transactionInterceptor</value> 
+            </list>
+        </property>
+    </bean>
+    <!-- 管理员 -->
+	<bean id="loginservice" class="ServiceImpl.LoginServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	</beans>
