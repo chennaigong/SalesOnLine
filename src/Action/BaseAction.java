@@ -1,5 +1,10 @@
 package Action;
 
+import Service.RateService;
+import Service.TradeService;
+import Service.UserService;
+import Service.adminService;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport{
@@ -8,6 +13,48 @@ public class BaseAction extends ActionSupport{
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected final static String SUCCESS="success";
 	
+	protected TradeService tradeservice;
+	protected RateService rateservice;
+	protected adminService adminservice;
+	protected UserService userservice;
+	
+	public UserService getUserservice() {
+		return userservice;
+	}
+
+	public void setUserservice(UserService userservice) {
+		this.userservice = userservice;
+	}
+
+	public adminService getAdminservice() {
+		return adminservice;
+	}
+
+	public void setAdminservice(adminService adminservice) {
+		this.adminservice = adminservice;
+	}
+
+	public String index()
+	{
+		return SUCCESS;
+	}
+
+	public RateService getRateservice() {
+		return rateservice;
+	}
+
+	public void setRateservice(RateService rateservice) {
+		this.rateservice = rateservice;
+	}
+
+	public TradeService getTradeservice() {
+		return tradeservice;
+	}
+
+	public void setTradeservice(TradeService tradeservice) {
+		this.tradeservice = tradeservice;
+	}
+
 	public String getResponseMsg() {
 		return responseMsg;
 	}

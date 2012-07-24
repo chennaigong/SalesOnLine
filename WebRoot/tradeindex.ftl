@@ -43,7 +43,7 @@
 						}
 						
 						var str=trtr+obj.tid+_tdtd+statue+_tdtd+obj.buyer_nick
-						+_tdtd+obj.created+_tdtd+obj.total_fee+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+btn+_td_tr;
+						+_tdtd+obj.created+_tdtd+obj.total_fee+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+btn+_td_tr;
 						insertTr("tradetable",str);
 						
 						
@@ -77,6 +77,7 @@
 			<th width=200>商品价格</th>
 			<th width=200>付款时间</th>
 			<th width=100>实际付款</th>
+			<th width=100>最后修改时间</th>
 			<th width=100>操作</th>
 		</tr>
 	</table>

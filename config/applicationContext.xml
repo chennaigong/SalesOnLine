@@ -34,8 +34,9 @@
 	    <property name="beanNames">
             <!--  下面是所有需要自动创建事务代理的bean-->
             <list>
-                <value>loginservice</value>
-                
+                <value>tradeservice</value>
+                <value>userservice</value>
+                <value>rateservice</value>
             </list>
             <!--  此处可增加其他需要自动创建事务代理的bean-->
 	    </property>
@@ -47,8 +48,32 @@
             </list>
         </property>
     </bean>
-    <!-- 管理员 -->
-	<bean id="loginservice" class="ServiceImpl.LoginServiceImpl">
+    
+    <!-- 订单 -->
+	<bean id="tradeservice" class="ServiceImpl.TradeServiceImpl">
 		<property name="basedao" ref="basedao"></property>
 	</bean>
+	
+	<!-- 用户-->
+	<bean id="userservice" class="ServiceImpl.UserServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 评价表-->
+	<bean id="rateservice" class="ServiceImpl.RateServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 用户管理员表-->
+	<bean id="adminservice" class="ServiceImpl.adminServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 注册监听器 -->
+	<bean id="applicationlistenerimpl" class="Listener.ApplicationListenerImpl">
+		<property name="tradeservice" ref="tradeservice"></property>
+		<property name="userservice" ref="userservice"></property>
+		<property name="rateservice" ref="rateservice"></property>
+	</bean>
+	
 	</beans>

@@ -14,12 +14,23 @@
         <filter-class>   
             org.springframework.orm.hibernate3.support.OpenSessionInViewFilter   
         </filter-class>   
+        <init-param> 
+			<param-name>sessionFactoryBeanName</param-name> 
+		    <param-value>sessionFactory</param-value> 
+		</init-param> 
+		<init-param> 
+            <param-name>singleSession</param-name> 
+            <param-value>true</param-value>            
+		</init-param> 
+		<init-param> 
+		        <param-name> flushMode </param-name> 
+		   	<param-value>AUTO </param-value>         
+        </init-param> 
     </filter>   
     <filter-mapping>   
         <filter-name>openSessionInView</filter-name>   
         <url-pattern>*.action</url-pattern>   
     </filter-mapping>
-	<!-- 鍔犱簡struts2-spring-plugin.jar鍚庡繀椤讳娇鐢ㄧ洃鍚櫒-->
 	<listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -47,11 +58,6 @@
 		<servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<listener>
-		<listener-class>
-			Listener.WebListener
-		</listener-class>
-	</listener>
   	<!-- <servlet>
 		<servlet-name>Connector</servlet-name>
 		<servlet-class>
