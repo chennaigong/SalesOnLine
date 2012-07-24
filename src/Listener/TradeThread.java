@@ -17,11 +17,15 @@ public class TradeThread extends Thread
 {
 	private TradeService tradeService;
 	private UserService userService;
+	private String defaultTime;
+	private String threadInterval;
 	
-	public TradeThread(TradeService tradeService,UserService userService)
+	public TradeThread(TradeService tradeService,UserService userService,String defaultTime,String threadInterval)
 	{
 		this.tradeService=tradeService;
 		this.userService=userService;
+		this.defaultTime=defaultTime;
+		this.threadInterval=threadInterval;
 	}
 	
 	public void run()
@@ -46,7 +50,7 @@ public class TradeThread extends Thread
 						SolUsers user=userList.get(i);
 						SolTrades trade=tradeService.findLastTrade(user.getUserUsername(),"tradeCreate");
 						//默认设置用户如果无订单的情况下，开始时间为2012-01-01 00:00:00 
-						String defaultTime="2012-01-01 00:00:00";
+						String defaultTime=this.defaultTime;
 						if(trade!=null)
 						{
 							defaultTime=trade.getTradeCreate();
@@ -69,19 +73,19 @@ public class TradeThread extends Thread
 								//如果未授权，则实时修改SOL_users表的user_ispromise为"否"
 								if(jsonCut.equals(Helpers.NOPERMIT))
 								{
-									user.setUserIspromise("否");
-									userService.modifyUser(user);
+//									user.setUserIspromise("否");
+//									userService.modifyUser(user);
 								}
 								//无数据，则只是实时修改SOL_users表的user_ispromise为"是"
 								else if(jsonCut.equals(Helpers.NONEDATA))
 								{
-									user.setUserIspromise("是");
-									userService.modifyUser(user);
+//									user.setUserIspromise("是");
+//									userService.modifyUser(user);
 								}
 								else 
 								{
-									user.setUserIspromise("是");
-									userService.modifyUser(user);
+//									user.setUserIspromise("是");
+//									userService.modifyUser(user);
 									
 									String data="{'result':"+jsonCut+"}";
 									JSONObject jsonObject=new JSONObject(data);
@@ -255,7 +259,7 @@ public class TradeThread extends Thread
 			}
 			try 
 			{
-				Thread.sleep(5000);
+				Thread.sleep(Integer.parseInt(this.threadInterval));
 			} 
 			catch (Exception e) {
 				e.printStackTrace();

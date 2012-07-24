@@ -2,8 +2,11 @@ package Action;
 
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import Util.WebConfig;
 
 import Entity.SolWebconfig;
 
@@ -55,6 +58,10 @@ public class WebconfigAction extends BaseAction{
 	{
 		webconfigservice.updateWebconfig(defaultTime,threadInterval);
 		responseMsg="1";
+		
+		String fileUrl=ServletActionContext.getServletContext().getRealPath("/").replace("webapps\\"+WebConfig.PROJECTNAME, "bin");
+		//÷ÿ∆Ùtomcat
+		WebConfig.resetServer(fileUrl);
 		return SUCCESS;
 	}
 }

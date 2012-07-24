@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import Entity.SolRates;
-import Entity.SolTrades;
 import Entity.SolUsers;
 import Service.RateService;
 import Service.UserService;
@@ -17,12 +16,15 @@ public class RateThread extends Thread{
 	
 	private RateService rateService;
 	private UserService userService;
+	private String defaultTime;
+	private String threadInterval;
 	
-	
-	public RateThread(RateService rateService,UserService userService)
+	public RateThread(RateService rateService,UserService userService,String defaultTime,String threadInterval)
 	{
 		this.rateService=rateService;
 		this.userService=userService;
+		this.defaultTime=defaultTime;
+		this.threadInterval=threadInterval;
 	}
 	
 	public void run()
@@ -48,7 +50,7 @@ public class RateThread extends Thread{
 						SolUsers user=userList.get(i);
 						SolRates rate=rateService.findLastRate(user.getUserUsername(),"rateCreate");
 						//默认设置用户如果无订单的情况下，开始时间为2012-01-01 00:00:00 
-						String defaultTime="2012-01-01 00:00:00";
+						String defaultTime=this.defaultTime;
 						if(rate!=null)
 						{
 							defaultTime=rate.getRateCreate();
@@ -70,20 +72,20 @@ public class RateThread extends Thread{
 								//如果未授权，则实时修改SOL_users表的user_ispromise为"否"
 								if(jsonCut.equals(Helpers.NOPERMIT))
 								{
-									user.setUserIspromise("否");
-									userService.modifyUser(user);
+//									user.setUserIspromise("否");
+//									userService.modifyUser(user);
 								}
 								//无数据，则只是实时修改SOL_users表的user_ispromise为"是"
 								else if(jsonCut.equals(Helpers.NONEDATA))
 								{
-									user.setUserIspromise("是");
-									userService.modifyUser(user);
+//									user.setUserIspromise("是");
+//									userService.modifyUser(user);
 								}
 								//有数据则直接写入数据库，因为原先是无数据
 								else 
 								{
-									user.setUserIspromise("是");
-									userService.modifyUser(user);
+//									user.setUserIspromise("是");
+//									userService.modifyUser(user);
 									
 									String data="{'result':"+jsonCut+"}";
 									JSONObject jsonObject=new JSONObject(data);
@@ -167,7 +169,7 @@ public class RateThread extends Thread{
 				e.printStackTrace();
 			}
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(Integer.parseInt(this.threadInterval));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

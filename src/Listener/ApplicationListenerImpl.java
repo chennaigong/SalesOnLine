@@ -19,7 +19,6 @@ public class ApplicationListenerImpl implements ApplicationListener {
 	private RateService rateservice;
 	private WebconfigService webconfigservice;
 
-
 	public WebconfigService getWebconfigservice() {
 		return webconfigservice;
 	}
@@ -61,12 +60,14 @@ public class ApplicationListenerImpl implements ApplicationListener {
 		{
 			webconfigservice.addWebconfig("defaultTime","2012-01-01 00:00:00","threadInterval","5000");
 		}
-		
+		webconfigList=webconfigservice.webconfigList();
+		String defaultTime=webconfigList.get(0).getWebconfigValue();
+		String threadInterval=webconfigList.get(1).getWebconfigValue();
 		//订单线程
-//		TradeThread tradeThread=new TradeThread(tradeservice,userservice);
+		TradeThread tradeThread=new TradeThread(tradeservice,userservice,defaultTime,threadInterval);
 //		tradeThread.start();
-//		
-//		RateThread rateThread=new RateThread(rateservice,userservice);
+		//评价线程
+		RateThread rateThread=new RateThread(rateservice,userservice,defaultTime,threadInterval);
 //		rateThread.start();
 	}
 
