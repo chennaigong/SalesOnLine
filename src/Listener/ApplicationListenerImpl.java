@@ -1,19 +1,32 @@
 package Listener;
 
 
+import java.util.List;
+
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 
+import Entity.SolWebconfig;
 import Service.RateService;
 import Service.TradeService;
 import Service.UserService;
+import Service.WebconfigService;
 
 public class ApplicationListenerImpl implements ApplicationListener {
 
 	private TradeService tradeservice;
 	private UserService userservice;
 	private RateService rateservice;
+	private WebconfigService webconfigservice;
 
+
+	public WebconfigService getWebconfigservice() {
+		return webconfigservice;
+	}
+
+	public void setWebconfigservice(WebconfigService webconfigservice) {
+		this.webconfigservice = webconfigservice;
+	}
 
 	public RateService getRateservice() {
 		return rateservice;
@@ -41,6 +54,14 @@ public class ApplicationListenerImpl implements ApplicationListener {
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent arg0) {
+		
+		//插入网站配置数据
+		List<SolWebconfig> webconfigList=webconfigservice.webconfigList();
+		if(webconfigList.isEmpty())
+		{
+			webconfigservice.addWebconfig("defaultTime","2012-01-01 00:00:00","threadInterval","5000");
+		}
+		
 		//订单线程
 //		TradeThread tradeThread=new TradeThread(tradeservice,userservice);
 //		tradeThread.start();

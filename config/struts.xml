@@ -68,6 +68,11 @@
 			<result name="success" type="freemarker">webconfigindex.ftl</result>
 		</action>
 		
+		<!-- ajax获取网站配置-->
+		<action name="webconfigList" class="Action.WebconfigAction" method="webconfigList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
 		
 	</package>
 

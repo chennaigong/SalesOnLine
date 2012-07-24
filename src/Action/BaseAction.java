@@ -3,6 +3,7 @@ package Action;
 import Service.RateService;
 import Service.TradeService;
 import Service.UserService;
+import Service.WebconfigService;
 import Service.adminService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,7 +18,17 @@ public class BaseAction extends ActionSupport{
 	protected RateService rateservice;
 	protected adminService adminservice;
 	protected UserService userservice;
+	protected WebconfigService webconfigservice;
 	
+
+	public WebconfigService getWebconfigservice() {
+		return webconfigservice;
+	}
+
+	public void setWebconfigservice(WebconfigService webconfigservice) {
+		this.webconfigservice = webconfigservice;
+	}
+
 	public UserService getUserservice() {
 		return userservice;
 	}
