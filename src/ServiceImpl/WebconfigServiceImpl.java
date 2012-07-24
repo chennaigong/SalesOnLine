@@ -26,4 +26,18 @@ public class WebconfigServiceImpl extends BaseServiceImpl<SolWebconfig> implemen
 		basedao.save(webconfig2);
 	}
 
+	@Override
+	public void updateWebconfig(String... config) {
+		
+		List<SolWebconfig> webconfigList=basedao.findAll(SolWebconfig.class);
+		
+		SolWebconfig webconfig1=webconfigList.get(0);
+		webconfig1.setWebconfigValue(config[0]);
+		basedao.save(webconfig1);
+		
+		SolWebconfig webconfig2=webconfigList.get(1);
+		webconfig2.setWebconfigValue(config[1]);
+		basedao.save(webconfig2);
+	}
+
 }

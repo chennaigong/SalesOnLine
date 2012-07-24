@@ -9,6 +9,25 @@ import Entity.SolWebconfig;
 
 public class WebconfigAction extends BaseAction{
 
+	private String defaultTime;
+	private String threadInterval;
+	
+	public String getDefaultTime() {
+		return defaultTime;
+	}
+
+	public void setDefaultTime(String defaultTime) {
+		this.defaultTime = defaultTime;
+	}
+
+	public String getThreadInterval() {
+		return threadInterval;
+	}
+
+	public void setThreadInterval(String threadInterval) {
+		this.threadInterval = threadInterval;
+	}
+
 	public String webconfigList()
 	{
 		try {
@@ -29,6 +48,13 @@ public class WebconfigAction extends BaseAction{
 			e.printStackTrace();
 		}
 		
+		return SUCCESS;
+	}
+	
+	public String updateWebconfig()
+	{
+		webconfigservice.updateWebconfig(defaultTime,threadInterval);
+		responseMsg="1";
 		return SUCCESS;
 	}
 }

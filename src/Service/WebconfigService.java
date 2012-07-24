@@ -8,5 +8,5 @@ public interface WebconfigService {
 	
 	public List<SolWebconfig> webconfigList();
 	public void addWebconfig(String... config);
-	
+	public void updateWebconfig(String... config);
 }

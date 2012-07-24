@@ -11,16 +11,34 @@
 			function()
 			{
 				 $.post("webconfigList.action", function(data) {
-				 alert(data)
-				 	
+				 	var jsondata=strCut(data);
+				 	var defaultTime=jsondata[0].defaultTime;
+				 	var threadInterval=jsondata[0].threadInterval;
+				 	$("#defaultTime").val(defaultTime);
+				 	$("#threadInterval").val(threadInterval);
+				 });
+				 $("#save").click(function()
+				 {
+				 	 $.post("updateWebconfig.action",{defaultTime:$("#defaultTime").val(),threadInterval:$("#threadInterval").val()}, 
+				 	 function(data) {
+					 	 $.post("webconfigList.action", function(data) {
+						 	var jsondata=strCut(data);
+						 	var defaultTime=jsondata[0].defaultTime;
+						 	var threadInterval=jsondata[0].threadInterval;
+						 	$("#defaultTime").val(defaultTime);
+						 	$("#threadInterval").val(threadInterval);
+						 });
+				 	 	 alert("保存成功");
+				 	 });
 				 });
 			}
 		)
 	</script>
   </head>
   <body>
-  	更新开始时间(没数据)：<input type="text" name="defaultTime" /><br/>
-  	同步的间隔时间：<input type="text"/><br/>
-  	<input type="button" value="保存"/>
+  	<input type="hidden" id=""/>
+  	更新开始时间(没数据)：<input type="text" id="defaultTime" /><br/>
+  	同步的间隔时间：<input type="text" id="threadInterval"/><br/>
+  	<input type="button" id="save" value="保存"/>
   </body>
 </html>
