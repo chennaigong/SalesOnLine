@@ -55,7 +55,6 @@
 	  	<input name="out_id" id="out_id" type="text"/><br/>
 	  	
 	  	<input type="hidden" id="tid" name="tid" value="${tid}"/>
-  		<input type="hidden" id="top_session" name="top_session" value="${top_session}"/>
   		
 	  	<input type="submit" value="提交" />
 	</form>

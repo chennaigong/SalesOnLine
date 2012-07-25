@@ -1,13 +1,12 @@
-#Tue Jul 24 13:17:56 CST 2012
+#Thu Jul 26 00:48:39 CST 2012
 eclipse.preferences.version=1
 encoding//WebRoot/WEB-INF/web.xml=UTF-8
-encoding//WebRoot/buyerIndex.ftl=UTF-8
-encoding//WebRoot/index.ftl=UTF-8
 encoding//WebRoot/loginindex.ftl=UTF-8
 encoding//WebRoot/logisticsindex.ftl=UTF-8
 encoding//WebRoot/logisticssend.ftl=UTF-8
 encoding//WebRoot/rateindex.ftl=UTF-8
 encoding//WebRoot/tradeindex.ftl=UTF-8
+encoding//WebRoot/userindex.ftl=UTF-8
 encoding//WebRoot/webconfigindex.ftl=UTF-8
 encoding//src/Util/TaoBaoAPI.java=UTF-8
 encoding//src/Util/WebConfig.java=UTF-8

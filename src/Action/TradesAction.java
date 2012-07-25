@@ -14,24 +14,8 @@ import Util.WebConfig;
 
 public class TradesAction extends BaseAction{
 	
-	private String sessionUrl;	//获取sessionKey的地址
-
-	public String getSessionUrl() {
-		return sessionUrl;
-	}
-
-	public void setSessionUrl(String sessionUrl) {
-		this.sessionUrl = sessionUrl;
-	}
 
 	public String tradeIndex(){
-		
-		if(top_session!=null)
-		{
-			return "gotourl";
-		}
-		
-		sessionUrl=WebConfig.GETSESSIONKEYURL;
 		return SUCCESS;
 	}
 	
@@ -39,7 +23,8 @@ public class TradesAction extends BaseAction{
 	{
 		try {
 			
-			List<SolTrades> tradeList=tradeservice.tradeList();
+			List<SolTrades> tradeList=tradeservice.tradeList(username);
+			System.out.println(tradeList.size());
 			JSONArray jsonArray=new JSONArray();
 			for(int i=0;i<tradeList.size();i++)
 			{

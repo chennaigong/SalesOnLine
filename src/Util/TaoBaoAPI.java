@@ -73,10 +73,9 @@ public class TaoBaoAPI {
 	}
 	/**
 	 * 物流taobao.logistics.companies.get
-	 * @param sessionKey
 	 * @return	物流公司列表
 	 */
-	public static String logisticString(String sessionKey)
+	public static String logisticString()
 	{
 		try {
 			

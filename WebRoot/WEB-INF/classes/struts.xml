@@ -9,12 +9,11 @@
 	<package name="default"  extends="struts-default" namespace="/">
 	    <!-- 交易订单列表 -->
 		<action name="tradeIndex" class="Action.TradesAction" method="tradeIndex">
-			<result name="success" type="freemarker">index.ftl</result>
-			<result name="gotourl" type="freemarker">tradeindex.ftl</result>
+			<result name="success" type="freemarker">tradeindex.ftl</result>
 		</action> 
 		
 		<!-- ajax获取交易订单列表 -->
-		<action name="tradeList" class="Action.RatesAction" method="rateList">
+		<action name="tradeList" class="Action.TradesAction" method="tradeList">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
@@ -43,16 +42,6 @@
 			<result name="success" type="freemarker">logisticssend.ftl</result>
 		</action>
 		
-		<!-- 买家列表 -->
-		<action name="buyerIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">buyerIndex.ftl</result>
-		</action>
-		
-		<!-- ajax获取买家列表 -->
-		<action name="buyerList" class="Action.BuyerAction" method="buyerList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
-		
 		<!-- 用户登录列表-->
 		<action name="loginIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">loginindex.ftl</result>
@@ -75,6 +64,16 @@
 		
 		<!-- ajax更新网站配置-->
 		<action name="updateWebconfig" class="Action.WebconfigAction" method="updateWebconfig">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 用户列表-->
+		<action name="userIndex" class="Action.BaseAction" method="index">
+			<result name="success">userindex.ftl</result>
+		</action>
+		
+		<!-- ajax获取用户列表-->
+		<action name="userList" class="Action.UserAction" method="userList">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 		

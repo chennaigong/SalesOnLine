@@ -16,7 +16,14 @@
 					var role=$("input:radio[name='role']:checked").val();
 					$.post("doLogin.action",{username:username,password:password,role:role},
 					 function(data){
-					 	alert(data);
+					 	if(data!=0)
+					 	{
+					 		window.location.href=data;
+					 	}
+					 	else
+					 	{
+					 		alert("用户名密码错误");
+					 	}
 					 });
 				});
 			}

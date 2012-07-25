@@ -15,7 +15,7 @@ public class RatesAction extends BaseAction {
 	{
 		try 
 		{
-			List<SolRates> rateList=rateservice.rateList();
+			List<SolRates> rateList=rateservice.rateList(username);
 			JSONArray jsonArray=new JSONArray();
 			for(int i=0;i<rateList.size();i++)
 			{

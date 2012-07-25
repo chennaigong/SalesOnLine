@@ -10,8 +10,7 @@
 		(
 			function()
 			{
-				 $.post("tradeList.action",{top_session:$("#top_session").val()}, function(data) {
-					
+				 $.post("tradeList.action",{username:$("#username").val()}, function(data) {
 					var jsondata=strCut(data)
 					$.each(jsondata,function(index)
 					{
@@ -46,7 +45,6 @@
 						+_tdtd+obj.created+_tdtd+obj.total_fee+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+btn+_td_tr;
 						insertTr("tradetable",str);
 						
-						
 					});
 				});
 				
@@ -55,19 +53,14 @@
 		function tranGoods(obj)
 		{
 			var tid=$(obj).parent().parent().children("td").html();
-			window.location.href="logisticsIndex.action?tid="+tid+"&top_session="+$("#top_session").val();
+			window.location.href="logisticsIndex.action?tid="+tid+"&username="+$("#username").val();
 		}
 	</script>
 	
   </head>
   
   <body>
- 
-  	<input type="hidden" value="${top_session}" id="top_session"/>
-	授权成功。您的sesionKey为:${top_session}。<br/><br/>
-	
-	<a href="rateIndex.action?top_session=${top_session}">评价列表</a>
-	<a href="buyerIndex.action?top_session=${top_session}">用户</a>
+ 	<input type="hidden" value="${username}" id="username"/>
 	<table id="tradetable">
 		<tr>
 			<th width=200>订单号</th>

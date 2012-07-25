@@ -40,12 +40,13 @@ public class LogisticsAction extends BaseAction {
 	
 	public String logisticsList()
 	{
-		responseMsg=TaoBaoAPI.logisticString(top_session);
+		responseMsg=TaoBaoAPI.logisticString();
 		return SUCCESS;
 	}
 	
 	public String logicsticsSend()
 	{
+		String top_session="";
 		TaoBaoAPI.logisticSend(top_session, Long.valueOf(tid), out_id, company_code.split("@")[0]);
 		return SUCCESS;
 	}

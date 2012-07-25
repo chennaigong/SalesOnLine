@@ -10,7 +10,7 @@
 		(
 			function()
 			{
-				 $.post("rateList.action",{top_session:$("#top_session").val()}, function(data) {
+				 $.post("rateList.action",{username:$("#username").val()}, function(data) {
 				
 					var jsondata=strCut(data);
 					$.each(jsondata,function(index)
@@ -45,7 +45,7 @@
   </head>
   
   <body>
-  	<input type="hidden" value="${top_session}" id="top_session"/>
+  	<input type="hidden" value="${username}" id="username"/>
   	<table id="ratetable">
 		<tr>
 			<th width=100>订单号</th>
