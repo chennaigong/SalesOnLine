@@ -1,5 +1,6 @@
 package Action;
 
+import Entity.SolUsers;
 import Util.TaoBaoAPI;
 
 
@@ -46,7 +47,8 @@ public class LogisticsAction extends BaseAction {
 	
 	public String logicsticsSend()
 	{
-		String top_session="";
+		SolUsers user=userservice.findSolUser(username);
+		String top_session=user.getUserSessionkey();
 		TaoBaoAPI.logisticSend(top_session, Long.valueOf(tid), out_id, company_code.split("@")[0]);
 		return SUCCESS;
 	}

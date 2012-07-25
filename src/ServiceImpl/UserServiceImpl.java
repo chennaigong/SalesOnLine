@@ -28,6 +28,16 @@ public class UserServiceImpl extends BaseServiceImpl<SolUsers> implements UserSe
 		}
 		return userList.get(0);
 	}
+
+	@Override
+	public SolUsers findSolUser(String username) {
+		List<SolUsers> userList=basedao.findByPropertys(SolUsers.class, new String[]{"userUsername"},
+				new String[]{username});
+		if (userList.isEmpty()) {
+			return null;
+		}
+		return userList.get(0);
+	}
 	
 
 }

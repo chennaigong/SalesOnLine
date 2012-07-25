@@ -47,8 +47,9 @@
 	</script>
   </head>
   <body>
-  
+  	
   	<form action="logicsticsSend.action" method="POST" onsubmit="return valid()">
+  		<input type="hidden" value="${username}" name="username"/>
 	  	请选择物流公司:
 	  	<select name="company_code" id="logisticscompany"></select><br/>
 	  	请输入运单号:

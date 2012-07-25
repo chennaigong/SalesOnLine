@@ -20,7 +20,7 @@
 						if(total<=0)
 						{
 							clearInterval(inter);
-							window.location.href="index.action?top_session=${top_session}"
+							window.location.href="userIndex.action"
 						}
 					},1000
 				);
@@ -30,7 +30,6 @@
   </head>
   
   <body>
-  	<input type="hidden" id="top_session" value="${top_session}"/>
-  	发货成功，系统将在<span id="result">3</span>秒后自动跳转，<a href="index.action?top_session=${top_session}">直接跳转</a>
+  	发货成功，系统将在<span id="result">3</span>秒后自动跳转，<a href="userIndex.action">直接跳转</a>
   </body>
 </html>
