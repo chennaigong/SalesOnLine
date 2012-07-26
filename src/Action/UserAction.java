@@ -5,7 +5,6 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import Entity.SolTrades;
 import Entity.SolUsers;
 
 public class UserAction extends BaseAction{

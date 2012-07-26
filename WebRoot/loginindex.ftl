@@ -65,8 +65,8 @@
 	                </tr>
 	                <tr>
 	                  <td colspan="3" align="center">
+	                  	<span class="denglu"><input type="button" value="" id="submit"></input></span>
 	                    <span class="zhuce" ><input type="button" value=""></input></span>
-	                    <span class="denglu"><input type="button" value="" id="submit"></input></span>
 	                  </td>
 	                </tr>
 	              </table>
