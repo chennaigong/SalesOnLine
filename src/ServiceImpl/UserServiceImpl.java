@@ -3,6 +3,7 @@ package ServiceImpl;
 import java.util.List;
 
 
+import Dao.BaseHibernateDao;
 import Entity.SolAdmin;
 import Entity.SolUsers;
 import Service.UserService;
@@ -37,6 +38,11 @@ public class UserServiceImpl extends BaseServiceImpl<SolUsers> implements UserSe
 			return null;
 		}
 		return userList.get(0);
+	}
+
+	public void save(SolUsers users) {
+		// TODO Auto-generated method stub
+		basedao.save(users);
 	}
 	
 

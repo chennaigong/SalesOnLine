@@ -2,28 +2,33 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-<include file="struts-default.xml"/>
-<include file="struts-admin.xml"></include>
-<constant name="struts.multipart.maxSize" value="1073741824000"/> 
-<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<include file="struts-default.xml" />
+	<include file="struts-admin.xml"></include>
+	<constant name="struts.multipart.maxSize" value="1073741824000" />
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
 
-	<package name="default"  extends="struts-default" namespace="/">
-		
-		<!-- 用户登录列表-->
+	<package name="default" extends="struts-default" namespace="/">
+
+		<!-- 用户登录列表 -->
 		<action name="loginIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">loginindex.ftl</result>
 		</action>
-		
-		<!-- ajax登录-->
+
+		<!-- ajax登录 -->
 		<action name="doLogin" class="Action.LoginAction" method="doLogin">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
-		
-		<!-- 用户登录列表-->
+
+		<!-- 用户登录列表 -->
 		<action name="userIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">ususerindex.ftl</result>
 		</action>
-		
+
+		<!-- 用户注册 -->
+		<action name="register" class="Action.UserAction" method="register">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+
 	</package>
 </struts>
 
