@@ -1,5 +1,9 @@
 package Action;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
+
 import Entity.SolAdmin;
 import Entity.SolUsers;
 
@@ -19,7 +23,10 @@ public class LoginAction extends BaseAction
 			}
 			else 
 			{
-				responseMsg="1";
+				responseMsg="userIndex.action";
+				Map session=ActionContext.getContext().getSession();
+				session.put("role", "0");
+				session.put("username", username);
 			}
 		}
 		else if(role.equals("π‹¿Ì‘±"))
@@ -31,7 +38,9 @@ public class LoginAction extends BaseAction
 			}
 			else 
 			{
-				responseMsg="userIndex.action";
+				responseMsg="admin/userIndex.action";
+				Map session=ActionContext.getContext().getSession();
+				session.put("role", "1");
 			}
 		}
 		return SUCCESS;

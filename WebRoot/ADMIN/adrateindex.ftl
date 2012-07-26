@@ -3,8 +3,8 @@
   <head>
     <title>评价列表(只能获取卖加收到的评论)</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
-	<script type="text/javascript" src="JS/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(

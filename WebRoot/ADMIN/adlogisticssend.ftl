@@ -3,7 +3,7 @@
   <head>
     <title>发货</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
-	<script type="text/javascript" src="JS/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script>
 		
 		$(document).ready
@@ -20,7 +20,7 @@
 						if(total<=0)
 						{
 							clearInterval(inter);
-							window.location.href="userIndex.action"
+							window.location.href=$("#url").val();
 						}
 					},1000
 				);
@@ -30,6 +30,7 @@
   </head>
   
   <body>
-  	发货成功，系统将在<span id="result">3</span>秒后自动跳转，<a href="userIndex.action">直接跳转</a>
+  <input type="hidden" id="url" value="${url}"/>
+  	发货成功，系统将在<span id="result">3</span>秒后自动跳转，<a href="${url}">直接跳转</a>
   </body>
 </html>

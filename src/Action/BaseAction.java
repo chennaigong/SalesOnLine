@@ -12,6 +12,7 @@ public class BaseAction extends ActionSupport{
 	
 	
 	protected final static String SUCCESS="success";
+	protected final static String USSUCCESS="ussuccess";
 	
 	protected TradeService tradeservice;
 	protected RateService rateservice;

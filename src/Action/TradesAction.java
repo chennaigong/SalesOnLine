@@ -24,7 +24,6 @@ public class TradesAction extends BaseAction{
 		try {
 			
 			List<SolTrades> tradeList=tradeservice.tradeList(username);
-			System.out.println(tradeList.size());
 			JSONArray jsonArray=new JSONArray();
 			for(int i=0;i<tradeList.size();i++)
 			{

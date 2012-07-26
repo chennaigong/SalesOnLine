@@ -18,7 +18,7 @@
 					 function(data){
 					 	if(data!=0)
 					 	{
-					 		window.location.href=data;
+					 		window.location.href=data+"?username="+username;
 					 	}
 					 	else
 					 	{

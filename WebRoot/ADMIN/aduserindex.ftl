@@ -3,8 +3,8 @@
   <head>
     <title>用户列表</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
-	<script type="text/javascript" src="JS/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(

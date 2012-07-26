@@ -1,0 +1,71 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<include file="struts-default.xml"/>
+	<constant name="struts.multipart.maxSize" value="1073741824000"/> 
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>	
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<!-- 交易订单列表 -->
+		<action name="tradeIndex" class="Action.TradesAction" method="tradeIndex">
+			<result name="success" type="freemarker">/ADMIN/adtradeindex.ftl</result>
+		</action> 
+		
+		<!-- ajax获取交易订单列表 -->
+		<action name="tradeList" class="Action.TradesAction" method="tradeList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 评价列表 -->
+		<action name="rateIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adrateindex.ftl</result>
+		</action>
+		
+		<!-- ajax获取评价列表 -->
+		<action name="rateList" class="Action.RatesAction" method="rateList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 物流公司列表 -->
+		<action name="logisticsIndex" class="Action.LogisticsAction" method="logisticsIndex">
+			<result name="success" type="freemarker">/ADMIN/adlogisticsindex.ftl</result>
+		</action> 
+		
+		<!-- ajax获取物流公司列表 -->
+		<action name="logisticsList" class="Action.LogisticsAction" method="logisticsList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 发货 -->
+		<action name="logicsticsSend" class="Action.LogisticsAction" method="logicsticsSend">
+			<result name="success" type="freemarker">/ADMIN/adlogisticssend.ftl</result>
+		</action>
+		
+		<!-- 网站配置-->
+		<action name="webconfigIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adwebconfigindex.ftl</result>
+		</action>
+		
+		<!-- ajax获取网站配置-->
+		<action name="webconfigList" class="Action.WebconfigAction" method="webconfigList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- ajax更新网站配置-->
+		<action name="updateWebconfig" class="Action.WebconfigAction" method="updateWebconfig">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 用户列表-->
+		<action name="userIndex" class="Action.BaseAction" method="index">
+			<result name="success">/ADMIN/aduserindex.ftl</result>
+		</action>
+		
+		<!-- ajax获取用户列表-->
+		<action name="userList" class="Action.UserAction" method="userList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+	</package>
+</struts>
+
