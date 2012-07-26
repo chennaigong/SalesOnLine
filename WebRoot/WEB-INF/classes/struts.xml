@@ -23,9 +23,14 @@
 		<action name="userIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">ususerindex.ftl</result>
 		</action>
-
+		
 		<!-- 用户注册 -->
-		<action name="register" class="Action.UserAction" method="register">
+		<action name="registerIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">registerindex.ftl</result>
+		</action>
+	
+		<!-- ajax用户注册判断 -->
+		<action name="doRegister" class="Action.UserAction" method="doRegister">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 

@@ -41,7 +41,6 @@ public class UserServiceImpl extends BaseServiceImpl<SolUsers> implements UserSe
 	}
 
 	public void save(SolUsers users) {
-		// TODO Auto-generated method stub
 		basedao.save(users);
 	}
 	

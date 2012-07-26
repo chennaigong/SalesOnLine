@@ -31,8 +31,7 @@ public class UserAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	public String register() {
-		// TODO Auto-generated method stub
+	public String doRegister() {
 		if (userservice.findSolUser(username) == null) {
 			SolUsers solUsers = new SolUsers();
 			solUsers.setUserUsername(username);

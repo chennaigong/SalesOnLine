@@ -10,21 +10,26 @@
 		function()
 			{
 			$("#register").click(function() {
-			var userUsername = $("#userUsername").val();
-			var userPassword = $("#userPassword").val();
-			var userRepassword=$("#userRepassword").val();
-			if(userUsername==""){
+			var userUsername = $("#userUsername");
+			var userPassword = $("#userPassword");
+			var userRepassword=$("#userRepassword");
+			if(userUsername.val()==""){
 				alert("用户名不能为空");
-			}else if(userUsername.length>20){
+				userUsername.focus();
+			}else if(userUsername.val().length>20){
 				alert("用户名长度不能超过20");
-			}else if(userPassword==""){
+				userUsername.focus();
+			}else if(userPassword.val()==""){
 				alert("密码不能为空");
-			}else if(userPassword.length>20){
+				userPassword.focus();
+			}else if(userPassword.val().length>20){
 				alert("密码长度不能超过20");
-			}else if(userPassword!=userRepassword){
+				userPassword.focus();
+			}else if(userPassword.val()!=userRepassword){
 				alert("两次密码不同,请重新输入")
+				userRepassword.focus();
 			}else{
-			$.post("register.action", {
+			$.post("doRegister.action", {
 				username : userUsername,
 				password : userPassword
 			}, function(data) {
@@ -32,6 +37,7 @@
 					alert("该用户已被注册,请重新输入");
 				}else{
 					alert("恭喜您,注册成功");
+					window.location.href="loginIndex.action";
 				}
 			});
 			}
