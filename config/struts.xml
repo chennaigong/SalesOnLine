@@ -33,6 +33,16 @@
 		<action name="doRegister" class="Action.UserAction" method="doRegister">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
+		
+		<!-- 交易订单列表 -->
+		<action name="tradeIndex" class="Action.TradesAction" method="tradeIndex">
+			<result name="success" type="freemarker">ustradeindex.ftl</result>
+		</action> 
+		
+		<!-- 评价列表 -->
+		<action name="rateIndex" class="Action.TradesAction" method="tradeIndex">
+			<result name="success" type="freemarker">usrateindex.ftl</result>
+		</action> 
 
 	</package>
 </struts>

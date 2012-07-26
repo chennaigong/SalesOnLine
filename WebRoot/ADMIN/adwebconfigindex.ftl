@@ -3,6 +3,7 @@
   <head>
     <title>网站配置</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript">
@@ -36,9 +37,23 @@
 	</script>
   </head>
   <body>
-  	<input type="hidden" id=""/>
-  	更新开始时间(没数据)：<input type="text" id="defaultTime" /><br/>
-  	同步的间隔时间：<input type="text" id="threadInterval"/><br/>
-  	<input type="button" id="save" value="保存"/>
+  	<div class="head">
+	    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#C4E7FB">
+	      <tr>
+	        <td>
+	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
+	            <tr>
+	              <td class="font1">&nbsp;<a href="#">网站管理</a> &gt; <a href="#">网站配置</a></td>
+	            </tr>
+	          </table>
+	        </td>
+	      </tr>
+	    </table>
+	</div>
+	<div class="con" style="margin-top:-2px;">
+	  	更新开始时间(没数据)：<input type="text" id="defaultTime" /><br/><br/>
+	  	同步的间隔时间：<input type="text" id="threadInterval"/><br/><br/>
+	  	<input type="button" id="save" value="保存"/>
+	</div>
   </body>
 </html>

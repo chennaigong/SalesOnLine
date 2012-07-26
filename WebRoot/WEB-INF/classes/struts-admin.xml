@@ -6,6 +6,27 @@
 	<constant name="struts.multipart.maxSize" value="1073741824000"/> 
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>	
 	<package name="admin" extends="struts-default" namespace="/admin">
+		
+		<!-- 后台框架top -->
+		<action name="mainTop" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/maintop.ftl</result>
+		</action> 
+		
+		<!-- 后台框架top -->
+		<action name="mainLeft" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/mainleft.ftl</result>
+		</action> 
+		
+		<!-- 后台框架top -->
+		<action name="mainDown" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/maindown.ftl</result>
+		</action> 
+		
+		<!-- 后台框架top -->
+		<action name="mainIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/mainindex.ftl</result>
+		</action> 
+		
 		<!-- 交易订单列表 -->
 		<action name="tradeIndex" class="Action.TradesAction" method="tradeIndex">
 			<result name="success" type="freemarker">/ADMIN/adtradeindex.ftl</result>

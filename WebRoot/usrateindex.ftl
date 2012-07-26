@@ -3,15 +3,15 @@
   <head>
     <title>评价列表(只能获取卖加收到的评论)</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
-	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="../JS/util.js"></script>
+	<link href="CSS/tab.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="JS/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="JS/util.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
 			function()
 			{
-				 $.post("rateList.action",{username:$("#username").val()}, function(data) {
+				 $.post("admin/rateList.action",{username:$("#username").val()}, function(data) {
 				
 					var jsondata=strCut(data);
 					$.each(jsondata,function(index)
@@ -55,7 +55,7 @@
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">用户管理</a> &gt; <a href="userIndex.action">用户列表</a> &gt; <a href="#">评价列表</a></td>
+	              <td class="font1">&nbsp;<a href="#">我的评价</a></td>
 	            </tr>
 	          </table>
 	        </td>
@@ -65,7 +65,7 @@
 	<div class="con" style="margin-top:-2px;">
 	  	 <table id="ratetable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table" id="changecolor">
 			<tr height="34" align="center" class="table_title">
-				<td width=15%>订单号</td>
+				<td width=15%>订单号1</td>
 				<td width=10%>买家昵称</td>
 				<td width=10%>评价结果</td>
 				<td width=10%>评价时间</td>

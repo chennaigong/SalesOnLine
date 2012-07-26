@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	color:#cccccc;
+	font-size:16px;
+	width:210px;
+	margin:10px 0 0 12px;
+	background:url(../IMAGES/8F1F1.png) repeat 0 0 scroll;
+	font-family:"微软雅黑";
+	letter-spacing:0.2em;
+}
+a, a:visited {
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+}
+ul.container{
+	width:210px;
+}
+li{
+	list-style:none;
+	text-align:left;
+}
+li.menu{
+	width:100%;
+}
+li.button a{
+	display:block;
+	height:34px;
+	line-height:34px;
+	overflow:hidden;
+	padding:10px 20px 0;
+	position:relative;
+	width:170px;
+}
+li.button a:hover{
+	text-decoration:none;
+}
+li.button a.T1{
+	background:url(../IMAGES/blue.png) 0 0 scroll;
+	color:#FFF;
+}
+li.button a:hover.T1{
+	background:url(../IMAGES/blue.png) 0 bottom scroll;
+	color:#FFF;
+}
+/* The hover effects */
+.sidemenu{
+	background: url(../IMAGES/sidemenu-item_$5106.png) repeat scroll 0 0 transparent;
+}
+.sidemenu li a {
+    border-bottom: 1px solid #C6C8CB;
+    color: #444444;
+    display: block;
+	padding:0 20px;
+}
+.sidemenu li.one, .sidemenu li.two{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C7CACC;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 10px #CCCCCC inset;
+}
+.sidemenu li.one{
+	border-bottom:0 none;
+	height:50px;
+	line-height:50px;
+}
+.sidemenu li.two{
+	border-top:0 none;
+	height:40px;
+	line-height:40px;
+}
+.sidemenu li.one a:hover, .sidemenu li.two a:hover{
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 10px #CCCCCC inset;
+}
+.sidemenu li.one a, .sidemenu li.two a{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.dropdown {
+	display:none;
+    border: 1px solid #C7CACC;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 3px #CCCCCC inset;
+    font-size: 13px;
+	margin:1px 0 2px 0;
+}
+.dropdown li a{
+    border-bottom: 1px solid #C6C8CB;
+    color: #444444;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+	padding:0 20px;
+}
+.dropdown li a:hover {
+    background: none repeat scroll 0 0 #F0F1F2;
+    box-shadow: 0 0 3px #CCCCCC inset;
+}

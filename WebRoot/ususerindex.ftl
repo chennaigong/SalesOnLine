@@ -9,11 +9,11 @@
   
   <body>
   	欢迎您:${username}
-  	<form action="admin/tradeIndex.action" method="POST"/>
+  	<form action="tradeIndex.action" method="POST"/>
 	  	<input type="hidden" name="username" value="${username}"/>
 	  	<input type="submit" value="查看订单"/>
   	</form>
-  	<form action="admin/rateIndex.action" method="POST"/>
+  	<form action="rateIndex.action" method="POST"/>
   		<input type="hidden" name="username" value="${username}"/>
   		<input type="submit" value="查看评价"/>
   	</form>

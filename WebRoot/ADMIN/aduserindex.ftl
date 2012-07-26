@@ -3,6 +3,7 @@
   <head>
     <title>用户列表</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript">
@@ -14,14 +15,16 @@
 				 	var jsondata=strCut(data);
 					$.each(jsondata,function(index)
 					{
-						var _tdtd="</td><td align='center' height=50>";
-						var trtd="<tr><td>";
+						var _tdtd="</td><td>";
+						var trtd="<tr height='30' align='center' ><td>";
 						var obj=jsondata[index];
 						var _td_tr="</td></tr>";
 						var tradeSee="<input type='button' value='查看订单' onclick='seeTrade(this)'/>"
 						var rateSee="<input type='button' value='查看评价' onclick='seeRate(this)'/>"
 						var str=trtd+obj.username+_tdtd+obj.password+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+tradeSee+rateSee+_td_tr
 						insertTr("usertable",str);
+						
+						senfe("usertable","#F6F6F6","#FFFFFF");
 					});
 				 });
 			}
@@ -42,14 +45,29 @@
   </head>
   
   <body>
-  	<table id="usertable">
-		<tr>
-			<th width=200>用户名</th>
-			<th width=200>密码</th>
-			<th width=200>sessionKey</th>
-			<th width=200>是否授权</th>
-			<th width=200>操作</th>
-		</tr>
-	</table>
+    <div class="head">
+	    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#C4E7FB">
+	      <tr>
+	        <td>
+	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
+	            <tr>
+	              <td class="font1">&nbsp;<a href="#">用户管理</a> &gt; <a href="#">用户列表</a></td>
+	            </tr>
+	          </table>
+	        </td>
+	      </tr>
+	    </table>
+	</div>
+	<div class="con" style="margin-top:-2px;">
+        <table id="usertable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table" id="changecolor">
+          <tr height="34" align="center" class="table_title">
+            <td width=6%>用户名</td>
+			<td width=6%>密码</td>
+			<td width=60%>sessionKey</td>
+			<td width=8%>是否授权</td>
+			<td width=20%>操作</td>
+          </tr>
+        </table>
+     </div>
   </body>
 </html>

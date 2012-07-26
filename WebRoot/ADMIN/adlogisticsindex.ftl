@@ -3,6 +3,7 @@
   <head>
     <title>发货</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script>
@@ -47,19 +48,32 @@
 	</script>
   </head>
   <body>
-  	
-  	<form action="logicsticsSend.action" method="POST" onsubmit="return valid()">
-  		<input type="hidden" value="${username}" name="username"/>
-	  	请选择物流公司:
-	  	<select name="company_code" id="logisticscompany"></select><br/>
-	  	请输入运单号:
-	  	<input name="out_id" id="out_id" type="text"/><br/>
-	  	
-	  	<input type="hidden" id="tid" name="tid" value="${tid}"/>
-  		
-	  	<input type="submit" value="提交" />
-	</form>
-  	
+  	<div class="head">
+	    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#C4E7FB">
+	      <tr>
+	        <td>
+	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
+	            <tr>
+	              <td class="font1">&nbsp;<a href="#">发货</a></td>
+	            </tr>
+	          </table>
+	        </td>
+	      </tr>
+	    </table>
+	</div>
+	<div class="con" style="margin-top:-2px;">
+	  	<form action="logicsticsSend.action" method="POST" onsubmit="return valid()">
+	  		<input type="hidden" value="${username}" name="username"/>
+		  	请选择物流公司:
+		  	<select name="company_code" id="logisticscompany"></select><br/><br/>
+		  	请输入运单号:
+		  	<input name="out_id" id="out_id" type="text"/><br/><br/>
+		  	
+		  	<input type="hidden" id="tid" name="tid" value="${tid}"/>
+	  		
+		  	<input type="submit" value="提交" />
+		</form>
+  	</div>
   	
   </body>
 </html>

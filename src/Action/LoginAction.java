@@ -38,7 +38,7 @@ public class LoginAction extends BaseAction
 			}
 			else 
 			{
-				responseMsg="admin/userIndex.action";
+				responseMsg="admin/mainIndex.action";
 				Map session=ActionContext.getContext().getSession();
 				session.put("role", "1");
 			}
