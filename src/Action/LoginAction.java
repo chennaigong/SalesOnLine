@@ -23,7 +23,7 @@ public class LoginAction extends BaseAction
 			}
 			else 
 			{
-				responseMsg="userIndex.action";
+				responseMsg="mainIndex.action";
 				Map session=ActionContext.getContext().getSession();
 				session.put("role", "0");
 				session.put("username", username);
@@ -43,6 +43,14 @@ public class LoginAction extends BaseAction
 				session.put("role", "1");
 			}
 		}
+		return SUCCESS;
+	}
+	
+	public String loginOut()
+	{
+		Map session=ActionContext.getContext().getSession();
+		session.remove("role");
+		session.remove("username");
 		return SUCCESS;
 	}
 }

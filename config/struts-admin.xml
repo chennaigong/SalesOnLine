@@ -12,17 +12,17 @@
 			<result name="success" type="freemarker">/ADMIN/maintop.ftl</result>
 		</action> 
 		
-		<!-- 后台框架top -->
+		<!-- 后台框架left -->
 		<action name="mainLeft" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">/ADMIN/mainleft.ftl</result>
 		</action> 
 		
-		<!-- 后台框架top -->
+		<!-- 后台框架down -->
 		<action name="mainDown" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">/ADMIN/maindown.ftl</result>
 		</action> 
 		
-		<!-- 后台框架top -->
+		<!-- 后台框架main -->
 		<action name="mainIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">/ADMIN/mainindex.ftl</result>
 		</action> 
@@ -85,6 +85,11 @@
 		<!-- ajax获取用户列表-->
 		<action name="userList" class="Action.UserAction" method="userList">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 注销-->
+		<action name="loginOut" class="Action.LoginAction" method="loginOut">
+			<result name="success" type="redirect">../loginIndex.action</result>
 		</action>
 		
 	</package>

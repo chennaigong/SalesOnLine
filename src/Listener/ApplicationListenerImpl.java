@@ -65,10 +65,10 @@ public class ApplicationListenerImpl implements ApplicationListener {
 		String threadInterval=webconfigList.get(1).getWebconfigValue();
 		//订单线程
 		TradeThread tradeThread=new TradeThread(tradeservice,userservice,defaultTime,threadInterval);
-//		tradeThread.start();
+		tradeThread.start();
 		//评价线程
 		RateThread rateThread=new RateThread(rateservice,userservice,defaultTime,threadInterval);
-//		rateThread.start();
+		rateThread.start();
 	}
 
 }

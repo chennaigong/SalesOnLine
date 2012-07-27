@@ -69,7 +69,7 @@ public class LogisticsAction extends BaseAction {
 		if(role.equals("0"))
 		{
 			String username=(String) session.get("username");
-			url="../userIndex.action?username="+username;
+			url="../tradeIndex.action";
 		}
 		else 
 		{

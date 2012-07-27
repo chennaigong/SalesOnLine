@@ -19,7 +19,7 @@
 					 function(data){
 					 	if(data!=0)
 					 	{
-					 		window.location.href=data+"?username="+username;
+					 		window.location.href=data;
 					 	}
 					 	else
 					 	{

@@ -9,6 +9,26 @@
 
 	<package name="default" extends="struts-default" namespace="/">
 
+		<!-- 用户框架top -->
+		<action name="mainTop" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">maintop.ftl</result>
+		</action> 
+		
+		<!-- 用户框架left -->
+		<action name="mainLeft" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">mainleft.ftl</result>
+		</action> 
+		
+		<!-- 用户框架down -->
+		<action name="mainDown" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">maindown.ftl</result>
+		</action> 
+		
+		<!-- 用户框架main -->
+		<action name="mainIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">mainindex.ftl</result>
+		</action> 
+		
 		<!-- 用户登录列表 -->
 		<action name="loginIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">loginindex.ftl</result>
@@ -18,12 +38,12 @@
 		<action name="doLogin" class="Action.LoginAction" method="doLogin">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
-
-		<!-- 用户登录列表 -->
-		<action name="userIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">ususerindex.ftl</result>
-		</action>
 		
+		<!-- 注销-->
+		<action name="loginOut" class="Action.LoginAction" method="loginOut">
+			<result name="success" type="redirect">loginIndex.action</result>
+		</action> 
+
 		<!-- 用户注册 -->
 		<action name="registerIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">registerindex.ftl</result>

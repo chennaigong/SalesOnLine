@@ -5,12 +5,11 @@
 <title>无标题文档</title>
 </head>
 
-<body style="margin:0; padding:0; color:#FFF;  background:url(../IMAGES/header.png) repeat-x 0 0 scroll;">
+<body style="margin:0; padding:0; color:#FFF;  background:url(IMAGES/header.png) repeat-x 0 0 scroll;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed; background:url(IMAGES/header_bottom.png) no-repeat 0 0 scroll;">
   <tr>
-    <td height="40px;" style="font-size:35px; line-height:35px; background:url(../IMAGES/title_header.png) no-repeat 0 0 scroll; width:500px; padding:15px 0 15px 110px;">淘宝店铺管理系统</td>
-  	<td align="right">管理员 <a href="javascript:parent.location.href='loginOut.action'"  style="color:#FFFFFF">注销</a></td>
-  	<td width="50"></td>
+    <td height="40px;" style="font-size:35px; line-height:35px; background:url(IMAGES/title_header.png) no-repeat 0 0 scroll; width:500px; padding:15px 0 15px 110px;">淘宝店铺管理系统</td>
+  	<td align="right">欢迎您：${username} <a href="javascript:parent.location.href='loginOut.action'"  style="color:#FFFFFF">注销</a></td>
   </tr>
   <tr>
   </tr>
