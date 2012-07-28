@@ -14,12 +14,7 @@ public class UserServiceImpl extends BaseServiceImpl<SolUsers> implements UserSe
 	public List<SolUsers> userList() {
 		return basedao.findAll(SolUsers.class);
 	}
-
-	@Override
-	public void modifyUser(SolUsers user) {
-		basedao.saveOrUpdate(user);
-	}
-
+	
 	@Override
 	public SolUsers findSolUser(String username, String password) {
 		List<SolUsers> userList=basedao.findByPropertys(SolUsers.class, new String[]{"userUsername","userPassword"},

@@ -20,11 +20,10 @@
 						var obj=jsondata[index];
 						var _td_tr="</td></tr>";
 						var array=enTozh(obj.status);
-						var btn=array[0];
 						var statue=array[1];
 						
 						var str=trtr+obj.tid+_tdtd+statue+_tdtd+obj.buyer_nick
-						+_tdtd+obj.created+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+btn+_td_tr;
+						+_tdtd+obj.created+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+obj.isread+_td_tr;
 						insertTr("tradetable",str);
 						
 						senfe("tradetable","#F6F6F6","#FFFFFF");
@@ -68,7 +67,7 @@
 				<td width=15%>付款时间</td>
 				<td width=10%>实际付款</td>
 				<td width=15%>最后修改时间</td>
-				<td width=5%>操作</td>
+				<td width=5%>是否已读</td>
 			</tr>
 		</table>
 	</div>

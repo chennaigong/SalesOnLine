@@ -20,6 +20,7 @@ public class SolTrades implements java.io.Serializable {
 	private String tradePaytime;
 	private String tradePayment;
 	private String tradeModified;
+	private String tradeIsread;
 	private Set solRateses = new HashSet(0);
 
 	// Constructors
@@ -37,7 +38,7 @@ public class SolTrades implements java.io.Serializable {
 	public SolTrades(String tradeId, SolShop solShop, String tradeStatus,
 			String tradeBuyernick, String tradeCreate, String tradeTotalfee,
 			String tradePaytime, String tradePayment, String tradeModified,
-			Set solRateses) {
+			String tradeIsread, Set solRateses) {
 		this.tradeId = tradeId;
 		this.solShop = solShop;
 		this.tradeStatus = tradeStatus;
@@ -47,6 +48,7 @@ public class SolTrades implements java.io.Serializable {
 		this.tradePaytime = tradePaytime;
 		this.tradePayment = tradePayment;
 		this.tradeModified = tradeModified;
+		this.tradeIsread = tradeIsread;
 		this.solRateses = solRateses;
 	}
 
@@ -122,6 +124,14 @@ public class SolTrades implements java.io.Serializable {
 
 	public void setTradeModified(String tradeModified) {
 		this.tradeModified = tradeModified;
+	}
+
+	public String getTradeIsread() {
+		return this.tradeIsread;
+	}
+
+	public void setTradeIsread(String tradeIsread) {
+		this.tradeIsread = tradeIsread;
 	}
 
 	public Set getSolRateses() {

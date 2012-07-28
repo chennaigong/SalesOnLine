@@ -1,2 +1,3 @@
 SalesOnLine
-123123
+1,	里面的发货action无论是用户点击发货还是管理员点击发货，都会被导向admin的action目录下，
+	所以admin配置过滤器应该忽略这个action

@@ -21,6 +21,15 @@ import Util.WebConfig;
 public class TradesAction extends BaseAction{
 	
 	private String status;
+	private String tid;
+	
+	public String getTid() {
+		return tid;
+	}
+
+	public void setTid(String tid) {
+		this.tid = tid;
+	}
 
 	public String getStatus() {
 		return status;
@@ -110,6 +119,7 @@ public class TradesAction extends BaseAction{
 						jsonObject.put("buyer_nick", trade.getTradeBuyernick());
 						jsonObject.put("payment", trade.getTradePayment());
 						jsonObject.put("modified", trade.getTradeModified());
+						jsonObject.put("isread", trade.getTradeIsread());
 						jsonArray.put(jsonObject);
 					}
 				}
@@ -156,6 +166,7 @@ public class TradesAction extends BaseAction{
 						jsonObject.put("buyer_nick", trade.getTradeBuyernick());
 						jsonObject.put("payment", trade.getTradePayment());
 						jsonObject.put("modified", trade.getTradeModified());
+						jsonObject.put("isread", trade.getTradeIsread());
 						jsonArray.put(jsonObject);
 					}
 				}
@@ -164,6 +175,13 @@ public class TradesAction extends BaseAction{
 				e.printStackTrace();
 			}
 		}
+		return SUCCESS;
+	}
+	
+	public String modifyTradeRead()
+	{
+		tradeservice.updateTrade(tid, "ÊÇ");
+		responseMsg="1";
 		return SUCCESS;
 	}
 	
@@ -185,6 +203,7 @@ public class TradesAction extends BaseAction{
 				jsonObject.put("buyer_nick", trade.getTradeBuyernick());
 				jsonObject.put("payment", trade.getTradePayment());
 				jsonObject.put("modified", trade.getTradeModified());
+				jsonObject.put("isread", trade.getTradeIsread());
 				jsonArray.put(jsonObject);
 			}
 			return jsonArray.toString();
@@ -193,6 +212,5 @@ public class TradesAction extends BaseAction{
 			e.printStackTrace();
 		}
 		return "0";
-		
 	}
 }

@@ -114,6 +114,10 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 		
+		<!-- 修改订单为已读 -->
+		<action name="modifyTradeRead" class="Action.TradesAction" method="modifyTradeRead">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
 	</package>
 </struts>
 

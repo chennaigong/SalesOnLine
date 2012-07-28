@@ -13,4 +13,6 @@ public interface TradeService {
 	public List<SolTrades> tradeList();
 	public List<SolTrades> tradeList(String tradeStatus);
 	public List<SolTrades> tradeList(int shopId,String tradeStatus);
+	public SolTrades findTradeById(String tid);
+	public void updateTrade(String tid,String isRead);
 }

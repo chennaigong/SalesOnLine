@@ -135,7 +135,7 @@ public class TradeThread extends Thread
 										{
 											//有数据则直接写入数据库，因为原先是无数据
 											tradeService.addTrade(shop.getShopId(), tid,status,buyer_nick,
-													created,total_fee,pay_time,payment,created);
+													created,total_fee,pay_time,payment,created,"否");
 										}
 										else 
 										{
@@ -152,7 +152,7 @@ public class TradeThread extends Thread
 											if(!isSame)
 											{
 												tradeService.addTrade(shop.getShopId(), tid,status,buyer_nick,
-														created,total_fee,pay_time,payment,created);
+														created,total_fee,pay_time,payment,created,"否");
 											}
 										}
 									}
@@ -244,8 +244,12 @@ public class TradeThread extends Thread
 											{
 												modified=jsonArray.getJSONObject(j).getString("modified");
 											}
-											tradeService.updateTrade(shop.getShopId(),tid,status,buyer_nick,
-													created,total_fee,pay_time,payment,modified);
+											SolTrades trade1=tradeService.findTradeById(tid);
+											if(trade1!=null)
+											{
+												tradeService.updateTrade(shop.getShopId(),tid,status,buyer_nick,
+														created,total_fee,pay_time,payment,modified,trade1.getTradeIsread());
+											}
 										}
 									}
 								}

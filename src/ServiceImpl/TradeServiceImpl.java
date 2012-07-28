@@ -25,6 +25,7 @@ public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements Trad
 		trade.setTradePaytime(tradeArgs[5]);
 		trade.setTradePayment(tradeArgs[6]);
 		trade.setTradeModified(tradeArgs[7]);
+		trade.setTradeIsread(tradeArgs[8]);
 		basedao.save(trade);
 	}
 
@@ -83,7 +84,29 @@ public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements Trad
 		trade.setTradePaytime(tradeArgs[5]);
 		trade.setTradePayment(tradeArgs[6]);
 		trade.setTradeModified(tradeArgs[7]);
+		trade.setTradeIsread(tradeArgs[8]);
 		basedao.saveOrUpdate(trade);
+	}
+	
+	@Override
+	public void updateTrade(String tid,String isRead)
+	{
+		SolTrades trade=findTradeById(tid);
+		trade.setTradeIsread(isRead);
+		basedao.saveOrUpdate(trade);
+	}
+	
+	@Override
+	public SolTrades findTradeById(String tid) {
+		List<SolTrades> solTradesList=basedao.findByPage("select model from SolTrades as model where model.tradeId='"+tid+"'", 0, 1);
+		if(solTradesList.isEmpty())
+		{
+			return null;
+		}
+		else 
+		{
+			return solTradesList.get(0);
+		}
 	}
 
 

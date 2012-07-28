@@ -42,7 +42,7 @@ function enTozh(status)
 	var array=new Array();
 	if(status=="TRADE_NO_CREATE_PAY")
 	{
-		array[0]="没有创建支付宝交易";
+		array[0]="无";
 		array[1]="没有创建支付宝交易";
 	}
 	else if(status=="WAIT_SELLER_SEND_GOODS")
@@ -52,32 +52,32 @@ function enTozh(status)
 	}
 	else if(status=="WAIT_BUYER_PAY")
 	{
-		array[0]="等待买家付款";
+		array[0]="无";
 		array[1]="等待买家付款";
 	}
 	else if(status=="WAIT_BUYER_CONFIRM_GOODS")
 	{
-		array[0]="卖家已发货";
+		array[0]="无";
 		array[1]="卖家已发货";
 	}
 	else if(status=="TRADE_BUYER_SIGNED")
 	{
-		array[0]="买家已签收";
+		array[0]="无";
 		array[1]="买家已签收";
 	}
 	else if(status=="TRADE_FINISHED")
 	{
-		array[0]="交易成功";
+		array[0]="无";
 		array[1]="交易成功";
 	}
 	else if(status=="TRADE_CLOSED")
 	{
-		array[0]="退款成功，交易关闭";
+		array[0]="无";
 		array[1]="退款成功，交易关闭";
 	}
 	else if(status=="TRADE_CLOSED_BY_TAOBAO")
 	{
-		array[0]="交易关闭";
+		array[0]="无";
 		array[1]="交易关闭";
 	}
 	return array;

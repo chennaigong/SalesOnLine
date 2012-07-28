@@ -94,7 +94,7 @@
 		
 		<!-- 店铺列表 -->
 		<action name="shopIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">adshopindex.ftl</result>
+			<result name="success" type="freemarker">/ADMIN/adshopindex.ftl</result>
 		</action> 
 		
 		<!-- ajax获取店铺列表 -->
@@ -124,6 +124,11 @@
 		
 		<!-- 根据状态获取全部订单列表 -->
 		<action name="allTradeListStatus" class="Action.TradesAction" method="allTradeListStatus">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 修改订单为已读 -->
+		<action name="modifyTradeRead" class="Action.TradesAction" method="modifyTradeRead">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 		

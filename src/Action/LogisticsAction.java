@@ -5,6 +5,7 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 
 import Entity.SolShop;
+import Entity.SolTrades;
 import Entity.SolUsers;
 import Util.TaoBaoAPI;
 
@@ -50,6 +51,9 @@ public class LogisticsAction extends BaseAction {
 
 	public String logisticsIndex()
 	{
+		System.out.println(tid);
+		SolTrades trades=tradeservice.findTradeById(tid);
+		shopid=trades.getSolShop().getShopId();
 		return SUCCESS;
 	}
 	
@@ -71,11 +75,11 @@ public class LogisticsAction extends BaseAction {
 		if(role.equals("0"))
 		{
 			String username=(String) session.get("username");
-			url="../tradeIndex.action";
+			url="../allTradeIndex.action";
 		}
 		else 
 		{
-			url="shopIndex.action";
+			url="allTradeIndex.action";
 		}
 		
 		return SUCCESS;
