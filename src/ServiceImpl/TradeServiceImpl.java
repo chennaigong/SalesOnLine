@@ -2,6 +2,7 @@ package ServiceImpl;
 
 import java.util.List;
 
+import Entity.SolShop;
 import Entity.SolTrades;
 import Entity.SolUsers;
 import Service.TradeService;
@@ -9,13 +10,13 @@ import Service.TradeService;
 public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements TradeService{
 	
 	@Override
-	public void addTrade(String username,String... tradeArgs) {
+	public void addTrade(int shopId,String... tradeArgs) {
 		
-		SolUsers user=new SolUsers();
-		user.setUserUsername(username);
+		SolShop shop=new SolShop();
+		shop.setShopId(shopId);
 		
 		SolTrades trade=new SolTrades();
-		trade.setSolUsers(user);
+		trade.setSolShop(shop);
 		trade.setTradeId(tradeArgs[0]);
 		trade.setTradeStatus(tradeArgs[1]);
 		trade.setTradeBuyernick(tradeArgs[2]);
@@ -28,9 +29,11 @@ public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements Trad
 	}
 
 	@Override
-	public List<SolTrades> tradeList(String username) {
-		return basedao.findByProperty(SolTrades.class, "solUsers.userUsername", username);
+	public List<SolTrades> tradeList(int shopId) {
+		return basedao.findByProperty(SolTrades.class, "solShop.shopId", shopId);
 	}
+	
+	
 	
 	@Override
 	public List<SolTrades> tradeList() {
@@ -38,9 +41,20 @@ public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements Trad
 	}
 	
 	@Override
-	public SolTrades findLastTrade(String username,String orderName)
+	public List<SolTrades> tradeList(String tradeStatus) {
+		return basedao.findByProperty(SolTrades.class, "tradeStatus", tradeStatus);
+	}
+	
+	@Override
+	public List<SolTrades> tradeList(int shopId,String tradeStatus) {
+		return basedao.findByPropertys(SolTrades.class, new String[]{"solShop.shopId","tradeStatus"}, 
+				new Object[]{shopId,tradeStatus});
+	}
+	
+	@Override
+	public SolTrades findLastTrade(int shopId,String orderName)
 	{
-		List<SolTrades> solTradesList=basedao.findByPage("select model from SolTrades as model where model.solUsers.userUsername='"+username+"' order by model."+orderName+" DESC", 0, 1);
+		List<SolTrades> solTradesList=basedao.findByPage("select model from SolTrades as model where model.solShop.shopId="+shopId+" order by model."+orderName+" DESC", 0, 1);
 		if(solTradesList.isEmpty())
 		{
 			return null;
@@ -53,13 +67,14 @@ public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements Trad
 	}
 
 	@Override
-	public void updateTrade(String username, String... tradeArgs) 
+	public void updateTrade(int shopId, String... tradeArgs) 
 	{
-		SolUsers user=new SolUsers();
-		user.setUserUsername(username);
+		SolShop shop=new SolShop();
+		shop.setShopId(shopId);
 		
 		SolTrades trade=new SolTrades();
-		trade.setSolUsers(user);
+		trade.setSolShop(shop);
+		
 		trade.setTradeId(tradeArgs[0]);
 		trade.setTradeStatus(tradeArgs[1]);
 		trade.setTradeBuyernick(tradeArgs[2]);
@@ -71,10 +86,5 @@ public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements Trad
 		basedao.saveOrUpdate(trade);
 	}
 
-	@Override
-	public List tradeBuyerList() {
-		return basedao.findByDifferent(SolTrades.class, "tradeBuyernick");
-	}
-	
 
 }

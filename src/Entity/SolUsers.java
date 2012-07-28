@@ -1,8 +1,5 @@
 package Entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * SolUsers entity. @author MyEclipse Persistence Tools
  */
@@ -13,9 +10,9 @@ public class SolUsers implements java.io.Serializable {
 
 	private String userUsername;
 	private String userPassword;
-	private String userSessionkey;
-	private String userIspromise;
-	private Set solTradeses = new HashSet(0);
+	private String userCan;
+	private String userPost;
+	private String userRating;
 
 	// Constructors
 
@@ -29,13 +26,13 @@ public class SolUsers implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SolUsers(String userUsername, String userPassword,
-			String userSessionkey, String userIspromise, Set solTradeses) {
+	public SolUsers(String userUsername, String userPassword, String userCan,
+			String userPost, String userRating) {
 		this.userUsername = userUsername;
 		this.userPassword = userPassword;
-		this.userSessionkey = userSessionkey;
-		this.userIspromise = userIspromise;
-		this.solTradeses = solTradeses;
+		this.userCan = userCan;
+		this.userPost = userPost;
+		this.userRating = userRating;
 	}
 
 	// Property accessors
@@ -56,28 +53,28 @@ public class SolUsers implements java.io.Serializable {
 		this.userPassword = userPassword;
 	}
 
-	public String getUserSessionkey() {
-		return this.userSessionkey;
+	public String getUserCan() {
+		return this.userCan;
 	}
 
-	public void setUserSessionkey(String userSessionkey) {
-		this.userSessionkey = userSessionkey;
+	public void setUserCan(String userCan) {
+		this.userCan = userCan;
 	}
 
-	public String getUserIspromise() {
-		return this.userIspromise;
+	public String getUserPost() {
+		return this.userPost;
 	}
 
-	public void setUserIspromise(String userIspromise) {
-		this.userIspromise = userIspromise;
+	public void setUserPost(String userPost) {
+		this.userPost = userPost;
 	}
 
-	public Set getSolTradeses() {
-		return this.solTradeses;
+	public String getUserRating() {
+		return this.userRating;
 	}
 
-	public void setSolTradeses(Set solTradeses) {
-		this.solTradeses = solTradeses;
+	public void setUserRating(String userRating) {
+		this.userRating = userRating;
 	}
 
 }

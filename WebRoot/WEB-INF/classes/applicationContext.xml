@@ -39,6 +39,7 @@
                 <value>rateservice</value>
                 <value>adminservice</value>
                 <value>webconfigservice</value>
+                <value>shopservice</value>
             </list>
             <!--  此处可增加其他需要自动创建事务代理的bean-->
 	    </property>
@@ -76,10 +77,15 @@
 		<property name="basedao" ref="basedao"></property>
 	</bean>
 	
+	<!-- 网店列表-->
+	<bean id="shopservice" class="ServiceImpl.shopServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
 	<!-- 注册监听器 -->
 	<bean id="applicationlistenerimpl" class="Listener.ApplicationListenerImpl">
 		<property name="tradeservice" ref="tradeservice"></property>
-		<property name="userservice" ref="userservice"></property>
+		<property name="shopservice" ref="shopservice"></property>
 		<property name="rateservice" ref="rateservice"></property>
 		<property name="webconfigservice" ref="webconfigservice"></property>
 	</bean>

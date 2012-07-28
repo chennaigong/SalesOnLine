@@ -24,6 +24,7 @@
 		<mapping resource="Entity/SolUsers.hbm.xml" />
 		<mapping resource="Entity/SolAdmin.hbm.xml" />
 		<mapping resource="Entity/SolWebconfig.hbm.xml" />
+		<mapping resource="Entity/SolShop.hbm.xml" />
 
 	</session-factory>
 

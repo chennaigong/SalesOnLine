@@ -36,6 +36,39 @@ $(document).ready(function(){
       </li>
       <li class="menu">
           <ul>
+		    <li class="button"><a href="#" class="T1">店铺管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="shopIndex.action" target="main">-店铺列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">订单管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="allTradeIndex.action" target="main">-订单列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">评价管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="allRateIndex.action" target="main">-评价列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
 		    <li class="button"><a href="#" class="T1">网站管理</a></li>
 
             <li class="dropdown">

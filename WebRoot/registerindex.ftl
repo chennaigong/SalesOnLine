@@ -25,21 +25,22 @@
 			}else if(userPassword.val().length>20){
 				alert("密码长度不能超过20");
 				userPassword.focus();
-			}else if(userPassword.val()!=userRepassword){
+			}else if(userPassword.val()!=userRepassword.val()){
 				alert("两次密码不同,请重新输入")
 				userRepassword.focus();
-			}else{
-			$.post("doRegister.action", {
-				username : userUsername,
-				password : userPassword
-			}, function(data) {
-				if(data==0){
-					alert("该用户已被注册,请重新输入");
-				}else{
-					alert("恭喜您,注册成功");
-					window.location.href="loginIndex.action";
-				}
-			});
+			}else
+			{
+				$.post("doRegister.action", {
+					username : userUsername.val(),
+					password : userPassword.val()
+				}, function(data) {
+					if(data==0){
+						alert("该用户已被注册,请重新输入");
+					}else{
+						alert("恭喜您,注册成功");
+						window.location.href="loginIndex.action";
+					}
+				});
 			}
 		});
 		}

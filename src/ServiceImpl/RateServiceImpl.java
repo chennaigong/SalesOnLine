@@ -33,9 +33,9 @@ public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateSe
 	}
 	
 	@Override
-	public SolRates findLastRate(String username,String orderName)
+	public SolRates findLastRate(int shopId,String orderName)
 	{
-		List<SolRates> solRateList=basedao.findByPage("select model from SolRates as model where model.solTrades.solUsers.userUsername='"+username+"' order by model."+orderName+" DESC", 0, 1);
+		List<SolRates> solRateList=basedao.findByPage("select model from SolRates as model where model.solTrades.solShop.shopId="+shopId+" order by model."+orderName+" DESC", 0, 1);
 		if(solRateList.isEmpty())
 		{
 			return null;
@@ -48,8 +48,8 @@ public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateSe
 	}
 
 	@Override
-	public List<SolRates> rateList(String username) {
-		return basedao.findByProperty(SolRates.class, "solTrades.solUsers.userUsername", username);
+	public List<SolRates> rateList(int shopId) {
+		return basedao.findByProperty(SolRates.class, "solTrades.solShop.shopId", shopId);
 	}
 	
 

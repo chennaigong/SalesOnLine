@@ -1,10 +1,12 @@
 package Action;
 
 import Service.RateService;
+import Service.ShopService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
 import Service.adminService;
+import ServiceImpl.shopServiceImpl;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -12,19 +14,32 @@ public class BaseAction extends ActionSupport{
 	
 	
 	protected final static String SUCCESS="success";
-	protected final static String USSUCCESS="ussuccess";
 	
 	protected TradeService tradeservice;
 	protected RateService rateservice;
 	protected adminService adminservice;
 	protected UserService userservice;
 	protected WebconfigService webconfigservice;
+	protected ShopService shopservice;
 	
+	
+
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
 	protected String password;
 	protected String role;
+	protected int shopid;
 	
+	
+
+	public int getShopid() {
+		return shopid;
+	}
+
+	public void setShopid(int shopid) {
+		this.shopid = shopid;
+	}
+
 	public String getRole() {
 		return role;
 	}
@@ -49,6 +64,14 @@ public class BaseAction extends ActionSupport{
 		this.username = username;
 	}
 
+	public ShopService getShopservice() {
+		return shopservice;
+	}
+
+	public void setShopservice(ShopService shopservice) {
+		this.shopservice = shopservice;
+	}
+	
 	public WebconfigService getWebconfigservice() {
 		return webconfigservice;
 	}

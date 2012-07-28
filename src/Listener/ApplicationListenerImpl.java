@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationListener;
 
 import Entity.SolWebconfig;
 import Service.RateService;
+import Service.ShopService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
@@ -15,7 +16,7 @@ import Service.WebconfigService;
 public class ApplicationListenerImpl implements ApplicationListener {
 
 	private TradeService tradeservice;
-	private UserService userservice;
+	private ShopService shopservice;
 	private RateService rateservice;
 	private WebconfigService webconfigservice;
 
@@ -35,12 +36,12 @@ public class ApplicationListenerImpl implements ApplicationListener {
 		this.rateservice = rateservice;
 	}
 
-	public UserService getUserservice() {
-		return userservice;
+	public ShopService getShopservice() {
+		return shopservice;
 	}
 
-	public void setUserservice(UserService userservice) {
-		this.userservice = userservice;
+	public void setShopservice(ShopService shopservice) {
+		this.shopservice = shopservice;
 	}
 
 	public TradeService getTradeservice() {
@@ -64,11 +65,11 @@ public class ApplicationListenerImpl implements ApplicationListener {
 		String defaultTime=webconfigList.get(0).getWebconfigValue();
 		String threadInterval=webconfigList.get(1).getWebconfigValue();
 		//订单线程
-		TradeThread tradeThread=new TradeThread(tradeservice,userservice,defaultTime,threadInterval);
-		tradeThread.start();
+		TradeThread tradeThread=new TradeThread(tradeservice,shopservice,defaultTime,threadInterval);
+//		tradeThread.start();
 		//评价线程
-		RateThread rateThread=new RateThread(rateservice,userservice,defaultTime,threadInterval);
-		rateThread.start();
+		RateThread rateThread=new RateThread(rateservice,shopservice,defaultTime,threadInterval);
+//		rateThread.start();
 	}
 
 }

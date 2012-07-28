@@ -25,12 +25,33 @@ $(document).ready(function(){
   <ul class="container">
       <li class="menu">
           <ul>
-		    <li class="button"><a href="#" class="T1">我的信息</a></li>
+		    <li class="button"><a href="#" class="T1">店铺管理</a></li>
 
             <li class="dropdown">
                 <ul>
-                    <li><a href="tradeIndex.action" target="main">-我的订单</a></li>
-                    <li><a href="rateIndex.action" target="main">-我的评价</a></li>
+                    <li><a href="shopIndex.action" target="main">-店铺列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">订单管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="allTradeIndex.action" target="main">-订单列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">评论管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="allRateIndex.action" target="main">-评论列表</a></li>
                 </ul>
 			</li>
           </ul>

@@ -9,7 +9,7 @@
   <frame src="mainTop.action" name="topFrame" scrolling="no">
   <frameset cols="240,*" name="btFrame" frameborder="NO" border="0" framespacing="0">
     <frame src="mainLeft.action" noresize name="menu" scrolling="yes">
-    <frame src="tradeIndex.action" noresize name="main" scrolling="yes">
+    <frame src="shopIndex.action" noresize name="main" scrolling="yes">
   </frameset>
   
   <frame src="mainDown.action" name="bottomFrame" scrolling="No" noresize="noresize" id="bottomFrame" />

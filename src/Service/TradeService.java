@@ -6,10 +6,11 @@ import Entity.SolTrades;
 
 
 public interface TradeService {
-	public void addTrade(String username,String... tradeArgs);
-	public void updateTrade(String username,String... tradeArgs);
-	public List<SolTrades> tradeList(String username);
-	public SolTrades findLastTrade(String username,String orderName);
+	public void addTrade(int shopId,String... tradeArgs);
+	public void updateTrade(int shopId,String... tradeArgs);
+	public List<SolTrades> tradeList(int shopId);
+	public SolTrades findLastTrade(int shopId,String orderName);
 	public List<SolTrades> tradeList();
-	public List tradeBuyerList();
+	public List<SolTrades> tradeList(String tradeStatus);
+	public List<SolTrades> tradeList(int shopId,String tradeStatus);
 }

@@ -63,7 +63,7 @@
 	</div>
 	<div class="con" style="margin-top:-2px;">
 	  	<form action="logicsticsSend.action" method="POST" onsubmit="return valid()">
-	  		<input type="hidden" value="${username}" name="username"/>
+	  		<input type="hidden" value="${shopid}" name="shopid"/>
 		  	请选择物流公司:
 		  	<select name="company_code" id="logisticscompany"></select><br/><br/>
 		  	请输入运单号:

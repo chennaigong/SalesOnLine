@@ -13,17 +13,14 @@
         <property name="userPassword" type="java.lang.String">
             <column name="user_password" length="50" />
         </property>
-        <property name="userSessionkey" type="java.lang.String">
-            <column name="user_sessionkey" length="100" />
+        <property name="userCan" type="java.lang.String">
+            <column name="user_can" />
         </property>
-        <property name="userIspromise" type="java.lang.String">
-            <column name="user_ispromise" length="10" />
+        <property name="userPost" type="java.lang.String">
+            <column name="user_post" length="50" />
         </property>
-        <set name="solTradeses" inverse="true">
-            <key>
-                <column name="user_username" length="50" />
-            </key>
-            <one-to-many class="Entity.SolTrades" />
-        </set>
+        <property name="userRating" type="java.lang.String">
+            <column name="user_rating" length="10" />
+        </property>
     </class>
 </hibernate-mapping>

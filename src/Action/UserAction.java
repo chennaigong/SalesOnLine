@@ -20,8 +20,8 @@ public class UserAction extends BaseAction {
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put("username", user.getUserUsername());
 				jsonObject.put("password", user.getUserPassword());
-				jsonObject.put("session", user.getUserSessionkey());
-				jsonObject.put("ispromise", user.getUserIspromise());
+				jsonObject.put("post", user.getUserPost());
+				jsonObject.put("rating", user.getUserRating());
 				jsonArray.put(jsonObject);
 			}
 			responseMsg = jsonArray.toString();
@@ -32,10 +32,13 @@ public class UserAction extends BaseAction {
 	}
 
 	public String doRegister() {
+		System.out.println("123");
 		if (userservice.findSolUser(username) == null) {
 			SolUsers solUsers = new SolUsers();
 			solUsers.setUserUsername(username);
 			solUsers.setUserPassword(password);
+			solUsers.setUserPost("∆’Õ®‘±π§");
+			solUsers.setUserRating("1");
 			userservice.save(solUsers);
 			responseMsg = "1";
 		} else {

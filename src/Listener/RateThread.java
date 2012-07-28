@@ -6,8 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import Entity.SolRates;
+import Entity.SolShop;
 import Entity.SolUsers;
 import Service.RateService;
+import Service.ShopService;
 import Service.UserService;
 import Util.Helpers;
 import Util.TaoBaoAPI;
@@ -15,14 +17,14 @@ import Util.TaoBaoAPI;
 public class RateThread extends Thread{
 	
 	private RateService rateService;
-	private UserService userService;
+	private ShopService shopservice;
 	private String defaultTime;
 	private String threadInterval;
 	
-	public RateThread(RateService rateService,UserService userService,String defaultTime,String threadInterval)
+	public RateThread(RateService rateService,ShopService shopservice,String defaultTime,String threadInterval)
 	{
 		this.rateService=rateService;
-		this.userService=userService;
+		this.shopservice=shopservice;
 		this.defaultTime=defaultTime;
 		this.threadInterval=threadInterval;
 	}
@@ -37,18 +39,18 @@ public class RateThread extends Thread{
 				
 				System.out.println("评价同步线程正在运行...");
 				//查询全部授权的用户
-				List<SolUsers> userList=userService.userList();
-				if(userList.isEmpty())
+				List<SolShop> shopList=shopservice.shopList();
+				if(shopList.isEmpty())
 				{
-					System.out.println("还未有用户授权。");
+					System.out.println("还未有店铺授权。");
 				}
 				else
 				{
 					//查询每个用户的最后时间的订单，来设置访问API的开始时间
-					for(int i=0;i<userList.size();i++)
+					for(int i=0;i<shopList.size();i++)
 					{
-						SolUsers user=userList.get(i);
-						SolRates rate=rateService.findLastRate(user.getUserUsername(),"rateCreate");
+						SolShop shop=shopList.get(i);
+						SolRates rate=rateService.findLastRate(shop.getShopId(),"rateCreate");
 						//默认设置用户如果无订单的情况下，开始时间为2012-01-01 00:00:00 
 						String defaultTime=this.defaultTime;
 						if(rate!=null)
@@ -65,7 +67,7 @@ public class RateThread extends Thread{
 							{
 								endTime=nowTime;
 							}
-							String rateString=TaoBaoAPI.rateString(user.getUserSessionkey(), defaultTime, endTime);
+							String rateString=TaoBaoAPI.rateString(shop.getShopSessionkey(), defaultTime, endTime);
 							String jsonCut=Helpers.strCut(rateString);
 							if(jsonCut!=null)
 							{
@@ -142,7 +144,7 @@ public class RateThread extends Thread{
 										else 
 										{
 											//获取数据库中存在的评价数据,主要查看tid是否相同
-											List<SolRates> rateList=rateService.rateList(user.getUserUsername());
+											List<SolRates> rateList=rateService.rateList(shop.getShopId());
 											boolean isSame=false;
 											for(int w=0;w<rateList.size();w++)
 											{

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import Entity.SolShop;
 import Entity.SolUsers;
 import Util.TaoBaoAPI;
 
@@ -60,8 +61,9 @@ public class LogisticsAction extends BaseAction {
 	
 	public String logicsticsSend()
 	{
-		SolUsers user=userservice.findSolUser(username);
-		String top_session=user.getUserSessionkey();
+		SolShop shop=shopservice.findSOLShop(shopid);
+		String top_session=shop.getShopSessionkey();
+		System.out.println(top_session);
 		TaoBaoAPI.logisticSend(top_session, Long.valueOf(tid), out_id, company_code.split("@")[0]);
 		Map session=ActionContext.getContext().getSession();
 		String role=(String) session.get("role");
@@ -73,7 +75,7 @@ public class LogisticsAction extends BaseAction {
 		}
 		else 
 		{
-			url="userIndex.action";
+			url="shopIndex.action";
 		}
 		
 		return SUCCESS;

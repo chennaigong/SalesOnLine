@@ -1,7 +1,7 @@
 /**
- * @param tbid 	table��id
- * @param str 	�����ֵ
- * @return		��table���һ�м���str����
+ * @param tbid 	table的id
+ * @param str 	传入的值
+ * @return		在table最后一行加入str内容
  */
 function insertTr(tbid,str)
 {
@@ -10,8 +10,8 @@ function insertTr(tbid,str)
 }
 
 /**
- * @param str 	��Ҫ�ص��ַ���(�Ա�API���صĽ��)
- * @return		json��ʽ
+ * @param str 	需要截的字符串(淘宝API返回的结果)
+ * @return		json格式
  */
 function strCut(str)
 {
@@ -22,9 +22,9 @@ function strCut(str)
 }
 
 /**
- * @param o	table��id
- * @param a	�����б���
- * @param b ż���б���
+ * @param o	table的id
+ * @param a	奇数行背景
+ * @param b 偶数行背景
  * @return
  */
 function senfe(o,a,b){
@@ -35,4 +35,50 @@ function senfe(o,a,b){
 		   if(this.x!="1")this.style.backgroundColor=(this.sectionRowIndex%2==0)?a:b;
 		  }
 	 }
+}
+
+function enTozh(status)
+{
+	var array=new Array();
+	if(status=="TRADE_NO_CREATE_PAY")
+	{
+		array[0]="没有创建支付宝交易";
+		array[1]="没有创建支付宝交易";
+	}
+	else if(status=="WAIT_SELLER_SEND_GOODS")
+	{
+		array[0]='<input type="button" value="发货" onclick="tranGoods(this)"/>';
+		array[1]="等待卖家发货";
+	}
+	else if(status=="WAIT_BUYER_PAY")
+	{
+		array[0]="等待买家付款";
+		array[1]="等待买家付款";
+	}
+	else if(status=="WAIT_BUYER_CONFIRM_GOODS")
+	{
+		array[0]="卖家已发货";
+		array[1]="卖家已发货";
+	}
+	else if(status=="TRADE_BUYER_SIGNED")
+	{
+		array[0]="买家已签收";
+		array[1]="买家已签收";
+	}
+	else if(status=="TRADE_FINISHED")
+	{
+		array[0]="交易成功";
+		array[1]="交易成功";
+	}
+	else if(status=="TRADE_CLOSED")
+	{
+		array[0]="退款成功，交易关闭";
+		array[1]="退款成功，交易关闭";
+	}
+	else if(status=="TRADE_CLOSED_BY_TAOBAO")
+	{
+		array[0]="交易关闭";
+		array[1]="交易关闭";
+	}
+	return array;
 }

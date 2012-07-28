@@ -10,8 +10,8 @@
             <column name="trade_id" length="50" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="solUsers" class="Entity.SolUsers" fetch="select">
-            <column name="user_username" length="50" />
+        <many-to-one name="solShop" class="Entity.SolShop" fetch="select">
+            <column name="shop_id" />
         </many-to-one>
         <property name="tradeStatus" type="java.lang.String">
             <column name="trade_status" length="50" />

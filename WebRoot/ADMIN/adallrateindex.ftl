@@ -11,7 +11,7 @@
 		(
 			function()
 			{
-				 $.post("rateList.action",{shopid:$("#shopid").val()}, function(data) {
+				 $.post("allRateList.action", function(data) {
 				
 					var jsondata=strCut(data);
 					$.each(jsondata,function(index)
@@ -48,14 +48,13 @@
   </head>
   
   <body>
-  	<input type="hidden" value="${shopid}" id="shopid"/>
   	<div class="head">
 	    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#C4E7FB">
 	      <tr>
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">店铺管理</a> &gt; <a href="shopIndex.action">店铺列表</a> &gt; <a href="#">评价列表</a></td>
+	              <td class="font1">&nbsp;<a href="#">评价管理</a> &gt; <a href="#">评价列表</a></td>
 	            </tr>
 	          </table>
 	        </td>

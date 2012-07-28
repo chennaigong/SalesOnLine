@@ -12,7 +12,7 @@ public class SolTrades implements java.io.Serializable {
 	// Fields
 
 	private String tradeId;
-	private SolUsers solUsers;
+	private SolShop solShop;
 	private String tradeStatus;
 	private String tradeBuyernick;
 	private String tradeCreate;
@@ -34,12 +34,12 @@ public class SolTrades implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SolTrades(String tradeId, SolUsers solUsers, String tradeStatus,
+	public SolTrades(String tradeId, SolShop solShop, String tradeStatus,
 			String tradeBuyernick, String tradeCreate, String tradeTotalfee,
 			String tradePaytime, String tradePayment, String tradeModified,
 			Set solRateses) {
 		this.tradeId = tradeId;
-		this.solUsers = solUsers;
+		this.solShop = solShop;
 		this.tradeStatus = tradeStatus;
 		this.tradeBuyernick = tradeBuyernick;
 		this.tradeCreate = tradeCreate;
@@ -60,12 +60,12 @@ public class SolTrades implements java.io.Serializable {
 		this.tradeId = tradeId;
 	}
 
-	public SolUsers getSolUsers() {
-		return this.solUsers;
+	public SolShop getSolShop() {
+		return this.solShop;
 	}
 
-	public void setSolUsers(SolUsers solUsers) {
-		this.solUsers = solUsers;
+	public void setSolShop(SolShop solShop) {
+		this.solShop = solShop;
 	}
 
 	public String getTradeStatus() {

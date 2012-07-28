@@ -92,6 +92,41 @@
 			<result name="success" type="redirect">../loginIndex.action</result>
 		</action>
 		
+		<!-- 店铺列表 -->
+		<action name="shopIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adshopindex.ftl</result>
+		</action> 
+		
+		<!-- ajax获取店铺列表 -->
+		<action name="shopList" class="Action.ShopAction" method="shopList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 全部评价列表 -->
+		<action name="allRateIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adallrateindex.ftl</result>
+		</action>
+		
+		<!-- 全部订单列表 -->
+		<action name="allTradeIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adalltradeindex.ftl</result>
+		</action>
+		
+		<!-- ajax全部评价列表 -->
+		<action name="allRateList" class="Action.RatesAction" method="allRateList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- ajax全部订单列表 -->
+		<action name="allTradeList" class="Action.TradesAction" method="allTradeList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 根据状态获取全部订单列表 -->
+		<action name="allTradeListStatus" class="Action.TradesAction" method="allTradeListStatus">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
 	</package>
 </struts>
 
