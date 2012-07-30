@@ -22,6 +22,7 @@ public class UserAction extends BaseAction {
 				jsonObject.put("password", user.getUserPassword());
 				jsonObject.put("post", user.getUserPost());
 				jsonObject.put("rating", user.getUserRating());
+				jsonObject.put("can", user.getUserCan());
 				jsonArray.put(jsonObject);
 			}
 			responseMsg = jsonArray.toString();
@@ -32,7 +33,6 @@ public class UserAction extends BaseAction {
 	}
 
 	public String doRegister() {
-		System.out.println("123");
 		if (userservice.findSolUser(username) == null) {
 			SolUsers solUsers = new SolUsers();
 			solUsers.setUserUsername(username);

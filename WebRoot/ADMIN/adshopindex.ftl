@@ -22,7 +22,8 @@
 						var _td_tr="</td></tr>";
 						var tradeSee="<input type='button' value='查看订单' onclick='seeTrade(this)'/>"
 						var rateSee="<input type='button' value='查看评价' onclick='seeRate(this)'/>"
-						var str=trtd+obj.id+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+tradeSee+rateSee+_td_tr
+						var refresh="<input type='button' value='刷新' onclick='refresh(this)'/>"
+						var str=trtd+obj.id+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+tradeSee+rateSee+refresh+_td_tr
 						insertTr("shoptable",str);
 						
 						senfe("shoptable","#F6F6F6","#FFFFFF");
@@ -41,6 +42,25 @@
 		{
 			var shopid=$(obj).parent().parent().children("td").html();
 			window.location.href="rateIndex.action?shopid="+shopid;
+		}
+		//刷新
+		function refresh(obj)
+		{
+			var shopid=$(obj).parent().parent().children("td");
+			$.post("refreshShop.action",{shopid:shopid.html()},
+			function(data)
+			{
+				if(data==0)
+				{
+					shopid.eq(2).html("否");
+					alert("店铺编号为"+shopid.eq(0).html()+"的店铺授权已到期，请重新授权");
+				}
+				else
+				{
+					shopid.eq(2).html("是");
+					alert("店铺编号为"+shopid.eq(0).html()+"的店铺授权未到期");
+				}
+			});
 		}
 	</script>
   </head>

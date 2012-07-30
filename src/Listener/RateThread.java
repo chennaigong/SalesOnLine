@@ -74,20 +74,20 @@ public class RateThread extends Thread{
 								//如果未授权，则实时修改SOL_users表的user_ispromise为"否"
 								if(jsonCut.equals(Helpers.NOPERMIT))
 								{
-//									user.setUserIspromise("否");
-//									userService.modifyUser(user);
+									shop.setShopIspromise("否");
+									shopservice.modifyShop(shop);
 								}
 								//无数据，则只是实时修改SOL_users表的user_ispromise为"是"
 								else if(jsonCut.equals(Helpers.NONEDATA))
 								{
-//									user.setUserIspromise("是");
-//									userService.modifyUser(user);
+									shop.setShopIspromise("是");
+									shopservice.modifyShop(shop);
 								}
 								//有数据则直接写入数据库，因为原先是无数据
 								else 
 								{
-//									user.setUserIspromise("是");
-//									userService.modifyUser(user);
+									shop.setShopIspromise("是");
+									shopservice.modifyShop(shop);
 									
 									String data="{'result':"+jsonCut+"}";
 									JSONObject jsonObject=new JSONObject(data);

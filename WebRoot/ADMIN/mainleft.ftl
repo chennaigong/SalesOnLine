@@ -9,7 +9,7 @@
 <script>
 $(document).ready(function(){
 	$.easing.def = "easeOutBounce";
-	$('.dropdown:eq(0)').slideDown('slow');
+	$('.dropdown:eq(1)').slideDown('slow');
 	$('li.button a').click(function(e){
 		var dropDown = $(this).parent().next();
 		$('.dropdown').not(dropDown).slideUp('slow');
@@ -41,6 +41,7 @@ $(document).ready(function(){
             <li class="dropdown">
                 <ul>
                     <li><a href="shopIndex.action" target="main">-店铺列表</a></li>
+                    <li><a href="javascript:parent.location.href='mainIndex.action'" target="main">-授权店铺</a></li>
                 </ul>
 			</li>
           </ul>

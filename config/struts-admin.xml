@@ -23,7 +23,7 @@
 		</action> 
 		
 		<!-- 后台框架main -->
-		<action name="mainIndex" class="Action.BaseAction" method="index">
+		<action name="mainIndex" class="Action.ShopAction" method="addShop">
 			<result name="success" type="freemarker">/ADMIN/mainindex.ftl</result>
 		</action> 
 		
@@ -132,6 +132,30 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 		
+		<!-- 添加网店 -->
+		<action name="addShop" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adaddshop.ftl</result>
+		</action>
+		
+		<!-- 检查网店是否授权 -->
+		<action name="examShop" class="Action.ShopAction" method="examShop">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 注销当前用户之后准备获取sessionKey -->
+		<action name="acquireSession" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adacquiresession.ftl</result>
+		</action>
+		
+		<!-- 注销之后跳转的页面 -->
+		<action name="mainAcquireSession" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/mainacquireSession.ftl</result>
+		</action>
+		
+		<!-- 刷新店铺是否授权 -->
+		<action name="refreshShop" class="Action.ShopAction" method="refreshShop">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
 	</package>
 </struts>
 

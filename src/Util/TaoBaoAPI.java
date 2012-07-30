@@ -10,11 +10,13 @@ import com.taobao.api.request.LogisticsOfflineSendRequest;
 import com.taobao.api.request.TraderatesGetRequest;
 import com.taobao.api.request.TradesSoldGetRequest;
 import com.taobao.api.request.TradesSoldIncrementGetRequest;
+import com.taobao.api.request.UserGetRequest;
 import com.taobao.api.response.LogisticsCompaniesGetResponse;
 import com.taobao.api.response.LogisticsOfflineSendResponse;
 import com.taobao.api.response.TraderatesGetResponse;
 import com.taobao.api.response.TradesSoldGetResponse;
 import com.taobao.api.response.TradesSoldIncrementGetResponse;
+import com.taobao.api.response.UserGetResponse;
 
 public class TaoBaoAPI {
 	
@@ -115,7 +117,12 @@ public class TaoBaoAPI {
 		}
 		return null;
 	} 
-	
+	/**
+	 * @param sessionKey	
+	 * @param startTime	
+	 * @param endTime	
+	 * @return 获取订单增量
+	 */
 	public static String modifyTradeString(String sessionKey,String startTime,String endTime)
 	{
 		try {
@@ -134,6 +141,26 @@ public class TaoBaoAPI {
 			System.out.println("API执行modifyTradeString出错");
 		}
 		return null;
+	}
+	/**
+	 * @param sessionKey
+	 * @return	获取用户编号，唯一
+	 */
+	public static String userInfoString(String sessionKey)
+	{
+		try 
+		{
+			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
+			UserGetRequest req=new UserGetRequest();
+			req.setFields("user_id");
+			UserGetResponse response = client.execute(req , sessionKey);
+			return response.getBody();
+		} 
+		catch (Exception e) {
+			System.out.println("API执行userInfoString出错");
+		}
+		return null;
+		
 	}
 }
 

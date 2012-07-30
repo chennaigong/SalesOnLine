@@ -23,4 +23,17 @@ public class shopServiceImpl extends BaseServiceImpl<SolShop> implements ShopSer
 		return userList.get(0);
 	}
 
+	@Override
+	public synchronized void modifyShop(SolShop shop) {
+		basedao.saveOrUpdate(shop);
+	}
+
+	@Override
+	public void addShop(String sessionkey) {
+		SolShop shop=new SolShop();
+		shop.setShopSessionkey(sessionkey);
+		shop.setShopIspromise("ÊÇ");
+		basedao.save(shop);
+	}
+
 }
