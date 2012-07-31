@@ -7,6 +7,10 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript">
+		var id_index=0;
+		var name_index=1;
+		var code_index=2;
+		var op_index=3;
 		$(document).ready
 		(
 			function()
@@ -48,19 +52,19 @@
 		function modifyFun(obj)
 		{
 			var data=$(obj).parent().parent().children("td")
-			var name=data.eq(1).html();
-			var code=data.eq(2).html();
-			data.eq(1).html("<input type='text' value='"+name+"'/>")
-			data.eq(2).html("<input type='text' value='"+code+"'/>")
-			data.eq(3).html("<input type='button' value='保存' onclick='savaFun(this)'/><input type='button' value='取消' onclick='reset(this)'/>")
+			var name=data.eq(name_index).html();
+			var code=data.eq(code_index).html();
+			data.eq(name_index).html("<input type='text' value='"+name+"'/>")
+			data.eq(code_index).html("<input type='text' value='"+code+"'/>")
+			data.eq(op_index).html("<input type='button' value='保存' onclick='savaFun(this)'/><input type='button' value='取消' onclick='reset(this)'/>")
 		}
 		
 		function savaFun(obj)
 		{
 			var data=$(obj).parent().parent().children("td");
 			var id=data.html();
-			var name=data.eq(1).children("input").val();
-			var code=data.eq(2).children("input").val();
+			var name=data.eq(name_index).children("input").val();
+			var code=data.eq(code_index).children("input").val();
 			
 			if(name=="")
 			{
@@ -78,11 +82,11 @@
 				if(res==1)
 				{
 					alert("编号为"+id+"的功能修改成功");
-					data.eq(1).html(name);
-					data.eq(2).html(code);
+					data.eq(name_index).html(name);
+					data.eq(code_index).html(code);
 					var deletefun="<input type='button' value='删除' onclick='deleteFun(this)'/>"
 					var modifyfun="<input type='button' value='修改' onclick='modifyFun(this)'/>"
-					data.eq(3).html(deletefun+modifyfun);
+					data.eq(op_index).html(deletefun+modifyfun);
 				}
 			})
 		}
@@ -93,12 +97,12 @@
 			
 			var deletefun="<input type='button' value='删除' onclick='deleteFun(this)'/>"
 			var modifyfun="<input type='button' value='修改' onclick='modifyFun(this)'/>"
-			var name=data.eq(1).children("input").val();
-			var code=data.eq(2).children("input").val();
+			var name=data.eq(name_index).children("input").val();
+			var code=data.eq(code_index).children("input").val();
 			
-			data.eq(1).html(name);
-			data.eq(2).html(code);
-			data.eq(3).html(deletefun+modifyfun);
+			data.eq(name_index).html(name);
+			data.eq(code_index).html(code);
+			data.eq(op_index).html(deletefun+modifyfun);
 		}
 	</script>
   </head>

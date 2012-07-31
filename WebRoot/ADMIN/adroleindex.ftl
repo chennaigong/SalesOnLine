@@ -7,6 +7,12 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript">
+		var id_index=0;
+		var name_index=1;
+		var function_index=2;
+		var enable_index=3;
+		var mark_index=4;
+		var modify_index=5;
 		$(document).ready
 		(
 			function()
@@ -48,8 +54,8 @@
 				if(data==1)
 				{
 					alert("编号为"+roleid+"的角色禁用成功");
-					role.eq(3).html("否");
-					role.eq(4).html("<input type='button' value='启用' onclick='enableMark(this)'/>");
+					role.eq(enable_index).html("否");
+					role.eq(mark_index).html("<input type='button' value='启用' onclick='enableMark(this)'/>");
 				}
 			});
 		}
@@ -64,8 +70,8 @@
 				if(data==1)
 				{
 					alert("编号为"+roleid+"的角色启用成功");
-					role.eq(3).html("是");
-					role.eq(4).html("<input type='button' value='禁用' onclick='disableMark(this)'/>");
+					role.eq(enable_index).html("是");
+					role.eq(mark_index).html("<input type='button' value='禁用' onclick='disableMark(this)'/>");
 				}
 			});
 		}
@@ -74,15 +80,15 @@
 		{
 			var role=$(obj).parent().parent().children("td");
 			var roleid=role.html();
-			var name=role.eq(1).html();
-			var functionStr=role.eq(2).html();
+			var name=role.eq(name_index).html();
+			var functionStr=role.eq(function_index).html();
 			var functions=functionStr.split(",");
 			
 			//显示编辑器
-			role.eq(1).html("<input type='text' value='"+name+"'/>");
+			role.eq(name_index).html("<input type='text' value='"+name+"'/>");
 			
 			//清空角色具有的功能td
-			role.eq(2).html("");
+			role.eq(function_index).html("");
 			
 			//获取功能列表
 			$.post("functionList.action",function(data)
@@ -110,10 +116,10 @@
 						checkbox="<input type='checkbox' name='"+obj.name+"' value=\""+obj.id+"\"/>"+obj.name+" 　";
 					}
 					//显示功能选择checkbox
-					role.eq(2).append(checkbox);
+					role.eq(function_index).append(checkbox);
 					//将修改按钮改为保存按钮
 					
-					role.eq(5).html("<input type='button' value='保存' onclick='save(this)'/>")
+					role.eq(modify_index).html("<input type='button' value='保存' onclick='save(this)'/>")
 				});
 			});
 		}
@@ -121,7 +127,7 @@
 		function save(obj)
 		{
 			var role=$(obj).parent().parent().children("td");
-			var checked=role.eq(2).children("input:checked");
+			var checked=role.eq(function_index).children("input:checked");
 			var havefun="";
 			$(checked).each(
 			function()
@@ -129,8 +135,8 @@
 				havefun+=$(this).val()+"-"+$(this).attr("name");
 				havefun+=",";
 			});
-			var name=role.eq(1).children("input").val();
-			var roleid=role.eq(0).html();
+			var name=role.eq(name_index).children("input").val();
+			var roleid=role.eq(id_index).html();
 			var functionids="";
 			$(checked).each(function()
 			{
@@ -150,9 +156,9 @@
 				$.post("modifyRole.action",{functionids:functionids,name:name,id:roleid},function(data)
 				{
 					alert("修改成功");
-					role.eq(5).html("<input type='button' value='修改' onclick='modify(this)'/>")
-					role.eq(1).html(name);
-					role.eq(2).html(havefun.substr(0,havefun.length-1));
+					role.eq(modify_index).html("<input type='button' value='修改' onclick='modify(this)'/>")
+					role.eq(name_index).html(name);
+					role.eq(function_index).html(havefun.substr(0,havefun.length-1));
 				});
 			}
 			
