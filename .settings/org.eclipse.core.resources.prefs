@@ -1,12 +1,17 @@
-#Sun Jul 29 18:01:55 CST 2012
+#Tue Jul 31 11:24:18 CST 2012
 eclipse.preferences.version=1
 encoding//WebRoot/ADMIN/adacquiresession.ftl=UTF-8
+encoding//WebRoot/ADMIN/adaddfunction.ftl=UTF-8
+encoding//WebRoot/ADMIN/adaddrole.ftl=UTF-8
 encoding//WebRoot/ADMIN/adaddshop.ftl=UTF-8
+encoding//WebRoot/ADMIN/adadduser.ftl=UTF-8
 encoding//WebRoot/ADMIN/adallrateindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adalltradeindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adfunctionindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adlogisticsindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adlogisticssend.ftl=UTF-8
 encoding//WebRoot/ADMIN/adrateindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adroleindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adshopindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adtradeindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/aduserindex.ftl=UTF-8
@@ -21,12 +26,6 @@ encoding//WebRoot/loginindex.ftl=UTF-8
 encoding//WebRoot/mainindex.ftl=UTF-8
 encoding//WebRoot/mainleft.ftl=UTF-8
 encoding//WebRoot/maintop.ftl=UTF-8
-encoding//WebRoot/registerindex.ftl=UTF-8
-encoding//WebRoot/usallrateindex.ftl=UTF-8
-encoding//WebRoot/usalltradeindex.ftl=UTF-8
-encoding//WebRoot/usrateindex.ftl=UTF-8
-encoding//WebRoot/usshopindex.ftl=UTF-8
-encoding//WebRoot/ustradeindex.ftl=UTF-8
 encoding//src/Util/TaoBaoAPI.java=UTF-8
 encoding//src/Util/WebConfig.java=UTF-8
 encoding/README.md=UTF-8

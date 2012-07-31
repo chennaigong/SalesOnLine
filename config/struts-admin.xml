@@ -156,6 +156,77 @@
 		<action name="refreshShop" class="Action.ShopAction" method="refreshShop">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
+		
+		<!-- 添加用户 -->
+		<action name="addUser" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">/ADMIN/adadduser.ftl</result>
+		</action>
+		
+		<!-- 功能列表-->
+		<action name="functionIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adfunctionindex.ftl</result>
+		</action> 
+		
+		<!-- ajax功能列表-->
+		<action name="functionList" class="Action.FunctionAction" method="functionList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 添加功能-->
+		<action name="addFunction" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adaddfunction.ftl</result>
+		</action> 
+		
+		<!-- 添加功能-->
+		<action name="doAddFunction" class="Action.FunctionAction" method="doAddFunction">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 删除功能-->
+		<action name="deleteFunction" class="Action.FunctionAction" method="deleteFunction">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 修改功能-->
+		<action name="modifyFunction" class="Action.FunctionAction" method="modifyFunction">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 角色列表-->
+		<action name="roleIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adroleindex.ftl</result>
+		</action> 
+		
+		<!-- ajax角色列表-->
+		<action name="roleList" class="Action.RoleAction" method="roleList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 添加角色列表-->
+		<action name="addRole" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adaddrole.ftl</result>
+		</action> 
+		
+		<!-- ajax添加角色列表-->
+		<action name="doAddRole" class="Action.RoleAction" method="doAddRole">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 禁用角色列表-->
+		<action name="disabledRole" class="Action.RoleAction" method="disabledRole">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 禁启用角色列表-->
+		<action name="enabledRole" class="Action.RoleAction" method="enabledRole">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 修改角色具有的功能和名称-->
+		<action name="modifyRole" class="Action.RoleAction" method="modifyRole">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
 	</package>
 </struts>
 

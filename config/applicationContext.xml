@@ -40,6 +40,9 @@
                 <value>adminservice</value>
                 <value>webconfigservice</value>
                 <value>shopservice</value>
+                <value>functionservice</value>
+                <value>roleservice</value>
+                <value>functionroleservice</value>
             </list>
             <!--  此处可增加其他需要自动创建事务代理的bean-->
 	    </property>
@@ -77,8 +80,23 @@
 		<property name="basedao" ref="basedao"></property>
 	</bean>
 	
-	<!-- 网店列表-->
+	<!-- 网店模块-->
 	<bean id="shopservice" class="ServiceImpl.shopServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 功能模块-->
+	<bean id="functionservice" class="ServiceImpl.FunctionServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 角色模块-->
+	<bean id="roleservice" class="ServiceImpl.RoleServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 角色功能对应模块-->
+	<bean id="functionroleservice" class="ServiceImpl.FunctionRoleServiceImpl">
 		<property name="basedao" ref="basedao"></property>
 	</bean>
 	

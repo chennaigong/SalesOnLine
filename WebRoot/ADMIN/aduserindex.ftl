@@ -19,7 +19,7 @@
 						var trtd="<tr height='30' align='center' ><td>";
 						var obj=jsondata[index];
 						var _td_tr="</td></tr>";
-						var str=trtd+obj.username+_tdtd+obj.password+_tdtd+obj.post+_tdtd+obj.rating+_tdtd+obj.can+_td_tr
+						var str=trtd+obj.username+_tdtd+obj.password+_tdtd+obj.role+_tdtd+obj.aa+_td_tr
 						insertTr("usertable",str);
 						
 						senfe("usertable","#F6F6F6","#FFFFFF");
@@ -37,7 +37,7 @@
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">用户管理</a> &gt; <a href="#">用户列表1</a></td>
+	              <td class="font1">&nbsp;<a href="#">用户管理</a> &gt; <a href="#">用户列表</a></td>
 	            </tr>
 	          </table>
 	        </td>
@@ -49,8 +49,7 @@
           <tr height="34" align="center" class="table_title">
             <td width=20%>用户名</td>
 			<td width=20%>密码</td>
-			<td width=20%>职位</td>
-			<td width=20%>等级</td>
+			<td width=20%>所属角色</td>
 			<td width=20%>可操作店铺编号</td>
           </tr>
         </table>

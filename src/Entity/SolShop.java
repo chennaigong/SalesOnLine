@@ -15,6 +15,7 @@ public class SolShop implements java.io.Serializable {
 	private String shopSessionkey;
 	private String shopIspromise;
 	private Set solTradeses = new HashSet(0);
+	private Set solShopusers = new HashSet(0);
 
 	// Constructors
 
@@ -29,11 +30,12 @@ public class SolShop implements java.io.Serializable {
 
 	/** full constructor */
 	public SolShop(Integer shopId, String shopSessionkey, String shopIspromise,
-			Set solTradeses) {
+			Set solTradeses, Set solShopusers) {
 		this.shopId = shopId;
 		this.shopSessionkey = shopSessionkey;
 		this.shopIspromise = shopIspromise;
 		this.solTradeses = solTradeses;
+		this.solShopusers = solShopusers;
 	}
 
 	// Property accessors
@@ -68,6 +70,14 @@ public class SolShop implements java.io.Serializable {
 
 	public void setSolTradeses(Set solTradeses) {
 		this.solTradeses = solTradeses;
+	}
+
+	public Set getSolShopusers() {
+		return this.solShopusers;
+	}
+
+	public void setSolShopusers(Set solShopusers) {
+		this.solShopusers = solShopusers;
 	}
 
 }

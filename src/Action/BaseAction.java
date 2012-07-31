@@ -1,6 +1,9 @@
 package Action;
 
+import Service.FunctionRoleService;
+import Service.FunctionService;
 import Service.RateService;
+import Service.RoleService;
 import Service.ShopService;
 import Service.TradeService;
 import Service.UserService;
@@ -21,16 +24,25 @@ public class BaseAction extends ActionSupport{
 	protected UserService userservice;
 	protected WebconfigService webconfigservice;
 	protected ShopService shopservice;
-	
-	
+	protected FunctionService functionservice;
+	protected RoleService roleservice;
+	protected FunctionRoleService functionroleservice;
 
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
 	protected String password;
 	protected String role;
 	protected int shopid;
+	protected int id;
 	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getShopid() {
 		return shopid;
@@ -56,6 +68,14 @@ public class BaseAction extends ActionSupport{
 		this.password = password;
 	}
 	
+	public RoleService getRoleservice() {
+		return roleservice;
+	}
+
+	public void setRoleservice(RoleService roleservice) {
+		this.roleservice = roleservice;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -63,7 +83,15 @@ public class BaseAction extends ActionSupport{
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public FunctionService getFunctionservice() {
+		return functionservice;
+	}
 
+	public void setFunctionservice(FunctionService functionservice) {
+		this.functionservice = functionservice;
+	}
+	
 	public ShopService getShopservice() {
 		return shopservice;
 	}
@@ -123,6 +151,14 @@ public class BaseAction extends ActionSupport{
 
 	public void setResponseMsg(String responseMsg) {
 		this.responseMsg = responseMsg;
+	}
+
+	public FunctionRoleService getFunctionroleservice() {
+		return functionroleservice;
+	}
+
+	public void setFunctionroleservice(FunctionRoleService functionroleservice) {
+		this.functionroleservice = functionroleservice;
 	}
 	
 }

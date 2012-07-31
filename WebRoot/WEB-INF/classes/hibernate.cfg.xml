@@ -19,12 +19,16 @@
 			net.sourceforge.jtds.jdbc.Driver
 		</property>
 		<property name="myeclipse.connection.profile">jtds</property>
+		<mapping resource="Entity/SolShop.hbm.xml" />
+		<mapping resource="Entity/SolFunction.hbm.xml" />
+		<mapping resource="Entity/SolWebconfig.hbm.xml" />
+		<mapping resource="Entity/SolShopuser.hbm.xml" />
+		<mapping resource="Entity/SolAdmin.hbm.xml" />
+		<mapping resource="Entity/SolFunctionrole.hbm.xml" />
 		<mapping resource="Entity/SolTrades.hbm.xml" />
 		<mapping resource="Entity/SolRates.hbm.xml" />
 		<mapping resource="Entity/SolUsers.hbm.xml" />
-		<mapping resource="Entity/SolAdmin.hbm.xml" />
-		<mapping resource="Entity/SolWebconfig.hbm.xml" />
-		<mapping resource="Entity/SolShop.hbm.xml" />
+		<mapping resource="Entity/SolRole.hbm.xml" />
 
 	</session-factory>
 

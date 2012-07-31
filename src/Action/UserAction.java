@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import Entity.SolUsers;
-import Service.UserService;
 
 public class UserAction extends BaseAction {
 
@@ -20,29 +19,12 @@ public class UserAction extends BaseAction {
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put("username", user.getUserUsername());
 				jsonObject.put("password", user.getUserPassword());
-				jsonObject.put("post", user.getUserPost());
-				jsonObject.put("rating", user.getUserRating());
-				jsonObject.put("can", user.getUserCan());
+				jsonObject.put("role", user.getSolRole().getRoleName());
 				jsonArray.put(jsonObject);
 			}
 			responseMsg = jsonArray.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		return SUCCESS;
-	}
-
-	public String doRegister() {
-		if (userservice.findSolUser(username) == null) {
-			SolUsers solUsers = new SolUsers();
-			solUsers.setUserUsername(username);
-			solUsers.setUserPassword(password);
-			solUsers.setUserPost("∆’Õ®‘±π§");
-			solUsers.setUserRating("1");
-			userservice.save(solUsers);
-			responseMsg = "1";
-		} else {
-			responseMsg = "0";
 		}
 		return SUCCESS;
 	}

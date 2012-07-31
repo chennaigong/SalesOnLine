@@ -22,5 +22,11 @@
             </key>
             <one-to-many class="Entity.SolTrades" />
         </set>
+        <set name="solShopusers" inverse="true">
+            <key>
+                <column name="shop_id" />
+            </key>
+            <one-to-many class="Entity.SolShopuser" />
+        </set>
     </class>
 </hibernate-mapping>

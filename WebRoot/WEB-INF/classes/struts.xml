@@ -43,81 +43,11 @@
 		<action name="loginOut" class="Action.LoginAction" method="loginOut">
 			<result name="success" type="redirect">loginIndex.action</result>
 		</action> 
-
-		<!-- 用户注册 -->
-		<action name="registerIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">registerindex.ftl</result>
-		</action>
-	
-		<!-- ajax用户注册判断 -->
-		<action name="doRegister" class="Action.UserAction" method="doRegister">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
 		
-		<!-- 用户店铺列表-->
-		<action name="shopIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">usshopindex.ftl</result>
-		</action>
 		
-		<!-- 用户店铺列表-->
-		<action name="shopIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">usshopindex.ftl</result>
-		</action>
 		
-		<!-- ajax获取用户店铺列表-->
-		<action name="shopList" class="Action.ShopAction" method="usShopList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
 		
-		<!-- 交易订单列表 -->
-		<action name="tradeIndex" class="Action.TradesAction" method="tradeIndex">
-			<result name="success" type="freemarker">ustradeindex.ftl</result>
-		</action> 
 		
-		<!-- ajax获取交易订单列表 -->
-		<action name="tradeList" class="Action.TradesAction" method="tradeList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
-		
-		<!-- 评价列表 -->
-		<action name="rateIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">usrateindex.ftl</result>
-		</action>
-		
-		<!-- ajax获取评价列表 -->
-		<action name="rateList" class="Action.RatesAction" method="rateList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action> 
-		
-		<!--全部订单列表 -->
-		<action name="allTradeIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">usalltradeindex.ftl</result>
-		</action> 
-		
-		<!--全部评价列表 -->
-		<action name="allRateIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">usallrateindex.ftl</result>
-		</action> 
-		
-		<!-- ajax全部评价列表 -->
-		<action name="allRateList" class="Action.RatesAction" method="usAllRateList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
-		
-		<!-- ajax全部订单列表 -->
-		<action name="allTradeList" class="Action.TradesAction" method="usAllTradeList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
-		
-		<!-- 根据状态获取全部订单列表 -->
-		<action name="allTradeListStatus" class="Action.TradesAction" method="usAllTradeListStatus">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
-		
-		<!-- 修改订单为已读 -->
-		<action name="modifyTradeRead" class="Action.TradesAction" method="modifyTradeRead">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
 	</package>
 </struts>
 

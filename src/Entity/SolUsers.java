@@ -1,5 +1,8 @@
 package Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * SolUsers entity. @author MyEclipse Persistence Tools
  */
@@ -9,10 +12,9 @@ public class SolUsers implements java.io.Serializable {
 	// Fields
 
 	private String userUsername;
+	private SolRole solRole;
 	private String userPassword;
-	private String userCan;
-	private String userPost;
-	private String userRating;
+	private Set solShopusers = new HashSet(0);
 
 	// Constructors
 
@@ -26,13 +28,12 @@ public class SolUsers implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SolUsers(String userUsername, String userPassword, String userCan,
-			String userPost, String userRating) {
+	public SolUsers(String userUsername, SolRole solRole, String userPassword,
+			Set solShopusers) {
 		this.userUsername = userUsername;
+		this.solRole = solRole;
 		this.userPassword = userPassword;
-		this.userCan = userCan;
-		this.userPost = userPost;
-		this.userRating = userRating;
+		this.solShopusers = solShopusers;
 	}
 
 	// Property accessors
@@ -45,6 +46,14 @@ public class SolUsers implements java.io.Serializable {
 		this.userUsername = userUsername;
 	}
 
+	public SolRole getSolRole() {
+		return this.solRole;
+	}
+
+	public void setSolRole(SolRole solRole) {
+		this.solRole = solRole;
+	}
+
 	public String getUserPassword() {
 		return this.userPassword;
 	}
@@ -53,28 +62,12 @@ public class SolUsers implements java.io.Serializable {
 		this.userPassword = userPassword;
 	}
 
-	public String getUserCan() {
-		return this.userCan;
+	public Set getSolShopusers() {
+		return this.solShopusers;
 	}
 
-	public void setUserCan(String userCan) {
-		this.userCan = userCan;
-	}
-
-	public String getUserPost() {
-		return this.userPost;
-	}
-
-	public void setUserPost(String userPost) {
-		this.userPost = userPost;
-	}
-
-	public String getUserRating() {
-		return this.userRating;
-	}
-
-	public void setUserRating(String userRating) {
-		this.userRating = userRating;
+	public void setSolShopusers(Set solShopusers) {
+		this.solShopusers = solShopusers;
 	}
 
 }

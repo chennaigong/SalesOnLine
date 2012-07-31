@@ -34,28 +34,6 @@ $(document).ready(function(){
 			</li>
           </ul>
       </li>
-      <li class="menu">
-          <ul>
-		    <li class="button"><a href="#" class="T1">订单管理</a></li>
-
-            <li class="dropdown">
-                <ul>
-                    <li><a href="allTradeIndex.action" target="main">-订单列表</a></li>
-                </ul>
-			</li>
-          </ul>
-      </li>
-      <li class="menu">
-          <ul>
-		    <li class="button"><a href="#" class="T1">评论管理</a></li>
-
-            <li class="dropdown">
-                <ul>
-                    <li><a href="allRateIndex.action" target="main">-评论列表</a></li>
-                </ul>
-			</li>
-          </ul>
-      </li>
       
   </ul>
   <li class="two"><a href="#">管理界面</a></li>

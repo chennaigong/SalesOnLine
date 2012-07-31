@@ -10,17 +10,17 @@
             <column name="user_username" length="50" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="solRole" class="Entity.SolRole" fetch="select">
+            <column name="role_id" />
+        </many-to-one>
         <property name="userPassword" type="java.lang.String">
             <column name="user_password" length="50" />
         </property>
-        <property name="userCan" type="java.lang.String">
-            <column name="user_can" />
-        </property>
-        <property name="userPost" type="java.lang.String">
-            <column name="user_post" length="50" />
-        </property>
-        <property name="userRating" type="java.lang.String">
-            <column name="user_rating" length="10" />
-        </property>
+        <set name="solShopusers" inverse="true">
+            <key>
+                <column name="user_username" length="50" />
+            </key>
+            <one-to-many class="Entity.SolShopuser" />
+        </set>
     </class>
 </hibernate-mapping>

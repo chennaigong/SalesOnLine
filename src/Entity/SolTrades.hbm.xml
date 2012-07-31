@@ -35,7 +35,7 @@
             <column name="trade_modified" length="50" />
         </property>
         <property name="tradeIsread" type="java.lang.String">
-            <column name="trade_isread" length="20" />
+            <column name="trade_isread" length="10" />
         </property>
         <set name="solRateses" inverse="true">
             <key>

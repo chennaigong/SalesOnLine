@@ -30,6 +30,7 @@ $(document).ready(function(){
             <li class="dropdown">
                 <ul>
                     <li><a href="userIndex.action" target="main">-用户列表</a></li>
+                    <li><a href="addUser.action" target="main">-添加用户</a></li>
                 </ul>
 			</li>
           </ul>
@@ -64,6 +65,30 @@ $(document).ready(function(){
             <li class="dropdown">
                 <ul>
                     <li><a href="allRateIndex.action" target="main">-评价列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">功能管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="functionIndex.action" target="main">-功能列表</a></li>
+                    <li><a href="addFunction.action" target="main">-添加功能</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">角色管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="roleIndex.action" target="main">-角色列表</a></li>
+                    <li><a href="addRole.action" target="main">-添加角色</a></li>
                 </ul>
 			</li>
           </ul>
