@@ -23,7 +23,7 @@
 						var tradeSee="<input type='button' value='查看订单' onclick='seeTrade(this)'/>"
 						var rateSee="<input type='button' value='查看评价' onclick='seeRate(this)'/>"
 						var refresh="<input type='button' value='刷新' onclick='refresh(this)'/>"
-						var str=trtd+obj.id+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+tradeSee+rateSee+refresh+_td_tr
+						var str=trtd+obj.id+_tdtd+obj.name+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+tradeSee+rateSee+refresh+_td_tr
 						insertTr("shoptable",str);
 						
 						senfe("shoptable","#F6F6F6","#FFFFFF");
@@ -52,12 +52,12 @@
 			{
 				if(data==0)
 				{
-					shopid.eq(2).html("否");
+					shopid.eq(3).html("否");
 					alert("店铺编号为"+shopid.eq(0).html()+"的店铺授权已到期，请重新授权");
 				}
 				else
 				{
-					shopid.eq(2).html("是");
+					shopid.eq(3).html("是");
 					alert("店铺编号为"+shopid.eq(0).html()+"的店铺授权未到期");
 				}
 			});
@@ -82,10 +82,11 @@
 	<div class="con" style="margin-top:-2px;">
         <table id="shoptable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table">
           <tr height="34" align="center" class="table_title">
-            <td width=10%>店铺编号</td>
-			<td width=50%>店铺标识</td>
+            <td width=20%>店铺编号</td>
+            <td width=20%>店铺名称</td>
+			<td width=30%>店铺标识</td>
 			<td width=10%>是否授权</td>
-			<td width=30%>操作</td>
+			<td width=20%>操作</td>
           </tr>
         </table>
      </div>

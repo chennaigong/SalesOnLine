@@ -11,8 +11,9 @@ public class SolUsers implements java.io.Serializable {
 
 	// Fields
 
-	private String userUsername;
+	private Integer userId;
 	private SolRole solRole;
+	private String userUsername;
 	private String userPassword;
 	private Set solShopusers = new HashSet(0);
 
@@ -23,27 +24,28 @@ public class SolUsers implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public SolUsers(String userUsername) {
-		this.userUsername = userUsername;
+	public SolUsers(Integer userId) {
+		this.userId = userId;
 	}
 
 	/** full constructor */
-	public SolUsers(String userUsername, SolRole solRole, String userPassword,
-			Set solShopusers) {
-		this.userUsername = userUsername;
+	public SolUsers(Integer userId, SolRole solRole, String userUsername,
+			String userPassword, Set solShopusers) {
+		this.userId = userId;
 		this.solRole = solRole;
+		this.userUsername = userUsername;
 		this.userPassword = userPassword;
 		this.solShopusers = solShopusers;
 	}
 
 	// Property accessors
 
-	public String getUserUsername() {
-		return this.userUsername;
+	public Integer getUserId() {
+		return this.userId;
 	}
 
-	public void setUserUsername(String userUsername) {
-		this.userUsername = userUsername;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	public SolRole getSolRole() {
@@ -52,6 +54,14 @@ public class SolUsers implements java.io.Serializable {
 
 	public void setSolRole(SolRole solRole) {
 		this.solRole = solRole;
+	}
+
+	public String getUserUsername() {
+		return this.userUsername;
+	}
+
+	public void setUserUsername(String userUsername) {
+		this.userUsername = userUsername;
 	}
 
 	public String getUserPassword() {

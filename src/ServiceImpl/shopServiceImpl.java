@@ -3,7 +3,6 @@ package ServiceImpl;
 import java.util.List;
 
 import Entity.SolShop;
-import Entity.SolUsers;
 import Service.ShopService;
 
 public class shopServiceImpl extends BaseServiceImpl<SolShop> implements ShopService{
@@ -29,9 +28,10 @@ public class shopServiceImpl extends BaseServiceImpl<SolShop> implements ShopSer
 	}
 
 	@Override
-	public void addShop(String sessionkey) {
+	public void addShop(String sessionkey,String name) {
 		SolShop shop=new SolShop();
 		shop.setShopSessionkey(sessionkey);
+		shop.setShopName(name);
 		shop.setShopIspromise("ÊÇ");
 		basedao.save(shop);
 	}

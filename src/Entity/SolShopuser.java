@@ -11,7 +11,6 @@ public class SolShopuser implements java.io.Serializable {
 	private Integer shopuserId;
 	private SolShop solShop;
 	private SolUsers solUsers;
-	private String shopuserMark;
 
 	// Constructors
 
@@ -25,12 +24,10 @@ public class SolShopuser implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SolShopuser(Integer shopuserId, SolShop solShop, SolUsers solUsers,
-			String shopuserMark) {
+	public SolShopuser(Integer shopuserId, SolShop solShop, SolUsers solUsers) {
 		this.shopuserId = shopuserId;
 		this.solShop = solShop;
 		this.solUsers = solUsers;
-		this.shopuserMark = shopuserMark;
 	}
 
 	// Property accessors
@@ -57,14 +54,6 @@ public class SolShopuser implements java.io.Serializable {
 
 	public void setSolUsers(SolUsers solUsers) {
 		this.solUsers = solUsers;
-	}
-
-	public String getShopuserMark() {
-		return this.shopuserMark;
-	}
-
-	public void setShopuserMark(String shopuserMark) {
-		this.shopuserMark = shopuserMark;
 	}
 
 }

@@ -7,12 +7,14 @@ import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
 import com.taobao.api.request.LogisticsCompaniesGetRequest;
 import com.taobao.api.request.LogisticsOfflineSendRequest;
+import com.taobao.api.request.ShopGetRequest;
 import com.taobao.api.request.TraderatesGetRequest;
 import com.taobao.api.request.TradesSoldGetRequest;
 import com.taobao.api.request.TradesSoldIncrementGetRequest;
 import com.taobao.api.request.UserGetRequest;
 import com.taobao.api.response.LogisticsCompaniesGetResponse;
 import com.taobao.api.response.LogisticsOfflineSendResponse;
+import com.taobao.api.response.ShopGetResponse;
 import com.taobao.api.response.TraderatesGetResponse;
 import com.taobao.api.response.TradesSoldGetResponse;
 import com.taobao.api.response.TradesSoldIncrementGetResponse;
@@ -160,7 +162,45 @@ public class TaoBaoAPI {
 			System.out.println("API执行userInfoString出错");
 		}
 		return null;
-		
+	}
+	/**
+	 * @param sessionKey
+	 * @return	获取用户昵称
+	 */
+	public static String userNickString(String sessionKey)
+	{
+		try 
+		{
+			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
+			UserGetRequest req=new UserGetRequest();
+			req.setFields("nick");
+			UserGetResponse response = client.execute(req , sessionKey);
+			return response.getBody();
+		} 
+		catch (Exception e) {
+			System.out.println("API执行userNickString出错");
+		}
+		return null;
+	}
+	/**
+	 * @param nick
+	 * @return	获取店铺名字
+	 */
+	public static String shopTitleString(String nick)
+	{
+		try 
+		{
+			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
+			ShopGetRequest req=new ShopGetRequest();
+			req.setFields("title");
+			req.setNick(nick);
+			ShopGetResponse response = client.execute(req);
+			return response.getBody();
+		} 
+		catch (Exception e) {
+			System.out.println("API执行shopTitleString出错");
+		}
+		return null;
 	}
 }
 

@@ -65,7 +65,6 @@ a:hover{
     box-shadow: 0 2px 2px rgba(173, 176, 179, 0.8);
     font-size: 12px;
     padding: 10px 10px 30px 10px;
-    position: relative;
     z-index: 1;
     min-height:80%;
 }

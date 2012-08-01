@@ -14,6 +14,7 @@ public class SolShop implements java.io.Serializable {
 	private Integer shopId;
 	private String shopSessionkey;
 	private String shopIspromise;
+	private String shopName;
 	private Set solTradeses = new HashSet(0);
 	private Set solShopusers = new HashSet(0);
 
@@ -30,10 +31,11 @@ public class SolShop implements java.io.Serializable {
 
 	/** full constructor */
 	public SolShop(Integer shopId, String shopSessionkey, String shopIspromise,
-			Set solTradeses, Set solShopusers) {
+			String shopName, Set solTradeses, Set solShopusers) {
 		this.shopId = shopId;
 		this.shopSessionkey = shopSessionkey;
 		this.shopIspromise = shopIspromise;
+		this.shopName = shopName;
 		this.solTradeses = solTradeses;
 		this.solShopusers = solShopusers;
 	}
@@ -62,6 +64,14 @@ public class SolShop implements java.io.Serializable {
 
 	public void setShopIspromise(String shopIspromise) {
 		this.shopIspromise = shopIspromise;
+	}
+
+	public String getShopName() {
+		return this.shopName;
+	}
+
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
 	}
 
 	public Set getSolTradeses() {

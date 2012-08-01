@@ -6,19 +6,22 @@
 -->
 <hibernate-mapping>
     <class name="Entity.SolUsers" table="SOL_users" schema="dbo" catalog="SalesOnLine">
-        <id name="userUsername" type="java.lang.String">
-            <column name="user_username" length="50" />
-            <generator class="assigned" />
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
         </id>
         <many-to-one name="solRole" class="Entity.SolRole" fetch="select">
             <column name="role_id" />
         </many-to-one>
+        <property name="userUsername" type="java.lang.String">
+            <column name="user_username" length="50" />
+        </property>
         <property name="userPassword" type="java.lang.String">
             <column name="user_password" length="50" />
         </property>
         <set name="solShopusers" inverse="true">
             <key>
-                <column name="user_username" length="50" />
+                <column name="user_id" />
             </key>
             <one-to-many class="Entity.SolShopuser" />
         </set>

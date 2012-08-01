@@ -43,6 +43,7 @@
                 <value>functionservice</value>
                 <value>roleservice</value>
                 <value>functionroleservice</value>
+                <value>shopuserservice</value>
             </list>
             <!--  此处可增加其他需要自动创建事务代理的bean-->
 	    </property>
@@ -97,6 +98,11 @@
 	
 	<!-- 角色功能对应模块-->
 	<bean id="functionroleservice" class="ServiceImpl.FunctionRoleServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 店铺用户对应模块-->
+	<bean id="shopuserservice" class="ServiceImpl.ShopUserServiceImpl">
 		<property name="basedao" ref="basedao"></property>
 	</bean>
 	

@@ -30,7 +30,6 @@ $(document).ready(function(){
             <li class="dropdown">
                 <ul>
                     <li><a href="userIndex.action" target="main">-用户列表</a></li>
-                    <li><a href="addUser.action" target="main">-添加用户</a></li>
                 </ul>
 			</li>
           </ul>

@@ -5,11 +5,11 @@ import Service.FunctionService;
 import Service.RateService;
 import Service.RoleService;
 import Service.ShopService;
+import Service.ShopUserService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
 import Service.adminService;
-import ServiceImpl.shopServiceImpl;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,6 +27,7 @@ public class BaseAction extends ActionSupport{
 	protected FunctionService functionservice;
 	protected RoleService roleservice;
 	protected FunctionRoleService functionroleservice;
+	protected ShopUserService shopuserservice;
 
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
@@ -159,6 +160,14 @@ public class BaseAction extends ActionSupport{
 
 	public void setFunctionroleservice(FunctionRoleService functionroleservice) {
 		this.functionroleservice = functionroleservice;
+	}
+
+	public ShopUserService getShopuserservice() {
+		return shopuserservice;
+	}
+
+	public void setShopuserservice(ShopUserService shopuserservice) {
+		this.shopuserservice = shopuserservice;
 	}
 	
 }

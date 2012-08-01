@@ -3,8 +3,6 @@ package ServiceImpl;
 import java.util.List;
 
 
-import Dao.BaseHibernateDao;
-import Entity.SolAdmin;
 import Entity.SolUsers;
 import Service.UserService;
 
@@ -37,6 +35,11 @@ public class UserServiceImpl extends BaseServiceImpl<SolUsers> implements UserSe
 
 	public void save(SolUsers users) {
 		basedao.save(users);
+	}
+
+	@Override
+	public List<SolUsers> findUserByRoleId(int roleId) {
+		return basedao.findByProperty(SolUsers.class, "solRole.roleId", roleId);
 	}
 	
 

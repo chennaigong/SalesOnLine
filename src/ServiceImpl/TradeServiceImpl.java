@@ -4,7 +4,6 @@ import java.util.List;
 
 import Entity.SolShop;
 import Entity.SolTrades;
-import Entity.SolUsers;
 import Service.TradeService;
 
 public class TradeServiceImpl extends BaseServiceImpl<SolTrades> implements TradeService{

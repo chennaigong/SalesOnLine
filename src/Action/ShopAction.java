@@ -37,6 +37,7 @@ public class ShopAction extends BaseAction {
 				SolShop shop = shopList.get(i);
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put("id", shop.getShopId());
+				jsonObject.put("name", shop.getShopName());
 				jsonObject.put("session", shop.getShopSessionkey());
 				jsonObject.put("ispromise", shop.getShopIspromise());
 				jsonArray.put(jsonObject);
@@ -55,8 +56,34 @@ public class ShopAction extends BaseAction {
 			List<SolShop> shopList=shopservice.shopList();
 			if(shopList.isEmpty())
 			{
-				shopservice.addShop(top_session);
-				responseMsg="添加成功";
+				try 
+				{
+					int count=0;
+					String name=null;
+					while (name==null&&count<8) {
+						String nickStr=TaoBaoAPI.userNickString(top_session);
+						String nick=nickStr.substring(nickStr.lastIndexOf("{"), nickStr.indexOf("}")+1);
+						JSONObject nickObject=new JSONObject(nick);
+						String n=nickObject.getString("nick");
+						
+						String shopStr=TaoBaoAPI.shopTitleString(n);
+						String shop=shopStr.substring(shopStr.lastIndexOf("{"), shopStr.indexOf("}")+1);
+						JSONObject titleObject=new JSONObject(shop);
+						name=titleObject.getString("title");
+					}
+					if (name==null) {
+						responseMsg="网络故障，请稍候再试";
+					}
+					else {
+						shopservice.addShop(top_session,name);
+						responseMsg="添加成功";
+					}
+					
+					
+				} 
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			else
 			{
@@ -104,8 +131,34 @@ public class ShopAction extends BaseAction {
 					}
 					if(!isUserSame)
 					{
-						shopservice.addShop(top_session);
-						responseMsg="添加成功";
+						try 
+						{
+							int count=0;
+							String name=null;
+							while (name==null&&count<8) {
+								String nickStr=TaoBaoAPI.userNickString(top_session);
+								String nick=nickStr.substring(nickStr.lastIndexOf("{"), nickStr.indexOf("}")+1);
+								JSONObject nickObject=new JSONObject(nick);
+								String n=nickObject.getString("nick");
+								
+								String shopStr=TaoBaoAPI.shopTitleString(n);
+								String shop=shopStr.substring(shopStr.lastIndexOf("{"), shopStr.indexOf("}")+1);
+								JSONObject titleObject=new JSONObject(shop);
+								name=titleObject.getString("title");
+							}
+							if (name==null) {
+								responseMsg="网络故障，请稍候再试";
+							}
+							else {
+								shopservice.addShop(top_session,name);
+								responseMsg="添加成功";
+							}
+							
+							
+						} 
+						catch (Exception e) {
+							e.printStackTrace();
+						}
 					}
 					else 
 					{

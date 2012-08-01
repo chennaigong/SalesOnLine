@@ -3,7 +3,6 @@ package ServiceImpl;
 import java.util.List;
 
 import Entity.SolFunction;
-import Entity.SolRates;
 import Service.FunctionService;
 
 public class FunctionServiceImpl extends BaseServiceImpl<SolFunction> implements FunctionService{

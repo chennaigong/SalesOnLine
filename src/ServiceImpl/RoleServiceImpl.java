@@ -3,7 +3,6 @@ package ServiceImpl;
 import java.util.List;
 
 import Entity.SolRole;
-import Entity.SolTrades;
 import Service.RoleService;
 
 public class RoleServiceImpl extends BaseServiceImpl<SolRole> implements RoleService{

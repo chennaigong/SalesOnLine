@@ -3,7 +3,6 @@ package Service;
 import java.util.List;
 
 import Entity.SolFunction;
-import Entity.SolRole;
 
 public interface FunctionService {
 	public List<SolFunction> functionList();

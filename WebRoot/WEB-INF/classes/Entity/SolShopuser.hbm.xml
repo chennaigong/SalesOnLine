@@ -14,10 +14,7 @@
             <column name="shop_id" />
         </many-to-one>
         <many-to-one name="solUsers" class="Entity.SolUsers" fetch="select">
-            <column name="user_username" length="50" />
+            <column name="user_id" />
         </many-to-one>
-        <property name="shopuserMark" type="java.lang.String">
-            <column name="shopuser_mark" length="10" />
-        </property>
     </class>
 </hibernate-mapping>

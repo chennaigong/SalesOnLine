@@ -2,7 +2,6 @@ package Util;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class WebConfig {
 	public final static String APPKEY="21062760";	//应用appkey

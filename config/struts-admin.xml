@@ -157,11 +157,6 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 		
-		<!-- 添加用户 -->
-		<action name="addUser" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">/ADMIN/adadduser.ftl</result>
-		</action>
-		
 		<!-- 功能列表-->
 		<action name="functionIndex" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">adfunctionindex.ftl</result>
@@ -224,6 +219,16 @@
 		
 		<!-- 修改角色具有的功能和名称-->
 		<action name="modifyRole" class="Action.RoleAction" method="modifyRole">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 添加用户店铺对应数据-->
+		<action name="addShopUser" class="Action.UserAction" method="addShopUser">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 删除用户店铺对应数据-->
+		<action name="deleteShopUser" class="Action.UserAction" method="deleteShopUser">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		

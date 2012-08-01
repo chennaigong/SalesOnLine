@@ -16,6 +16,9 @@
         <property name="shopIspromise" type="java.lang.String">
             <column name="shop_ispromise" length="10" />
         </property>
+        <property name="shopName" type="java.lang.String">
+            <column name="shop_name" length="50" />
+        </property>
         <set name="solTradeses" inverse="true">
             <key>
                 <column name="shop_id" />
