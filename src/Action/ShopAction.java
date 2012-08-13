@@ -9,13 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import Util.TaoBaoAPI;
-import Util.WebConfig;
 
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.util.ResolverUtil.IsA;
 
 import Entity.SolShop;
-import Entity.SolUsers;
 
 public class ShopAction extends BaseAction {
 	

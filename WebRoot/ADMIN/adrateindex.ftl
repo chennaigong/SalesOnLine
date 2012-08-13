@@ -4,8 +4,10 @@
     <title>评价列表</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="../CSS/style.css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
@@ -37,10 +39,9 @@
 						+_tdtd+obj.item_title+_tdtd+obj.item_price+_tdtd+obj.content+_tdtd+obj.reply+_td_tr;
 						
 						insertTr("ratetable",str);
-						
-						senfe("ratetable","#F6F6F6","#FFFFFF");
 					});
-					
+					senfe("ratetable","#F6F6F6","#FFFFFF");
+					pageplugin(5,5,"ratetable","pageplugin");
 				});       
 			}
 		)
@@ -75,6 +76,8 @@
 				<td width=15%>评价的解释</td>
 			</tr>
 		</table>
+		<div id="pageplugin">                   
+     	</div>
 	</div>
   </body>
 </html>

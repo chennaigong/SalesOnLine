@@ -44,6 +44,8 @@
                 <value>roleservice</value>
                 <value>functionroleservice</value>
                 <value>shopuserservice</value>
+                <value>goodstypeservice</value>
+                <value>goodsservice</value>
             </list>
             <!--  此处可增加其他需要自动创建事务代理的bean-->
 	    </property>
@@ -103,6 +105,16 @@
 	
 	<!-- 店铺用户对应模块-->
 	<bean id="shopuserservice" class="ServiceImpl.ShopUserServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 商品类别模块-->
+	<bean id="goodstypeservice" class="ServiceImpl.GoodsTypeServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 商品模块-->
+	<bean id="goodsservice" class="ServiceImpl.GoodsServiceImpl">
 		<property name="basedao" ref="basedao"></property>
 	</bean>
 	

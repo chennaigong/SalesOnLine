@@ -2,11 +2,13 @@ package ServiceImpl;
 
 import java.util.List;
 
+
+
 import Entity.SolShop;
 import Service.ShopService;
 
 public class shopServiceImpl extends BaseServiceImpl<SolShop> implements ShopService{
-
+	
 	@Override
 	public List<SolShop> shopList() {
 		return basedao.findAll(SolShop.class);

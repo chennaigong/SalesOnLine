@@ -2,6 +2,7 @@ package Service;
 
 import java.util.List;
 
+
 import Entity.SolShop;
 
 public interface ShopService {

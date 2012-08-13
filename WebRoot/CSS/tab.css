@@ -67,4 +67,12 @@ a:hover{
     padding: 10px 10px 30px 10px;
     z-index: 1;
     min-height:80%;
+    height:80%;
+}
+#pageplugin
+{
+	float:right;
+	width:220px;
+	height:100px;
+	margin-top:10px;
 }

@@ -155,4 +155,25 @@ public class RoleAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	public String roleListMark()
+	{
+		try {
+			List<SolRole> rolelList=roleservice.roleList("ÊÇ");
+			JSONArray jsonArray=new JSONArray();
+			for(int i=0;i<rolelList.size();i++)
+			{
+				SolRole role=rolelList.get(i);
+				JSONObject jsonObject=new JSONObject();
+				jsonObject.put("id", role.getRoleId());
+				jsonObject.put("name", role.getRoleName());
+				jsonArray.put(jsonObject);
+			}
+			responseMsg= jsonArray.toString();
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return SUCCESS;
+	}
 }

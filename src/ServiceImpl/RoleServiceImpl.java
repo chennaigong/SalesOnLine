@@ -51,4 +51,9 @@ public class RoleServiceImpl extends BaseServiceImpl<SolRole> implements RoleSer
 	public void saveRole(SolRole role) {
 		basedao.saveOrUpdate(role);
 	}
+
+	@Override
+	public List<SolRole> roleList(String mark) {
+		return basedao.findByProperty(SolRole.class, "roleMark", mark);
+	}
 }

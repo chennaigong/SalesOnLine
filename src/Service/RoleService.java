@@ -11,4 +11,5 @@ public interface RoleService {
 	public SolRole findSolRoleById(int id);
 	public void modifyRole(int id,String mark);
 	public void saveRole(SolRole role);
+	public List<SolRole> roleList(String mark);
 }

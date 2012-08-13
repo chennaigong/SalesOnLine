@@ -2,15 +2,17 @@ package Action;
 
 import java.util.List;
 
+import com.sun.org.apache.xml.internal.security.Init;
+
 
 import Entity.SolRole;
+import Entity.SolShop;
 import Entity.SolShopuser;
 import Entity.SolUsers;
 
 
-
 public class UserAction extends BaseAction {
-
+	
 	public String userList() {
 		try {
 			List<SolRole> roleList=roleservice.roleList();
@@ -91,6 +93,43 @@ public class UserAction extends BaseAction {
 		shopuserservice.deleteShopUser(id, shopid);
 		responseMsg="1";
 		return SUCCESS;
+	}
+	
+	public String doAddUser()
+	{
+		List<SolUsers> userList=userservice.userList();
+		if(!userList.isEmpty())
+		{
+			for(int i=0;i<userList.size();i++)
+			{
+				if(userList.get(i).getUserUsername().equals(username))
+				{
+					responseMsg="0";
+					return SUCCESS;
+				}
+			}
+		}
+		String mark=roleservice.findSolRoleById(id).getRoleMark();
+		if(mark.equals("ÊÇ"))
+		{
+			SolRole srole=new SolRole();
+			srole.setRoleId(id);
+			
+			SolUsers user=new SolUsers();
+			user.setSolRole(srole);
+			user.setUserUsername(username);
+			user.setUserPassword(password);
+			
+			userservice.save(user);
+			responseMsg="1";
+		
+			return SUCCESS;
+		}
+		else 
+		{
+			responseMsg="2";
+			return SUCCESS;
+		}
 	}
 	
 }

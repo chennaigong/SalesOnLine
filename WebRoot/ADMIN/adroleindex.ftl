@@ -4,8 +4,10 @@
     <title>角色管理</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="../CSS/style.css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
 	<script type="text/javascript">
 		var id_index=0;
 		var name_index=1;
@@ -39,8 +41,9 @@
 						var str=trtd+obj.id+_tdtd+obj.name+_tdtd+obj.havefun+_tdtd+obj.mark+_tdtd+btn+_tdtd+modify+_tdtd+_td_tr
 						insertTr("roletable",str);
 						
-						senfe("roletable","#F6F6F6","#FFFFFF");
 					});
+					senfe("roletable","#F6F6F6","#FFFFFF");
+					pageplugin(10,5,"roletable","pageplugin");
 				 });
 			}
 		)
@@ -191,6 +194,8 @@
 			<td width=10%>操作</td>
           </tr>
         </table>
+        <div id="pageplugin">                   
+     	</div>
      </div>
   </body>
 </html>

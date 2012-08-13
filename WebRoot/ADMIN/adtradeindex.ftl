@@ -4,8 +4,10 @@
     <title>订单列表</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="../CSS/style.css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
@@ -26,9 +28,9 @@
 						+_tdtd+obj.created+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+obj.isread+_td_tr;
 						insertTr("tradetable",str);
 						
-						senfe("tradetable","#F6F6F6","#FFFFFF");
-						
 					});
+					senfe("tradetable","#F6F6F6","#FFFFFF");
+					pageplugin(8,5,"tradetable","pageplugin");
 				});
 				
 			}
@@ -70,6 +72,8 @@
 				<td width=5%>是否已读</td>
 			</tr>
 		</table>
+		<div id="pageplugin">                   
+     	</div>
 	</div>
   </body>
 </html>

@@ -30,6 +30,7 @@ $(document).ready(function(){
             <li class="dropdown">
                 <ul>
                     <li><a href="userIndex.action" target="main">-用户列表</a></li>
+                    <li><a href="addUser.action" target="main">-添加用户</a></li>
                 </ul>
 			</li>
           </ul>
@@ -88,6 +89,17 @@ $(document).ready(function(){
                 <ul>
                     <li><a href="roleIndex.action" target="main">-角色列表</a></li>
                     <li><a href="addRole.action" target="main">-添加角色</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">商品管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="goodsTypeIndex.action" target="main">-商品列表</a></li>
                 </ul>
 			</li>
           </ul>

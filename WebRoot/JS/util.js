@@ -36,7 +36,10 @@ function senfe(o,a,b){
 		  }
 	 }
 }
-
+/**
+* @param status 订单状态（英文）
+* @return	中文的订单状态
+*/
 function enTozh(status)
 {
 	var array=new Array();
@@ -81,4 +84,61 @@ function enTozh(status)
 		array[1]="交易关闭";
 	}
 	return array;
+}
+/**
+* @param pagecount		每页记录数
+* @param displaycount	页码可看到的数量
+* @param tableid 		table的id
+* @param pluginid 		分页插件的div id
+* @return				分页
+*/
+function pageplugin(pagecount,displaycount,tableid,pluginid)
+{
+	var count=Math.ceil($("#"+tableid+" tr:not(:eq(0))").length/pagecount);
+	if(count==0)
+	{
+		count++;
+	}
+	var table=$("#"+tableid+" tr:not(:eq(0))");
+	$.each(table,function(i)
+	{
+			if(i>=0&&i<pagecount)
+			{
+				$(this).show();
+			}
+			else
+			{
+				$(this).hide();
+			}
+	}
+	)
+	$("#"+pluginid).paginate({
+		count 		: count,
+		start 		: 1,
+		display     : displaycount,
+		border					: true,
+		border_color			: '#DBE6E3',
+		text_color  			: '#000000',
+		background_color    	: '#E9F6FC',	
+		border_hover_color		: '#DBE6E3',
+		text_hover_color  		: '#DBE6E3',
+		background_hover_color	: '#fff', 
+		images					: false,
+		mouse					: 'press',
+		onChange     			: function(page)
+		{
+			$.each(table,function(i)
+			{
+					if(i>=(page-1)*pagecount&&i<page*pagecount)
+					{
+						$(this).show();
+					}
+					else
+					{
+						$(this).hide();
+					}
+			}
+			)
+		}
+	});
 }

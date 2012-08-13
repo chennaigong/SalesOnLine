@@ -197,6 +197,11 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
+		<!-- ajax角色列表(mark为'是'即可用)-->
+		<action name="roleListMark" class="Action.RoleAction" method="roleListMark">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
 		<!-- 添加角色列表-->
 		<action name="addRole" class="Action.BaseAction" method="index">
 			<result name="success" type="freemarker">adaddrole.ftl</result>
@@ -232,6 +237,75 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
+		<!-- 添加用户-->
+		<action name="addUser" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adadduser.ftl</result>
+		</action> 
+		
+		<!-- ajax添加用户-->
+		<action name="doAddUser" class="Action.UserAction" method="doAddUser">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 商品类别列表-->
+		<action name="goodsTypeIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adgoodstypeindex.ftl</result>
+		</action> 
+		
+		<!-- ajax商品类别列表-->
+		<action name="goodsTypeList" class="Action.GoodsTypeAction" method="goodsTypeList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- ajax商品类别列表，查找父id为id的子类别列表-->
+		<action name="goodsTypeListByPId" class="Action.GoodsTypeAction" method="goodsTypeListByPId">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- ajax商品类别列表，查找id为id的类别对象-->
+		<action name="goodsTypeListById" class="Action.GoodsTypeAction" method="goodsTypeListById">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>  
+		
+		<!-- ajax修改商品类别mark-->
+		<action name="modifyGoodsTypeMarkN" class="Action.GoodsTypeAction" method="modifyGoodsTypeMarkN">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- ajax修改商品类别mark-->
+		<action name="modifyGoodsTypeMarkY" class="Action.GoodsTypeAction" method="modifyGoodsTypeMarkY">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- ajax添加商品根类别-->
+		<action name="doAddSGoodType" class="Action.GoodsTypeAction" method="doAddSGoodType">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- ajax获取商品列表-->
+		<action name="goodsListByType" class="Action.GoodsAction" method="goodsListByType">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- ajax获取商品详细信息-->
+		<action name="goodsListById" class="Action.GoodsAction" method="goodsListById">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 禁用商品-->
+		<action name="disableGoods" class="Action.GoodsAction" method="disableGoods">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 启用商品-->
+		<action name="enableGoods" class="Action.GoodsAction" method="enableGoods">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
+		<!-- 添加商品-->
+		<action name="doAddGoods" class="Action.GoodsAction" method="doAddGoods">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
 	</package>
 </struts>
 

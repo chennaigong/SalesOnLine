@@ -2,6 +2,8 @@ package Action;
 
 import Service.FunctionRoleService;
 import Service.FunctionService;
+import Service.GoodsService;
+import Service.GoodsTypeService;
 import Service.RateService;
 import Service.RoleService;
 import Service.ShopService;
@@ -28,7 +30,9 @@ public class BaseAction extends ActionSupport{
 	protected RoleService roleservice;
 	protected FunctionRoleService functionroleservice;
 	protected ShopUserService shopuserservice;
-
+	protected GoodsTypeService goodstypeservice;
+	protected GoodsService goodsservice;
+	
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
 	protected String password;
@@ -36,7 +40,6 @@ public class BaseAction extends ActionSupport{
 	protected int shopid;
 	protected int id;
 	
-
 	public int getId() {
 		return id;
 	}
@@ -85,6 +88,14 @@ public class BaseAction extends ActionSupport{
 		this.username = username;
 	}
 	
+	public GoodsService getGoodsservice() {
+		return goodsservice;
+	}
+
+	public void setGoodsservice(GoodsService goodsservice) {
+		this.goodsservice = goodsservice;
+	}
+	
 	public FunctionService getFunctionservice() {
 		return functionservice;
 	}
@@ -107,6 +118,14 @@ public class BaseAction extends ActionSupport{
 
 	public void setWebconfigservice(WebconfigService webconfigservice) {
 		this.webconfigservice = webconfigservice;
+	}
+	
+	public GoodsTypeService getGoodstypeservice() {
+		return goodstypeservice;
+	}
+
+	public void setGoodstypeservice(GoodsTypeService goodstypeservice) {
+		this.goodstypeservice = goodstypeservice;
 	}
 
 	public UserService getUserservice() {
