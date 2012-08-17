@@ -63,6 +63,7 @@ public class RatesAction extends BaseAction {
 				jsonObject.put("item_price", rate.getRateItemprice());
 				jsonObject.put("content", rate.getRateContent());
 				jsonObject.put("reply", rate.getRateReply());
+				jsonObject.put("numid", rate.getRateNumiid());
 				jsonArray.put(jsonObject);
 			}
 			return jsonArray.toString();

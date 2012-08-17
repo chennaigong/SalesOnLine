@@ -1,5 +1,8 @@
 package Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * SolGoods entity. @author MyEclipse Persistence Tools
  */
@@ -20,6 +23,7 @@ public class SolGoods implements java.io.Serializable {
 	private String goodsAlarmdays;
 	private String goodsRemark;
 	private String goodsMark;
+	private Set solTbgoodses = new HashSet(0);
 
 	// Constructors
 
@@ -37,7 +41,7 @@ public class SolGoods implements java.io.Serializable {
 			String goodsName, String goodsMnemonic, String goodsDepart,
 			String goodsFactory, String goodsSellprice, String goodsCostprice,
 			String goodsDurability, String goodsAlarmdays, String goodsRemark,
-			String goodsMark) {
+			String goodsMark, Set solTbgoodses) {
 		this.goodsId = goodsId;
 		this.solGoodstype = solGoodstype;
 		this.goodsName = goodsName;
@@ -50,6 +54,7 @@ public class SolGoods implements java.io.Serializable {
 		this.goodsAlarmdays = goodsAlarmdays;
 		this.goodsRemark = goodsRemark;
 		this.goodsMark = goodsMark;
+		this.solTbgoodses = solTbgoodses;
 	}
 
 	// Property accessors
@@ -148,6 +153,14 @@ public class SolGoods implements java.io.Serializable {
 
 	public void setGoodsMark(String goodsMark) {
 		this.goodsMark = goodsMark;
+	}
+
+	public Set getSolTbgoodses() {
+		return this.solTbgoodses;
+	}
+
+	public void setSolTbgoodses(Set solTbgoodses) {
+		this.solTbgoodses = solTbgoodses;
 	}
 
 }

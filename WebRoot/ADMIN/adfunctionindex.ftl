@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script type="text/javascript">
 		var id_index=0;
 		var name_index=1;
@@ -17,6 +18,8 @@
 		(
 			function()
 			{
+				 $.blockUI({ message: "正在加载..." });
+				 
 				 $.post("functionList.action", function(data) {
 				 	var jsondata=strCut(data);
 					$.each(jsondata,function(index)
@@ -34,6 +37,8 @@
 					});
 					senfe("fuctiontable","#F6F6F6","#FFFFFF");
 					pageplugin(10,5,"fuctiontable","pageplugin");
+					
+					$.unblockUI();
 				 });
 			}
 		)

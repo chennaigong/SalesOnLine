@@ -5,6 +5,8 @@ import java.util.Date;
 
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
+import com.taobao.api.request.ItemsInventoryGetRequest;
+import com.taobao.api.request.ItemsOnsaleGetRequest;
 import com.taobao.api.request.LogisticsCompaniesGetRequest;
 import com.taobao.api.request.LogisticsOfflineSendRequest;
 import com.taobao.api.request.ShopGetRequest;
@@ -12,6 +14,8 @@ import com.taobao.api.request.TraderatesGetRequest;
 import com.taobao.api.request.TradesSoldGetRequest;
 import com.taobao.api.request.TradesSoldIncrementGetRequest;
 import com.taobao.api.request.UserGetRequest;
+import com.taobao.api.response.ItemsInventoryGetResponse;
+import com.taobao.api.response.ItemsOnsaleGetResponse;
 import com.taobao.api.response.LogisticsCompaniesGetResponse;
 import com.taobao.api.response.LogisticsOfflineSendResponse;
 import com.taobao.api.response.ShopGetResponse;
@@ -199,6 +203,52 @@ public class TaoBaoAPI {
 		} 
 		catch (Exception e) {
 			System.out.println("API执行shopTitleString出错");
+		}
+		return null;
+	}
+	/**
+	 * @param sessionKey
+	 * @return	获取出售中的宝贝
+	 */
+	public static String onSaleGoodsString(String sessionKey,String startTime,String endTime)
+	{
+		try 
+		{
+			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
+			ItemsOnsaleGetRequest req=new ItemsOnsaleGetRequest();
+			req.setFields("num_iid,title,pic_url,num,list_time,delist_time,modified,price");
+			Date dateTime = SimpleDateFormat.getDateTimeInstance().parse(startTime);
+			req.setStartModified(dateTime);
+			Date dateTime1 = SimpleDateFormat.getDateTimeInstance().parse(endTime);
+			req.setEndModified(dateTime1);
+			ItemsOnsaleGetResponse response = client.execute(req , sessionKey);
+			return response.getBody();
+		} 
+		catch (Exception e) {
+			System.out.println("onSaleGoodsString");
+		}
+		return null;
+	}
+	/**
+	 * @param sessionKey
+	 * @return	获取仓库中的宝贝
+	 */
+	public static String inventoryGoodsString(String sessionKey,String startTime,String endTime)
+	{
+		try 
+		{
+			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
+			ItemsInventoryGetRequest req=new ItemsInventoryGetRequest();
+			req.setFields("num_iid,title,pic_url,num,list_time,delist_time,modified,price");
+			Date dateTime = SimpleDateFormat.getDateTimeInstance().parse(startTime);
+			req.setStartModified(dateTime);
+			Date dateTime1 = SimpleDateFormat.getDateTimeInstance().parse(endTime);
+			req.setEndModified(dateTime1);
+			ItemsInventoryGetResponse response = client.execute(req , sessionKey);
+			return response.getBody();
+		} 
+		catch (Exception e) {
+			System.out.println("onSaleGoodsString");
 		}
 		return null;
 	}

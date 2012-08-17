@@ -6,6 +6,7 @@
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script>
 		$(document).ready
 		(
@@ -26,9 +27,13 @@
 						alert("请输入功能代码");
 						return;
 					}
+					
+					$.blockUI({ message: "正在处理..." });
+					
 					$.post("doAddFunction.action",{name:name,code:code},
 					function(data)
 					{
+						$.unblockUI();
 						if(data==1)
 						{
 							alert("添加成功");

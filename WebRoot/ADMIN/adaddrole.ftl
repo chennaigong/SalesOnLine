@@ -6,11 +6,13 @@
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script>
 		$(document).ready
 		(
 			function()
 			{
+				$.blockUI({ message: "正在加载..." });
 				$.post("functionList.action",function(data)
 				{
 					var jsondata=strCut(data);
@@ -27,11 +29,15 @@
 							$("#functionlist").append(checkbox);
 						});
 					}
+					
+					$.unblockUI();
 
 				});
 				
 				$("#add").click(function()
 				{
+					$.blockUI({ message: "正在处理..." });
+					
 					var name=$("#name").val();
 					if(name=="")
 					{
@@ -57,6 +63,7 @@
 							{
 								alert("添加成功")
 							}
+							$.unblockUI();
 						});
 					}
 				});

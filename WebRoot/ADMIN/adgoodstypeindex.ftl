@@ -43,21 +43,23 @@
 				$.post("goodsTypeListById.action",{id:id.substr(4,id.length)},function(data)
 				{
 					var jsondata=eval(data);
-					//不是叶子节点，即子节点还是商品类别，而不含有商品
+					//不是叶子节点，即子节点还是货品类别，而不含有货品
 					if(jsondata[0].isleaf=="否")
 					{
+						$.blockUI({ message: "正在加载..." });
 						tableClear("goods");
 						var table=$("#goods");
-						table.append("<tr class='table_title' align='center'><td width='250px'>商品子类别编号</td><td width='250px'>商品子类别名字</td><td width='250px'>是否可用</td><td width='250px'>操作</td></tr>");
+						table.append("<tr class='table_title' align='center'><td width='250px'>货品子类别编号</td><td width='250px'>货品子类别名字</td><td width='250px'>是否可用</td><td width='250px'>操作</td></tr>");
 						
 						$.post("goodsTypeListByPId.action",{id:id.substr(4,id.length)},function(data)
 						{
 							tableAdd(data,table);
+							$.unblockUI();
 						});
 						//判断选中的节点是否可用
 						if(jsondata[0].mark=="是")
 						{
-							$("#btns").html("请输入商品类别名称");
+							$("#btns").html("请输入货品类别名称");
 							$("#btns").append("<input type='text' id='typename'/><br/>");
 							$("#btns").append("此类别下是否还有子类别");
 							$("#btns").append("<select id='isleaf'><option value='否'>是</option><option value='是'>否</option></select><br/>");
@@ -68,7 +70,7 @@
 							$("#btns").html("此类别已被禁用，想添加子类别，请先启用");
 						}
 					}
-					//isleaf是”是“,即无子类别，其下直接为商品，显示商品列表
+					//isleaf是”是“,即无子类别，其下直接为货品，显示货品列表
 					else
 					{
 						loadGoods(id);
@@ -88,18 +90,20 @@
 		$(document).ready(function(){
 			$.fn.zTree.init($("#treeDemo"), setting);
 			
-			//加载无父节点的商品类别
+			//加载无父节点的货品类别
 			tableClear("goods");
 			
 			var table=$("#goods");
-			table.append("<tr class='table_title' align='center'><td width='250px'>商品类别编号</td><td width='250px'>商品类别名字</td><td width='250px'>是否可用</td><td width='250px'>操作</td></tr>");
+			table.append("<tr class='table_title' align='center'><td width='250px'>货品类别编号</td><td width='250px'>货品类别名字</td><td width='250px'>是否可用</td><td width='250px'>操作</td></tr>");
 			
+			$.blockUI({ message: "正在加载..." });
 			$.post("goodsTypeListByPId.action",{id:0},function(data)
 			{
 				tableAdd(data,table);
+				$.unblockUI();
 			});
 			
-			$("#btns").html("请输入商品类别名称");
+			$("#btns").html("请输入货品类别名称");
 			$("#btns").append("<input type='text' id='typename'/><br/>");
 			$("#btns").append("此类别下是否还有子类别");
 			$("#btns").append("<select id='isleaf'><option value='否'>是</option><option value='是'>否</option></select><br/>");
@@ -133,10 +137,10 @@
 				$.each(jsondata,function(index)
 				{
 					var obj=jsondata[index];
-					details+="<div>"+"商品编号:"+obj.id+"</div>";
-					details+="<div>"+"商品名称:"+obj.name+"</div>";
+					details+="<div>"+"货品编号:"+obj.id+"</div>";
+					details+="<div>"+"货品名称:"+obj.name+"</div>";
 					details+="<div>"+"助记码:"+obj.mnemonic+"</div>";
-					details+="<div>"+"商品单位:"+obj.depart+"</div>";
+					details+="<div>"+"货品单位:"+obj.depart+"</div>";
 					details+="<div>"+"厂家:"+obj.factory+"</div>";
 					details+="<div>"+"销售价:"+obj.sellprice+"</div>";
 					details+="<div>"+"成本价:"+obj.costprice+"</div>";
@@ -148,16 +152,16 @@
 					var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
 					var node = treeObj.getSelectedNodes()[0];
 					
-					//区分点击了树状图中的商品还是右边表格中的商品
+					//区分点击了树状图中的货品还是右边表格中的货品
 					if(node.id.indexOf("type")==-1)
 					{
 						node=node.getParentNode();
 					}
 					
 					if(obj.mark=="是")
-						details+="<div><input type='button' value='禁用此商品' onclick='disableGoods("+obj.id+",\""+node.id+"\")'/></div>";
+						details+="<div><input type='button' value='禁用此货品' onclick='disableGoods("+obj.id+",\""+node.id+"\")'/></div>";
 					else
-						details+="<div><input type='button' value='启用此商品' onclick='enableGoods("+obj.id+",\""+node.id+"\")'/></div>";
+						details+="<div><input type='button' value='启用此货品' onclick='enableGoods("+obj.id+",\""+node.id+"\")'/></div>";
 				});
 				
 				$.blockUI({ message: details });	
@@ -193,10 +197,11 @@
 		
 		function loadGoods(id)
 		{
+			$.blockUI({ message: "正在加载..." });
 			tableClear("goods");
 			$("#btns").html("");
 			var table=$("#goods");
-			table.append("<tr class='table_title' align='center'><td width='200px'>商品编码</td><td width='200px'>商品名称</td><td width='200px'>是否可用</td><td width='200px'>操作</td></tr>");
+			table.append("<tr class='table_title' align='center'><td width='200px'>货品编码</td><td width='200px'>货品名称</td><td width='200px'>是否可用</td><td width='200px'>操作</td></tr>");
 			$.post("goodsListByType.action",{id:id.substr(4,id.length)},function(data)
 			{
 				var jsondata=eval(data);
@@ -214,6 +219,8 @@
 				});
 				senfe("goods","#F6F6F6","#FFFFFF");
 				pageplugin(10,5,"goods","pageplugin");
+				
+				$.unblockUI();
 			});
 			
 			$.post("goodsTypeListById.action",{id:id.substr(4,id.length)},function(data)
@@ -222,7 +229,7 @@
 				//判断选中的节点是否可用
 				if(jsondata[0].mark=="是")
 				{
-					$("#btns").html("请输入商品名称:<input id='goods_name' type='text'/></br>");
+					$("#btns").html("请输入货品名称:<input id='goods_name' type='text'/></br>");
 					$("#btns").append("请输入助记码:<input id='goods_mnemonic' type='text'/></br>");
 					$("#btns").append("请输入商品单位:<input id='goods_depart' type='text'/></br>");
 					$("#btns").append("请输入厂家:<input id='goods_factory' type='text'/></br>");
@@ -255,7 +262,7 @@
 							
 								var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
 								var node = treeObj.getSelectedNodes()[0];
-								//添加商品之后跟新ztree
+								//添加货品之后跟新ztree
 								ztreeUpdate(id,node);
 								alert("添加成功");
 								loadGoods(id);
@@ -265,7 +272,7 @@
 				}
 				else
 				{
-					$("#btns").html("此类别已被禁用，想添加商品，请先启用");
+					$("#btns").html("此类别已被禁用，想添加货品，请先启用");
 				}
 			});
 		}
@@ -378,7 +385,7 @@
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">商品管理</a> &gt; <a href="shopIndex.action">商品列表</a></td>
+	              <td class="font1">&nbsp;<a href="#">货品管理</a> &gt; <a href="shopIndex.action">货品列表</a></td>
 	            </tr>
 	          </table>
 	        </td>

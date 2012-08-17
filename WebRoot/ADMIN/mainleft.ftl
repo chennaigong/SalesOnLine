@@ -95,11 +95,22 @@ $(document).ready(function(){
       </li>
       <li class="menu">
           <ul>
-		    <li class="button"><a href="#" class="T1">商品管理</a></li>
+		    <li class="button"><a href="#" class="T1">货品管理</a></li>
 
             <li class="dropdown">
                 <ul>
-                    <li><a href="goodsTypeIndex.action" target="main">-商品列表</a></li>
+                    <li><a href="goodsTypeIndex.action" target="main">-货品列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">店铺商品管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="tbGoodsIndex.action" target="main">-店铺商品列表</a></li>
                 </ul>
 			</li>
           </ul>

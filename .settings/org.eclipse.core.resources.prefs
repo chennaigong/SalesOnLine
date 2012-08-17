@@ -1,4 +1,4 @@
-#Sat Aug 04 21:50:04 CST 2012
+#Fri Aug 17 10:17:19 CST 2012
 eclipse.preferences.version=1
 encoding//WebRoot/ADMIN/adacquiresession.ftl=UTF-8
 encoding//WebRoot/ADMIN/adaddfunction.ftl=UTF-8
@@ -14,6 +14,7 @@ encoding//WebRoot/ADMIN/adlogisticssend.ftl=UTF-8
 encoding//WebRoot/ADMIN/adrateindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adroleindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adshopindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adtbgoodsindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adtradeindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/aduserindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adwebconfigindex.ftl=UTF-8

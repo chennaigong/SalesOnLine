@@ -6,6 +6,7 @@
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script>
 		$(document).ready
 		(
@@ -30,9 +31,13 @@
 							alert("用户名或密码不能为空");
 							return;
 						}
+						
+						$.blockUI({ message: "正在处理..." });
+						
 						$.post("doAddUser.action",{username:username.val(),password:password.val(),id:$("#role").val()},
 						function(data)
 						{
+							$.unblockUI();
 							if(data==1)
 							{
 								alert("添加成功");

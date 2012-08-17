@@ -83,7 +83,7 @@ public class RateThread extends Thread{
 									shop.setShopIspromise("是");
 									shopservice.modifyShop(shop);
 								}
-								//有数据则直接写入数据库，因为原先是无数据
+								
 								else 
 								{
 									shop.setShopIspromise("是");

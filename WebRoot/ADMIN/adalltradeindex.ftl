@@ -8,23 +8,29 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
+	
 	<script type="text/javascript">
 		$(document).ready
 		(
 			function()
 			{
+				$.blockUI({ message: "正在加载..." });
 				$.post("allTradeList.action", function(data) {
 					var jsondata=strCut(data)
 					insertOp(jsondata);
+					$.unblockUI();
 				});
 				
 				$("#search").click(function()
 				{
+					$.blockUI({ message: "正在加载..." });
 					//删除除第一行以外的tr
 					$("#tradetable tr:not(:eq(0))").remove();
 					$.post("allTradeListStatus.action",{status:$("#condition").val()}, function(data) {
 						var jsondata=strCut(data)
 						insertOp(jsondata);
+						$.unblockUI();
 					});
 				});
 				

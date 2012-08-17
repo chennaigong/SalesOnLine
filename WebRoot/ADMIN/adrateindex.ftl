@@ -8,11 +8,13 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
 			function()
 			{
+				 $.blockUI({ message: "正在加载..." });
 				 $.post("rateList.action",{shopid:$("#shopid").val()}, function(data) {
 				
 					var jsondata=strCut(data);
@@ -35,13 +37,18 @@
 						{
 							result="差评";
 						}
+						if(obj.reply==undefined)
+							obj.reply="无";
 						var str=trtr+obj.tid+_tdtd+obj.nick+_tdtd+result+_tdtd+obj.created
-						+_tdtd+obj.item_title+_tdtd+obj.item_price+_tdtd+obj.content+_tdtd+obj.reply+_td_tr;
+						+_tdtd+obj.item_title+_tdtd+obj.item_price+_tdtd+obj.content+_tdtd
+						+obj.reply+_tdtd+obj.numid+_td_tr;
 						
 						insertTr("ratetable",str);
 					});
 					senfe("ratetable","#F6F6F6","#FFFFFF");
 					pageplugin(5,5,"ratetable","pageplugin");
+					
+					$.unblockUI();
 				});       
 			}
 		)
@@ -74,6 +81,7 @@
 				<td width=10%>价格</td>
 				<td width=15%>评价的内容</td>
 				<td width=15%>评价的解释</td>
+				<td width=15%>商品编号</td>
 			</tr>
 		</table>
 		<div id="pageplugin">                   

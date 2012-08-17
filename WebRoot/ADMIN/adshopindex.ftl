@@ -8,11 +8,14 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
 			function()
 			{
+				 $.blockUI({ message: "正在加载..." });
+		         
 				 $.post("shopList.action", function(data) {
 				 	var jsondata=strCut(data);
 					$.each(jsondata,function(index)
@@ -31,6 +34,8 @@
 					});
 					senfe("shoptable","#F6F6F6","#FFFFFF");
 					pageplugin(10,5,"shoptable","pageplugin");
+					
+					$.unblockUI();
 				 });
 			}
 		)
@@ -49,6 +54,8 @@
 		//刷新
 		function refresh(obj)
 		{
+			$.blockUI({ message: "正在刷新..." });
+			
 			var shopid=$(obj).parent().parent().children("td");
 			$.post("refreshShop.action",{shopid:shopid.html()},
 			function(data)
@@ -63,6 +70,7 @@
 					shopid.eq(3).html("是");
 					alert("店铺编号为"+shopid.eq(0).html()+"的店铺授权未到期");
 				}
+				$.unblockUI();
 			});
 		}
 	</script>

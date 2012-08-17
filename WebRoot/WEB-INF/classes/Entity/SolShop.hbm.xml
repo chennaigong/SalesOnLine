@@ -19,6 +19,12 @@
         <property name="shopName" type="java.lang.String">
             <column name="shop_name" length="50" />
         </property>
+        <set name="solTbgoodses" inverse="true">
+            <key>
+                <column name="shop_id" />
+            </key>
+            <one-to-many class="Entity.SolTbgoods" />
+        </set>
         <set name="solTradeses" inverse="true">
             <key>
                 <column name="shop_id" />

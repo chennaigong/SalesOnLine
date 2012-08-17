@@ -8,6 +8,7 @@ import Service.RateService;
 import Service.RoleService;
 import Service.ShopService;
 import Service.ShopUserService;
+import Service.TbGoodsService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
@@ -32,7 +33,9 @@ public class BaseAction extends ActionSupport{
 	protected ShopUserService shopuserservice;
 	protected GoodsTypeService goodstypeservice;
 	protected GoodsService goodsservice;
+	protected TbGoodsService tbgoodsservice;
 	
+
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
 	protected String password;
@@ -92,6 +95,14 @@ public class BaseAction extends ActionSupport{
 		return goodsservice;
 	}
 
+	public TbGoodsService getTbgoodsservice() {
+		return tbgoodsservice;
+	}
+
+	public void setTbgoodsservice(TbGoodsService tbgoodsservice) {
+		this.tbgoodsservice = tbgoodsservice;
+	}
+	
 	public void setGoodsservice(GoodsService goodsservice) {
 		this.goodsservice = goodsservice;
 	}

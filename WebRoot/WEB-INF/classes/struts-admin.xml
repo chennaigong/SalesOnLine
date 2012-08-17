@@ -306,6 +306,21 @@
 		<action name="doAddGoods" class="Action.GoodsAction" method="doAddGoods">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
+		
+		<!-- 店铺商品列表-->
+		<action name="tbGoodsIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adtbgoodsindex.ftl</result>
+		</action>
+		
+		<!-- ajax店铺商品列表-->
+		<action name="tbGoodsList" class="Action.TbGoodsAction" method="tbGoodsList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- ajax修改店铺商品-->
+		<action name="modifyTbGoods" class="Action.TbGoodsAction" method="modifyTbGoods">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
 	</package>
 </struts>
 

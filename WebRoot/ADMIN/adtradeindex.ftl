@@ -8,11 +8,13 @@
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
+	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
 			function()
 			{
+				 $.blockUI({ message: "正在加载..." });
 				 $.post("tradeList.action",{shopid:$("#shopid").val()}, function(data) {
 					var jsondata=strCut(data)
 					$.each(jsondata,function(index)
@@ -31,6 +33,8 @@
 					});
 					senfe("tradetable","#F6F6F6","#FFFFFF");
 					pageplugin(8,5,"tradetable","pageplugin");
+					
+					$.unblockUI();
 				});
 				
 			}

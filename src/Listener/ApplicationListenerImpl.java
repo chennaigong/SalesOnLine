@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationListener;
 import Entity.SolWebconfig;
 import Service.RateService;
 import Service.ShopService;
+import Service.TbGoodsService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
@@ -19,6 +20,15 @@ public class ApplicationListenerImpl implements ApplicationListener {
 	private ShopService shopservice;
 	private RateService rateservice;
 	private WebconfigService webconfigservice;
+	private TbGoodsService tbgoodsservice;
+
+	public TbGoodsService getTbgoodsservice() {
+		return tbgoodsservice;
+	}
+
+	public void setTbgoodsservice(TbGoodsService tbgoodsservice) {
+		this.tbgoodsservice = tbgoodsservice;
+	}
 
 	public WebconfigService getWebconfigservice() {
 		return webconfigservice;
@@ -70,6 +80,9 @@ public class ApplicationListenerImpl implements ApplicationListener {
 		//评价线程
 		RateThread rateThread=new RateThread(rateservice,shopservice,defaultTime,threadInterval);
 //		rateThread.start();
+		//店铺商品线程
+		TbGoodsThread tbGoodsThread=new TbGoodsThread(tbgoodsservice,shopservice,defaultTime,threadInterval);
+//		tbGoodsThread.start();
 	}
 
 }
