@@ -9,6 +9,7 @@ import Service.RoleService;
 import Service.ShopService;
 import Service.ShopUserService;
 import Service.TbGoodsService;
+import Service.TradeOrderService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
@@ -34,7 +35,7 @@ public class BaseAction extends ActionSupport{
 	protected GoodsTypeService goodstypeservice;
 	protected GoodsService goodsservice;
 	protected TbGoodsService tbgoodsservice;
-	
+	protected TradeOrderService tradeorderservice;
 
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
@@ -75,6 +76,14 @@ public class BaseAction extends ActionSupport{
 		this.password = password;
 	}
 	
+	public TradeOrderService getTradeorderservice() {
+		return tradeorderservice;
+	}
+
+	public void setTradeorderservice(TradeOrderService tradeorderservice) {
+		this.tradeorderservice = tradeorderservice;
+	}
+
 	public RoleService getRoleservice() {
 		return roleservice;
 	}

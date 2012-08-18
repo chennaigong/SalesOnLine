@@ -43,18 +43,6 @@ public class TradesAction extends BaseAction{
 		return SUCCESS;
 	}
 	
-	public String tradeList()
-	{
-		try {
-			
-			List<SolTrades> tradeList=tradeservice.tradeList(shopid);
-			responseMsg=listToJson(tradeList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return SUCCESS;
-	}
 	
 	public String allTradeList()
 	{

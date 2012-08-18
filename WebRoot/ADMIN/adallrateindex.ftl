@@ -39,7 +39,7 @@
 						}
 						if(obj.reply==undefined)
 							obj.reply="无";
-						var str=trtr+obj.tid+_tdtd+obj.nick+_tdtd+result+_tdtd+obj.created
+						var str=trtr+obj.tid+_tdtd+result+_tdtd+obj.created
 						+_tdtd+obj.item_title+_tdtd+obj.item_price+_tdtd+obj.content+_tdtd
 						+obj.reply+_tdtd+obj.numid+_td_tr;
 						
@@ -75,14 +75,13 @@
 	  	 <table id="ratetable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table">
 			<tr height="34" align="center" class="table_title">
 				<td width=15%>订单号</td>
-				<td width=10%>买家昵称</td>
 				<td width=10%>评价结果</td>
 				<td width=10%>评价时间</td>
 				<td width=15%>评价的商品</td>
 				<td width=10%>价格</td>
-				<td width=15%>评价的内容</td>
-				<td width=15%>评价的解释</td>
-				<td width=15%>商品编号</td>
+				<td width=10%>评价的内容</td>
+				<td width=10%>评价的解释</td>
+				<td width=10%>商品编号</td>
 			</tr>
 		</table>
 		<div id="pageplugin">                   

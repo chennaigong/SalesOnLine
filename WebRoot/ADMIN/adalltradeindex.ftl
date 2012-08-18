@@ -57,8 +57,10 @@
 					check="无"
 				}
 				
+				var seeDetail="<input type='button' value='查看明细' onclick='seeDetail(this)'/>"
+				
 				var str=trtr+obj.tid+_tdtd+statue+_tdtd+obj.buyer_nick
-				+_tdtd+obj.created+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+obj.isread+_tdtd+btn+_tdtd+check+_tdtd+_td_tr;
+				+_tdtd+obj.created+_tdtd+obj.pay_time+_tdtd+obj.payment+_tdtd+obj.modified+_tdtd+obj.isread+_tdtd+btn+_tdtd+check+_tdtd+seeDetail+_td_tr;
 				insertTr("tradetable",str);
 			});
 			senfe("tradetable","#F6F6F6","#FFFFFF");
@@ -85,6 +87,12 @@
 				}
 			});
 		}
+		
+		function seeDetail(obj)
+		{
+			var tid=$(obj).parent().parent().children("td").html();
+			window.location.href="tradeOrderIndex.action?tid="+tid;
+		}
 	</script>
 	
   </head>
@@ -96,7 +104,7 @@
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">订单</a> &gt; <a href="#">订单列表</a></td>
+	              <td class="font1">&nbsp;<a href="#">订单管理</a> &gt; <a href="#">订单列表</a></td>
 	            </tr>
 	          </table>
 	        </td>
@@ -118,14 +126,15 @@
 		<table id="tradetable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table">
 			<tr height="34" align="center" class="table_title">
 				<td width=15%>订单号</td>
-				<td width=10%>状态</td>
+				<td width=5%>状态</td>
 				<td width=10%>买家昵称</td>
-				<td width=10%>订单创建时间</td>
+				<td width=10%>创建时间</td>
 				<td width=10%>付款时间</td>
 				<td width=10%>实际付款</td>
-				<td width=10%>最后修改时间</td>
+				<td width=10%>修改时间</td>
 				<td width=10%>是否已读</td>
 				<td width=10%>操作</td>
+				<td width=5%>操作</td>
 				<td width=5%>操作</td>
 			</tr>
 		</table>

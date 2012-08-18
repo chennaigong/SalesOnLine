@@ -68,7 +68,7 @@
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">角色管理</a> &gt; <a href="#">添加角色</a></td>
+	              <td class="font1">&nbsp;<a href="#">用户管理</a> &gt; <a href="#">添加用户</a></td>
 	            </tr>
 	          </table>
 	        </td>

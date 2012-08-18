@@ -25,10 +25,8 @@
 						var trtd="<tr height='30' align='center' ><td>";
 						var obj=jsondata[index];
 						var _td_tr="</td></tr>";
-						var tradeSee="<input type='button' value='查看订单' onclick='seeTrade(this)'/>"
-						var rateSee="<input type='button' value='查看评价' onclick='seeRate(this)'/>"
 						var refresh="<input type='button' value='刷新' onclick='refresh(this)'/>"
-						var str=trtd+obj.id+_tdtd+obj.name+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+tradeSee+rateSee+refresh+_td_tr
+						var str=trtd+obj.id+_tdtd+obj.name+_tdtd+obj.session+_tdtd+obj.ispromise+_tdtd+refresh+_td_tr
 						insertTr("shoptable",str);
 						
 					});
@@ -39,18 +37,6 @@
 				 });
 			}
 		)
-		//查出用户名
-		function seeTrade(obj)
-		{
-			var shopid=$(obj).parent().parent().children("td").html();
-			window.location.href="tradeIndex.action?shopid="+shopid;
-		}
-		//查出用户名
-		function seeRate(obj)
-		{
-			var shopid=$(obj).parent().parent().children("td").html();
-			window.location.href="rateIndex.action?shopid="+shopid;
-		}
 		//刷新
 		function refresh(obj)
 		{

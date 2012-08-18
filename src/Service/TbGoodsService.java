@@ -10,5 +10,7 @@ public interface TbGoodsService {
 	public List<SolTbgoods> tbGoodsList(int shopId);
 	public void updateTbGoods(SolTbgoods tbgoods);
 	public List<SolTbgoods> tbGoodsList();
+	public List<SolTbgoods> tbGoodsListByGoods(int goodsId);
 	public SolTbgoods findTbGoodsById(int id);
+	public SolTbgoods findTbGoodsByNumId(String numId);
 }

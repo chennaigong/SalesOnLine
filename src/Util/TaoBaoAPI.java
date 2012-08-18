@@ -14,6 +14,7 @@ import com.taobao.api.request.TraderatesGetRequest;
 import com.taobao.api.request.TradesSoldGetRequest;
 import com.taobao.api.request.TradesSoldIncrementGetRequest;
 import com.taobao.api.request.UserGetRequest;
+import com.taobao.api.request.UserSellerGetRequest;
 import com.taobao.api.response.ItemsInventoryGetResponse;
 import com.taobao.api.response.ItemsOnsaleGetResponse;
 import com.taobao.api.response.LogisticsCompaniesGetResponse;
@@ -23,6 +24,7 @@ import com.taobao.api.response.TraderatesGetResponse;
 import com.taobao.api.response.TradesSoldGetResponse;
 import com.taobao.api.response.TradesSoldIncrementGetResponse;
 import com.taobao.api.response.UserGetResponse;
+import com.taobao.api.response.UserSellerGetResponse;
 
 public class TaoBaoAPI {
 	
@@ -39,7 +41,7 @@ public class TaoBaoAPI {
 			
 			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
 			TradesSoldGetRequest req=new TradesSoldGetRequest();
-			req.setFields("tid,status,total_fee,created,pay_time,buyer_nick,payment");
+			req.setFields("tid,status,total_fee,created,pay_time,buyer_nick,payment,orders");
 			Date dateTime = SimpleDateFormat.getDateTimeInstance().parse(startTime);
 			req.setStartCreated(dateTime);
 			Date dateTime1 = SimpleDateFormat.getDateTimeInstance().parse(endTime);
@@ -157,9 +159,9 @@ public class TaoBaoAPI {
 		try 
 		{
 			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
-			UserGetRequest req=new UserGetRequest();
+			UserSellerGetRequest req=new UserSellerGetRequest();
 			req.setFields("user_id");
-			UserGetResponse response = client.execute(req , sessionKey);
+			UserSellerGetResponse response = client.execute(req , sessionKey);
 			return response.getBody();
 		} 
 		catch (Exception e) {
@@ -176,9 +178,9 @@ public class TaoBaoAPI {
 		try 
 		{
 			TaobaoClient client=new DefaultTaobaoClient(WebConfig.APIURL, WebConfig.APPKEY, WebConfig.APPSECRET);
-			UserGetRequest req=new UserGetRequest();
+			UserSellerGetRequest req=new UserSellerGetRequest();
 			req.setFields("nick");
-			UserGetResponse response = client.execute(req , sessionKey);
+			UserSellerGetResponse response = client.execute(req , sessionKey);
 			return response.getBody();
 		} 
 		catch (Exception e) {

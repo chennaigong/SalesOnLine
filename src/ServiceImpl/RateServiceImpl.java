@@ -9,13 +9,11 @@ import Service.RateService;
 public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateService {
 
 	@Override
-	public void addRate(String tradeId,String... rateArgs) {
+	public void addRate(int shopId,String tradeId,String... rateArgs) {
 		
-		SolTrades trade=new SolTrades();
-		trade.setTradeId(tradeId);
 		
 		SolRates rate=new SolRates();
-		rate.setSolTrades(trade);
+		rate.setTradeId(tradeId);
 		rate.setRateResult(rateArgs[0]);
 		rate.setRateCreate(rateArgs[1]);
 		rate.setRateItemtitle(rateArgs[2]);
@@ -23,6 +21,7 @@ public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateSe
 		rate.setRateContent(rateArgs[4]);
 		rate.setRateReply(rateArgs[5]);
 		rate.setRateNumiid(rateArgs[6]);
+		rate.setShopId(shopId);
 		basedao.save(rate);
 	}
 	
@@ -35,7 +34,7 @@ public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateSe
 	@Override
 	public SolRates findLastRate(int shopId,String orderName)
 	{
-		List<SolRates> solRateList=basedao.findByPage("select model from SolRates as model where model.solTrades.solShop.shopId="+shopId+" order by model."+orderName+" DESC", 0, 1);
+		List<SolRates> solRateList=basedao.findByPage("select model from SolRates as model where model.shopId="+shopId+" order by model."+orderName+" DESC", 0, 1);
 		if(solRateList.isEmpty())
 		{
 			return null;
@@ -49,7 +48,12 @@ public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateSe
 
 	@Override
 	public List<SolRates> rateList(int shopId) {
-		return basedao.findByProperty(SolRates.class, "solTrades.solShop.shopId", shopId);
+		return basedao.findByProperty(SolRates.class, "shopId", shopId);
+	}
+
+	@Override
+	public List<SolRates> rateListByNumId(String numId) {
+		return basedao.findByProperty(SolRates.class, "rateNumiid", numId);
 	}
 	
 

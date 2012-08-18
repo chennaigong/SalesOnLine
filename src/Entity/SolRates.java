@@ -9,7 +9,6 @@ public class SolRates implements java.io.Serializable {
 	// Fields
 
 	private Integer rateId;
-	private SolTrades solTrades;
 	private String rateResult;
 	private String rateCreate;
 	private String rateItemtitle;
@@ -17,6 +16,8 @@ public class SolRates implements java.io.Serializable {
 	private String rateContent;
 	private String rateReply;
 	private String rateNumiid;
+	private String tradeId;
+	private Integer shopId;
 
 	// Constructors
 
@@ -30,11 +31,10 @@ public class SolRates implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SolRates(Integer rateId, SolTrades solTrades, String rateResult,
-			String rateCreate, String rateItemtitle, String rateItemprice,
-			String rateContent, String rateReply, String rateNumiid) {
+	public SolRates(Integer rateId, String rateResult, String rateCreate,
+			String rateItemtitle, String rateItemprice, String rateContent,
+			String rateReply, String rateNumiid, String tradeId, Integer shopId) {
 		this.rateId = rateId;
-		this.solTrades = solTrades;
 		this.rateResult = rateResult;
 		this.rateCreate = rateCreate;
 		this.rateItemtitle = rateItemtitle;
@@ -42,6 +42,8 @@ public class SolRates implements java.io.Serializable {
 		this.rateContent = rateContent;
 		this.rateReply = rateReply;
 		this.rateNumiid = rateNumiid;
+		this.tradeId = tradeId;
+		this.shopId = shopId;
 	}
 
 	// Property accessors
@@ -52,14 +54,6 @@ public class SolRates implements java.io.Serializable {
 
 	public void setRateId(Integer rateId) {
 		this.rateId = rateId;
-	}
-
-	public SolTrades getSolTrades() {
-		return this.solTrades;
-	}
-
-	public void setSolTrades(SolTrades solTrades) {
-		this.solTrades = solTrades;
 	}
 
 	public String getRateResult() {
@@ -116,6 +110,22 @@ public class SolRates implements java.io.Serializable {
 
 	public void setRateNumiid(String rateNumiid) {
 		this.rateNumiid = rateNumiid;
+	}
+
+	public String getTradeId() {
+		return this.tradeId;
+	}
+
+	public void setTradeId(String tradeId) {
+		this.tradeId = tradeId;
+	}
+
+	public Integer getShopId() {
+		return this.shopId;
+	}
+
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
 	}
 
 }

@@ -27,26 +27,6 @@
 			<result name="success" type="freemarker">/ADMIN/mainindex.ftl</result>
 		</action> 
 		
-		<!-- 交易订单列表 -->
-		<action name="tradeIndex" class="Action.TradesAction" method="tradeIndex">
-			<result name="success" type="freemarker">/ADMIN/adtradeindex.ftl</result>
-		</action> 
-		
-		<!-- ajax获取交易订单列表 -->
-		<action name="tradeList" class="Action.TradesAction" method="tradeList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action>
-		
-		<!-- 评价列表 -->
-		<action name="rateIndex" class="Action.BaseAction" method="index">
-			<result name="success" type="freemarker">/ADMIN/adrateindex.ftl</result>
-		</action>
-		
-		<!-- ajax获取评价列表 -->
-		<action name="rateList" class="Action.RatesAction" method="rateList">
-			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
-		</action> 
-		
 		<!-- 物流公司列表 -->
 		<action name="logisticsIndex" class="Action.LogisticsAction" method="logisticsIndex">
 			<result name="success" type="freemarker">/ADMIN/adlogisticsindex.ftl</result>
@@ -319,6 +299,26 @@
 		
 		<!-- ajax修改店铺商品-->
 		<action name="modifyTbGoods" class="Action.TbGoodsAction" method="modifyTbGoods">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 订单明细-->
+		<action name="tradeOrderIndex" class="Action.TradeOrderAction" method="tradeOrderIndex">
+			<result name="success" type="freemarker">adtradeorderindex.ftl</result>
+		</action>
+		
+		<!-- ajax订单明细-->
+		<action name="tradeOrderList" class="Action.TradeOrderAction" method="tradeOrderList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 货品评价-->
+		<action name="goodsRateIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adgoodsrateindex.ftl</result>
+		</action>
+		
+		<!-- ajax货品评价-->
+		<action name="goodsRateList" class="Action.GoodsAction" method="goodsRateList">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
 	</package>

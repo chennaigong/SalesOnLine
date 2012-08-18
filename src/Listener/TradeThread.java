@@ -9,6 +9,7 @@ import Entity.SolShop;
 import Entity.SolTrades;
 import Entity.SolUsers;
 import Service.ShopService;
+import Service.TradeOrderService;
 import Service.TradeService;
 import Service.UserService;
 import Util.Helpers;
@@ -19,15 +20,17 @@ public class TradeThread extends Thread
 {
 	private TradeService tradeService;
 	private ShopService shopservice;
+	private TradeOrderService tradeorderService;
 	private String defaultTime;
 	private String threadInterval;
 	
-	public TradeThread(TradeService tradeService,ShopService shopservice,String defaultTime,String threadInterval)
+	public TradeThread(TradeService tradeService,ShopService shopservice,TradeOrderService tradeorderService,String defaultTime,String threadInterval)
 	{
 		this.tradeService=tradeService;
 		this.shopservice=shopservice;
 		this.defaultTime=defaultTime;
 		this.threadInterval=threadInterval;
+		this.tradeorderService=tradeorderService;
 	}
 	
 	public void run()
@@ -103,6 +106,7 @@ public class TradeThread extends Thread
 										String buyer_nick=null;
 										String payment=null;
 										JSONObject sonjsonObj=jsonArray.getJSONObject(j);
+										
 										if(sonjsonObj.has("tid"))
 										{
 											tid=((Long)jsonArray.getJSONObject(j).get("tid")).toString();
@@ -136,6 +140,18 @@ public class TradeThread extends Thread
 											//有数据则直接写入数据库，因为原先是无数据
 											tradeService.addTrade(shop.getShopId(), tid,status,buyer_nick,
 													created,total_fee,pay_time,payment,created,"否");
+											
+											JSONObject orderObj=sonjsonObj.getJSONObject("orders");
+											JSONArray orderArray=orderObj.getJSONArray("order");
+											for(int h=0;h<orderArray.length();h++)
+											{
+												JSONObject sonOrderObj=orderArray.getJSONObject(h);
+												String orderoid=String.valueOf(sonOrderObj.getLong("oid"));
+												String ordernum_iid=String.valueOf(sonOrderObj.getLong("num_iid"));
+												String ordernum=String.valueOf(sonOrderObj.getLong("num"));
+												tradeorderService.addTradeOrder(tid, orderoid, ordernum_iid, ordernum);
+											}
+											
 										}
 										else 
 										{
@@ -153,6 +169,17 @@ public class TradeThread extends Thread
 											{
 												tradeService.addTrade(shop.getShopId(), tid,status,buyer_nick,
 														created,total_fee,pay_time,payment,created,"否");
+												
+												JSONObject orderObj=sonjsonObj.getJSONObject("orders");
+												JSONArray orderArray=orderObj.getJSONArray("order");
+												for(int h=0;h<orderArray.length();h++)
+												{
+													JSONObject sonOrderObj=orderArray.getJSONObject(h);
+													String orderoid=String.valueOf(sonOrderObj.getLong("oid"));
+													String ordernum_iid=String.valueOf(sonOrderObj.getLong("num_iid"));
+													String ordernum=String.valueOf(sonOrderObj.getLong("num"));
+													tradeorderService.addTradeOrder(tid, orderoid, ordernum_iid, ordernum);
+												}
 											}
 										}
 									}

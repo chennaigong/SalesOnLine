@@ -162,18 +162,18 @@
 	<div class="con" style="margin-top:-2px;">
 	  	 <table id="ratetable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table">
 			<tr height="34" align="center" class="table_title">
-				<td width=15%>店铺商品编号</td>
+				<td width=10%>店铺商品编号</td>
 				<td width=10%>所属店铺</td>
 				<td width=10%>所属货品编号</td>
 				<td width=10%>数字编号</td>
 				<td width=15%>标题</td>
 				<!--<td width=10%>图片地址</td>-->
-				<td width=15%>数量</td>
-				<td width=15%>上架时间</td>
-				<td width=15%>下架时间</td>
-				<td width=15%>修改时间</td>
-				<td width=15%>状态</td>
-				<td width=15%>价格</td>
+				<td width=5%>数量</td>
+				<td width=10%>上架时间</td>
+				<td width=10%>下架时间</td>
+				<td width=10%>修改时间</td>
+				<td width=5%>状态</td>
+				<td width=5%>价格</td>
 			</tr>
 		</table>
 		<div id="pageplugin">                   

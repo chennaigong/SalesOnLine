@@ -70,4 +70,15 @@ public class TbGoodsServiceImpl extends BaseServiceImpl<SolTbgoods> implements T
 		return basedao.findById(SolTbgoods.class, id);
 	}
 
+	@Override
+	public SolTbgoods findTbGoodsByNumId(String numId) {
+		List<SolTbgoods> tbgoodList=basedao.findByProperty(SolTbgoods.class, "tbgoodsNumid", numId);
+		return tbgoodList.isEmpty()?null:tbgoodList.get(0);
+	}
+
+	@Override
+	public List<SolTbgoods> tbGoodsListByGoods(int goodsId) {
+		return basedao.findByProperty(SolTbgoods.class, "solGoods.goodsId", goodsId);
+	}
+
 }

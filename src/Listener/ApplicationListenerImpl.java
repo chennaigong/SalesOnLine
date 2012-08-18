@@ -10,6 +10,7 @@ import Entity.SolWebconfig;
 import Service.RateService;
 import Service.ShopService;
 import Service.TbGoodsService;
+import Service.TradeOrderService;
 import Service.TradeService;
 import Service.UserService;
 import Service.WebconfigService;
@@ -21,6 +22,15 @@ public class ApplicationListenerImpl implements ApplicationListener {
 	private RateService rateservice;
 	private WebconfigService webconfigservice;
 	private TbGoodsService tbgoodsservice;
+	private TradeOrderService tradeorderservice;
+	
+	public TradeOrderService getTradeorderservice() {
+		return tradeorderservice;
+	}
+
+	public void setTradeorderservice(TradeOrderService tradeorderservice) {
+		this.tradeorderservice = tradeorderservice;
+	}
 
 	public TbGoodsService getTbgoodsservice() {
 		return tbgoodsservice;
@@ -75,7 +85,7 @@ public class ApplicationListenerImpl implements ApplicationListener {
 		String defaultTime=webconfigList.get(0).getWebconfigValue();
 		String threadInterval=webconfigList.get(1).getWebconfigValue();
 		//订单线程
-		TradeThread tradeThread=new TradeThread(tradeservice,shopservice,defaultTime,threadInterval);
+		TradeThread tradeThread=new TradeThread(tradeservice,shopservice,tradeorderservice,defaultTime,threadInterval);
 //		tradeThread.start();
 		//评价线程
 		RateThread rateThread=new RateThread(rateservice,shopservice,defaultTime,threadInterval);

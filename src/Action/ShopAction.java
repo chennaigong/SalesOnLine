@@ -58,6 +58,7 @@ public class ShopAction extends BaseAction {
 					String name=null;
 					while (name==null&&count<8) {
 						String nickStr=TaoBaoAPI.userNickString(top_session);
+						System.out.println(nickStr);
 						String nick=nickStr.substring(nickStr.lastIndexOf("{"), nickStr.indexOf("}")+1);
 						JSONObject nickObject=new JSONObject(nick);
 						String n=nickObject.getString("nick");

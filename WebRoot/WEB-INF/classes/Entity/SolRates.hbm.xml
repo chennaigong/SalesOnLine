@@ -10,9 +10,6 @@
             <column name="rate_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="solTrades" class="Entity.SolTrades" fetch="select">
-            <column name="trade_id" length="50" />
-        </many-to-one>
         <property name="rateResult" type="java.lang.String">
             <column name="rate_result" length="50" />
         </property>
@@ -33,6 +30,12 @@
         </property>
         <property name="rateNumiid" type="java.lang.String">
             <column name="rate_numiid" length="50" />
+        </property>
+        <property name="tradeId" type="java.lang.String">
+            <column name="trade_id" length="50" />
+        </property>
+        <property name="shopId" type="java.lang.Integer">
+            <column name="shop_id" />
         </property>
     </class>
 </hibernate-mapping>

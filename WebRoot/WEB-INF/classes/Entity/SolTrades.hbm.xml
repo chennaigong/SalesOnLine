@@ -37,11 +37,11 @@
         <property name="tradeIsread" type="java.lang.String">
             <column name="trade_isread" length="10" />
         </property>
-        <set name="solRateses" inverse="true">
+        <set name="solTradeorders" inverse="true">
             <key>
                 <column name="trade_id" length="50" />
             </key>
-            <one-to-many class="Entity.SolRates" />
+            <one-to-many class="Entity.SolTradeorder" />
         </set>
     </class>
 </hibernate-mapping>

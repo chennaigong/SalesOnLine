@@ -17,19 +17,6 @@ import Entity.SolUsers;
 
 public class RatesAction extends BaseAction {
 	
-
-	public String rateList()
-	{
-		try 
-		{
-			List<SolRates> rateList=rateservice.rateList(shopid);
-			responseMsg=listToJson(rateList);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return SUCCESS;
-	}
 	
 	public String allRateList()
 	{
@@ -55,8 +42,7 @@ public class RatesAction extends BaseAction {
 			{
 				SolRates rate=rateList.get(i);
 				JSONObject jsonObject=new JSONObject();
-				jsonObject.put("tid", rate.getSolTrades().getTradeId());
-				jsonObject.put("nick", rate.getSolTrades().getTradeBuyernick());
+				jsonObject.put("tid", rate.getTradeId());
 				jsonObject.put("result", rate.getRateResult());
 				jsonObject.put("created", rate.getRateCreate());
 				jsonObject.put("item_title", rate.getRateItemtitle());

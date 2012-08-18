@@ -139,7 +139,7 @@ public class RateThread extends Thread{
 										
 										if(rate==null)
 										{
-											rateService.addRate(tid,result,created,item_title,item_price,content,reply,num_iid);
+											rateService.addRate(shop.getShopId(),tid,result,created,item_title,item_price,content,reply,num_iid);
 										}
 										else 
 										{
@@ -148,14 +148,14 @@ public class RateThread extends Thread{
 											boolean isSame=false;
 											for(int w=0;w<rateList.size();w++)
 											{
-												if(rateList.get(w).getSolTrades().getTradeId().equals(tid)&&rateList.get(w).getRateNumiid().equals(num_iid))
+												if(rateList.get(w).getTradeId().equals(tid)&&rateList.get(w).getRateNumiid().equals(num_iid))
 												{
 													isSame=true;
 												}
 											}
 											if(!isSame)
 											{
-												rateService.addRate(tid,result,created,item_title,item_price,content,reply,num_iid);
+												rateService.addRate(shop.getShopId(),tid,result,created,item_title,item_price,content,reply,num_iid);
 											}
 										}
 									}

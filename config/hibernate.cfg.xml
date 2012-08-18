@@ -32,6 +32,7 @@
 		<mapping resource="Entity/SolGoods.hbm.xml" />
 		<mapping resource="Entity/SolGoodstype.hbm.xml" />
 		<mapping resource="Entity/SolTbgoods.hbm.xml" />
+		<mapping resource="Entity/SolTradeorder.hbm.xml" />
 
 	</session-factory>
 

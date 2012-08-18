@@ -1,5 +1,6 @@
 package Action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -7,6 +8,8 @@ import org.json.JSONObject;
 
 import Entity.SolGoods;
 import Entity.SolGoodstype;
+import Entity.SolRates;
+import Entity.SolTbgoods;
 
 public class GoodsAction extends BaseAction{
 	
@@ -190,6 +193,40 @@ public class GoodsAction extends BaseAction{
 		goodsservice.addGoods(id,gname,gmnemonic,gdepart,gfactory,gsellprice,gcostprice,
 				gdurability,galarmdays,gremark,gmark);
 		responseMsg="1";
+		return SUCCESS;
+	}
+	
+	public String goodsRateList()
+	{
+		List<SolTbgoods> tbList=tbgoodsservice.tbGoodsListByGoods(id);
+		List<SolRates> rateList=new ArrayList<SolRates>();
+		for(int i=0;i<tbList.size();i++)
+		{
+			SolTbgoods tbgoods=tbList.get(i);
+			String numId=tbgoods.getTbgoodsNumid();
+			List<SolRates> rateList_tmp=rateservice.rateListByNumId(numId);
+			rateList.addAll(rateList_tmp);
+		}
+		int goodCount=0;
+		int neutralCount=0;
+		int badCount=0;
+		for(int i=0;i<rateList.size();i++)
+		{
+			SolRates rate=rateList.get(i);
+			if(rate.getRateResult().equals("good"))
+			{
+				goodCount++;
+			}
+			else if(rate.getRateResult().equals("neutral"))
+			{
+				neutralCount++;
+			}
+			else if(rate.getRateResult().equals("bad"))
+			{
+				badCount++;
+			}
+		}
+		responseMsg=goodCount+","+neutralCount+","+badCount;
 		return SUCCESS;
 	}
 	

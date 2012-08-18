@@ -162,11 +162,18 @@
 						details+="<div><input type='button' value='禁用此货品' onclick='disableGoods("+obj.id+",\""+node.id+"\")'/></div>";
 					else
 						details+="<div><input type='button' value='启用此货品' onclick='enableGoods("+obj.id+",\""+node.id+"\")'/></div>";
+					
+					details+="<div><input type='button' value='查看此货品的评价' onclick='rateList("+obj.id+")'/></div>"
 				});
 				
 				$.blockUI({ message: details });	
 				$('.blockOverlay').attr('title','点击关闭').click($.unblockUI); 
 			});
+		}
+		
+		function rateList(id)
+		{
+			window.location.href="goodsRateIndex.action?id="+id;
 		}
 		
 		function disableGoods(id,typeid)

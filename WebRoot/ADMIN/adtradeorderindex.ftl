@@ -15,7 +15,7 @@
 			function()
 			{
 				 $.blockUI({ message: "正在加载..." });
-				 $.post("rateList.action",{shopid:$("#shopid").val()}, function(data) {
+				 $.post("tradeOrderList.action",{tid:$("#tid").val()}, function(data) {
 				
 					var jsondata=strCut(data);
 					$.each(jsondata,function(index)
@@ -24,26 +24,13 @@
 						var trtr="<tr align='center'><td>";
 						var obj=jsondata[index];
 						var _td_tr="</td></tr>";
-						var result;
-						if(obj.result=="good")
-						{
-							result="好评";
-						}
-						else if(obj.result=="neutral")
-						{
-							result="中评";
-						}
-						else if(obj.result=="bad")
-						{
-							result="差评";
-						}
-						if(obj.reply==undefined)
-							obj.reply="无";
-						var str=trtr+obj.tid+_tdtd+obj.nick+_tdtd+result+_tdtd+obj.created
-						+_tdtd+obj.item_title+_tdtd+obj.item_price+_tdtd+obj.content+_tdtd
-						+obj.reply+_tdtd+obj.numid+_td_tr;
+						
+						var str=trtr+obj.id+_tdtd+obj.tid+_tdtd+obj.oid
+						+_tdtd+obj.numid+_tdtd+obj.name+_tdtd+obj.num+_td_tr;
 						
 						insertTr("ratetable",str);
+						
+						
 					});
 					senfe("ratetable","#F6F6F6","#FFFFFF");
 					pageplugin(5,5,"ratetable","pageplugin");
@@ -56,14 +43,14 @@
   </head>
   
   <body>
-  	<input type="hidden" value="${shopid}" id="shopid"/>
+  	<input type="hidden" value="${tid}" id="tid"/>
   	<div class="head">
 	    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#C4E7FB">
 	      <tr>
 	        <td>
 	          <table width="100%" border="0" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF">
 	            <tr>
-	              <td class="font1">&nbsp;<a href="#">店铺管理</a> &gt; <a href="shopIndex.action">店铺列表</a> &gt; <a href="#">评价列表</a></td>
+	              <td class="font1">&nbsp;<a href="#">订单管理</a> &gt; <a href="allTradeIndex.action">订单列表</a> &gt; <a href="#">订单明细</a></td>
 	            </tr>
 	          </table>
 	        </td>
@@ -73,15 +60,12 @@
 	<div class="con" style="margin-top:-2px;">
 	  	 <table id="ratetable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#DBE6E3"  class="warp_table">
 			<tr height="34" align="center" class="table_title">
-				<td width=15%>订单号</td>
-				<td width=10%>买家昵称</td>
-				<td width=10%>评价结果</td>
-				<td width=10%>评价时间</td>
-				<td width=15%>评价的商品</td>
-				<td width=10%>价格</td>
-				<td width=15%>评价的内容</td>
-				<td width=15%>评价的解释</td>
-				<td width=15%>商品编号</td>
+				<td width=15%>明细编号</td>
+				<td width=10%>父订单编号</td>
+				<td width=10%>子订单编号</td>
+				<td width=15%>商品数字编号</td>
+				<td width=15%>商品名称</td>
+				<td width=10%>购买数量</td>
 			</tr>
 		</table>
 		<div id="pageplugin">                   
