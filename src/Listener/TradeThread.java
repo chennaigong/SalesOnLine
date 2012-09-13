@@ -7,11 +7,9 @@ import org.json.JSONObject;
 
 import Entity.SolShop;
 import Entity.SolTrades;
-import Entity.SolUsers;
 import Service.ShopService;
 import Service.TradeOrderService;
 import Service.TradeService;
-import Service.UserService;
 import Util.Helpers;
 import Util.TaoBaoAPI;
 

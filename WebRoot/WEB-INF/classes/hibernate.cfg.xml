@@ -14,7 +14,7 @@
 			jdbc:jtds:sqlserver://localhost:1433/SalesOnLine
 		</property>
 		<property name="connection.username">sa</property>
-		<property name="connection.password">123</property>
+		<property name="connection.password">123@cng</property>
 		<property name="connection.driver_class">
 			net.sourceforge.jtds.jdbc.Driver
 		</property>

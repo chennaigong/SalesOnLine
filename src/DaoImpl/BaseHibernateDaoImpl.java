@@ -7,7 +7,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.mapping.Value;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -199,18 +198,4 @@ public class BaseHibernateDaoImpl<T, ID extends Serializable> extends HibernateD
 	}
 
 	
-
-	
-       
-//    /**  
-//     * 从Spring上下文中获取本类对象  
-//     * 此方法可能存在线程并发问题（待测）  
-//     *   
-//     * @param context Spring上下文  
-//     * @return 本类对象   
-//     */  
-//    @SuppressWarnings("unchecked")   
-//    public static BaseHibernateDAO getFromApplicationContext(WebApplicationContext context) {   
-//        return (BaseHibernateDAO)context.getBean("BaseHibernateDAO");   
-//    }
 }  

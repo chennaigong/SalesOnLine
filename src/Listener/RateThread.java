@@ -7,10 +7,8 @@ import org.json.JSONObject;
 
 import Entity.SolRates;
 import Entity.SolShop;
-import Entity.SolUsers;
 import Service.RateService;
 import Service.ShopService;
-import Service.UserService;
 import Util.Helpers;
 import Util.TaoBaoAPI;
 

@@ -13,7 +13,6 @@ import com.taobao.api.request.ShopGetRequest;
 import com.taobao.api.request.TraderatesGetRequest;
 import com.taobao.api.request.TradesSoldGetRequest;
 import com.taobao.api.request.TradesSoldIncrementGetRequest;
-import com.taobao.api.request.UserGetRequest;
 import com.taobao.api.request.UserSellerGetRequest;
 import com.taobao.api.response.ItemsInventoryGetResponse;
 import com.taobao.api.response.ItemsOnsaleGetResponse;
@@ -23,7 +22,6 @@ import com.taobao.api.response.ShopGetResponse;
 import com.taobao.api.response.TraderatesGetResponse;
 import com.taobao.api.response.TradesSoldGetResponse;
 import com.taobao.api.response.TradesSoldIncrementGetResponse;
-import com.taobao.api.response.UserGetResponse;
 import com.taobao.api.response.UserSellerGetResponse;
 
 public class TaoBaoAPI {

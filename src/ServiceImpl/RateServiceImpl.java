@@ -3,7 +3,6 @@ package ServiceImpl;
 import java.util.List;
 
 import Entity.SolRates;
-import Entity.SolTrades;
 import Service.RateService;
 
 public class RateServiceImpl extends BaseServiceImpl<SolRates> implements RateService {

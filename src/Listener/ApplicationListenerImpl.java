@@ -12,7 +12,6 @@ import Service.ShopService;
 import Service.TbGoodsService;
 import Service.TradeOrderService;
 import Service.TradeService;
-import Service.UserService;
 import Service.WebconfigService;
 
 public class ApplicationListenerImpl implements ApplicationListener {
