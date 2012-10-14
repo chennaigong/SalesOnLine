@@ -31,7 +31,11 @@
 							alert("用户名或密码不能为空");
 							return;
 						}
-						
+						if($("#role").val()=="")
+						{
+							alert("请选择角色");
+							return;
+						}
 						$.blockUI({ message: "正在处理..." });
 						
 						$.post("doAddUser.action",{username:username.val(),password:password.val(),id:$("#role").val()},

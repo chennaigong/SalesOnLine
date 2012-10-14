@@ -15,6 +15,8 @@ public class SolUsers implements java.io.Serializable {
 	private SolRole solRole;
 	private String userUsername;
 	private String userPassword;
+	private Set solInputgoodses = new HashSet(0);
+	private Set solOutputgoodses = new HashSet(0);
 	private Set solShopusers = new HashSet(0);
 
 	// Constructors
@@ -30,11 +32,14 @@ public class SolUsers implements java.io.Serializable {
 
 	/** full constructor */
 	public SolUsers(Integer userId, SolRole solRole, String userUsername,
-			String userPassword, Set solShopusers) {
+			String userPassword, Set solInputgoodses, Set solOutputgoodses,
+			Set solShopusers) {
 		this.userId = userId;
 		this.solRole = solRole;
 		this.userUsername = userUsername;
 		this.userPassword = userPassword;
+		this.solInputgoodses = solInputgoodses;
+		this.solOutputgoodses = solOutputgoodses;
 		this.solShopusers = solShopusers;
 	}
 
@@ -70,6 +75,22 @@ public class SolUsers implements java.io.Serializable {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}
+
+	public Set getSolInputgoodses() {
+		return this.solInputgoodses;
+	}
+
+	public void setSolInputgoodses(Set solInputgoodses) {
+		this.solInputgoodses = solInputgoodses;
+	}
+
+	public Set getSolOutputgoodses() {
+		return this.solOutputgoodses;
+	}
+
+	public void setSolOutputgoodses(Set solOutputgoodses) {
+		this.solOutputgoodses = solOutputgoodses;
 	}
 
 	public Set getSolShopusers() {

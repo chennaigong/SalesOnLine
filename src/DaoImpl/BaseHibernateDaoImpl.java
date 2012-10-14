@@ -107,6 +107,30 @@ public class BaseHibernateDaoImpl<T, ID extends Serializable> extends HibernateD
      * @return 实体集合  
      */  
     @SuppressWarnings("unchecked")   
+    public List<T> findByProperty(Class<T> entityClass, String propertyName,   
+            Object value,String order,String DESCORASC) {   
+        try {   
+            String queryStr = "from " + entityClass.getName()   
+                    + " as model where model." + propertyName + "=? order by model."+order+" "+DESCORASC;              
+            return getHibernateTemplate().find(queryStr, value);   
+        } catch (RuntimeException e) {   
+        	System.out.println("查找指定条件实体集合异常，条件：" +propertyName+e);   
+            throw e;   
+        }   
+    }   
+    
+    /**  
+     * 查找指定属性的实体集合  
+     *   
+     * @param entityClass  
+     *            实体  
+     * @param propertyName  
+     *            属性名  
+     * @param value  
+     *            条件  
+     * @return 实体集合  
+     */  
+    @SuppressWarnings("unchecked")   
     public List<T> findByPropertys(Class<T> entityClass, String[] propertyName,   
             Object[] value) {   
         try {   
@@ -190,6 +214,21 @@ public class BaseHibernateDaoImpl<T, ID extends Serializable> extends HibernateD
 		try {   
             String queryStr = "select model from " + entityClass.getName()   
                     + " as model";              
+            return getHibernateTemplate().find(queryStr);   
+        } catch (RuntimeException e) {   
+        	System.out.println(e);   
+            throw e;   
+        }   
+	}
+	
+	 /**
+     * 查询全部数据
+     */
+	@SuppressWarnings("unchecked")
+	public List<T> findAll(Class<T> entityClass,String order,String DESCORASC) {
+		try {   
+            String queryStr = "select model from " + entityClass.getName()   
+                    + " as model order by model."+order+" "+DESCORASC;              
             return getHibernateTemplate().find(queryStr);   
         } catch (RuntimeException e) {   
         	System.out.println(e);   

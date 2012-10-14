@@ -16,7 +16,7 @@
         <property name="functionCode" type="java.lang.String">
             <column name="function_code" />
         </property>
-        <set name="solFunctionroles" inverse="true" cascade="delete">
+        <set name="solFunctionroles" inverse="true">
             <key>
                 <column name="function_id" />
             </key>

@@ -7,14 +7,15 @@ import Service.GoodsTypeService;
 
 public class GoodsTypeServiceImpl extends BaseServiceImpl<SolGoodstype> implements GoodsTypeService{
 
-	@Override
-	public List<SolGoodstype> goodsTypeList(String mark) {
-		return basedao.findByProperty(SolGoodstype.class, "goodstypeMark", mark);
-	}
 
 	@Override
 	public List<SolGoodstype> goodsTypeList() {
 		return basedao.findAll(SolGoodstype.class);
+	}
+	
+	@Override
+	public List<SolGoodstype> goodsTypeList(String mark) {
+		return basedao.findByProperty(SolGoodstype.class, "goodstypeMark", mark);
 	}
 
 	@Override
@@ -41,6 +42,7 @@ public class GoodsTypeServiceImpl extends BaseServiceImpl<SolGoodstype> implemen
 		return basedao.findById(SolGoodstype.class, id);
 	}
 
+	
 	@Override
 	public void addSGoodsType(String name, String pId, String isLeaf, String mark) {
 		SolGoodstype goodstype=new SolGoodstype();
@@ -49,7 +51,7 @@ public class GoodsTypeServiceImpl extends BaseServiceImpl<SolGoodstype> implemen
 		goodstype.setGoodstypeIsleaf(isLeaf);
 		goodstype.setGoodstypeMark(mark);
 		basedao.save(goodstype);
-		
 	}
+
 	
 }

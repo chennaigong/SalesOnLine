@@ -23,7 +23,10 @@ public class SolGoods implements java.io.Serializable {
 	private String goodsAlarmdays;
 	private String goodsRemark;
 	private String goodsMark;
+	private Integer goodsNowquantity;
+	private Set solPurchasedetails = new HashSet(0);
 	private Set solTbgoodses = new HashSet(0);
+	private Set solInputgoodsdetails = new HashSet(0);
 
 	// Constructors
 
@@ -41,7 +44,8 @@ public class SolGoods implements java.io.Serializable {
 			String goodsName, String goodsMnemonic, String goodsDepart,
 			String goodsFactory, String goodsSellprice, String goodsCostprice,
 			String goodsDurability, String goodsAlarmdays, String goodsRemark,
-			String goodsMark, Set solTbgoodses) {
+			String goodsMark, Integer goodsNowquantity, Set solPurchasedetails,
+			Set solTbgoodses, Set solInputgoodsdetails) {
 		this.goodsId = goodsId;
 		this.solGoodstype = solGoodstype;
 		this.goodsName = goodsName;
@@ -54,7 +58,10 @@ public class SolGoods implements java.io.Serializable {
 		this.goodsAlarmdays = goodsAlarmdays;
 		this.goodsRemark = goodsRemark;
 		this.goodsMark = goodsMark;
+		this.goodsNowquantity = goodsNowquantity;
+		this.solPurchasedetails = solPurchasedetails;
 		this.solTbgoodses = solTbgoodses;
+		this.solInputgoodsdetails = solInputgoodsdetails;
 	}
 
 	// Property accessors
@@ -155,12 +162,36 @@ public class SolGoods implements java.io.Serializable {
 		this.goodsMark = goodsMark;
 	}
 
+	public Integer getGoodsNowquantity() {
+		return this.goodsNowquantity;
+	}
+
+	public void setGoodsNowquantity(Integer goodsNowquantity) {
+		this.goodsNowquantity = goodsNowquantity;
+	}
+
+	public Set getSolPurchasedetails() {
+		return this.solPurchasedetails;
+	}
+
+	public void setSolPurchasedetails(Set solPurchasedetails) {
+		this.solPurchasedetails = solPurchasedetails;
+	}
+
 	public Set getSolTbgoodses() {
 		return this.solTbgoodses;
 	}
 
 	public void setSolTbgoodses(Set solTbgoodses) {
 		this.solTbgoodses = solTbgoodses;
+	}
+
+	public Set getSolInputgoodsdetails() {
+		return this.solInputgoodsdetails;
+	}
+
+	public void setSolInputgoodsdetails(Set solInputgoodsdetails) {
+		this.solInputgoodsdetails = solInputgoodsdetails;
 	}
 
 }

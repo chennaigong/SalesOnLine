@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>评价列表</title>
+    <title>货品列表</title>
 	<META http-equiv=Content-Type content="text/html; charset=utf-8">
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<link rel="stylesheet" href="../CSS/demo.css" type="text/css">
@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="../JS/jquery.paginate.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
 	<script type="text/javascript" src="../JS/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="../JS/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript">
 		var mark_index=2;
 		var op_index=3;
@@ -88,6 +89,7 @@
 		}	
 		
 		$(document).ready(function(){
+			
 			$.fn.zTree.init($("#treeDemo"), setting);
 			
 			//加载无父节点的货品类别
@@ -148,6 +150,8 @@
 					details+="<div>"+"报警天数:"+obj.alarmdays+"</div>";
 					details+="<div>"+"备注:"+obj.remark+"</div>";
 					details+="<div>"+"可用标志:"+obj.mark+"</div>";
+					details+="<div>"+"当前数量:"+obj.nowquantity+"</div>";
+					
 					
 					var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
 					var node = treeObj.getSelectedNodes()[0];
@@ -208,7 +212,7 @@
 			tableClear("goods");
 			$("#btns").html("");
 			var table=$("#goods");
-			table.append("<tr class='table_title' align='center'><td width='200px'>货品编码</td><td width='200px'>货品名称</td><td width='200px'>是否可用</td><td width='200px'>操作</td></tr>");
+			table.append("<tr class='table_title' align='center'><td width='200px'>货品编码</td><td width='200px'>货品名称</td><td width='200px'>是否可用</td><td width='100px'>操作</td><td width='100px'>操作</td></tr>");
 			$.post("goodsListByType.action",{id:id.substr(4,id.length)},function(data)
 			{
 				var jsondata=eval(data);
@@ -219,8 +223,7 @@
 					var obj=jsondata[index];
 					var _td_tr="</td></tr>";
 					var btn="<input type='button' value='查看详细' onclick='showDetail("+obj.id+")'/>";
-					
-					var str=trtr+obj.id+_tdtd+obj.name+_tdtd+obj.mark+_tdtd+btn+_td_tr;
+					var str=trtr+obj.id+_tdtd+obj.name+_tdtd+obj.mark+_tdtd+btn+_tdtd+_td_tr;
 					
 					table.append(str);
 				});
@@ -241,7 +244,7 @@
 					$("#btns").append("请输入商品单位:<input id='goods_depart' type='text'/></br>");
 					$("#btns").append("请输入厂家:<input id='goods_factory' type='text'/></br>");
 					$("#btns").append("请输入销售价:<input id='goods_sellprice' type='text'/></br>");
-					$("#btns").append("请输入成本价:<input id='goods_costprice' type='text'/></br>");
+					$("#btns").append("<input id='goods_costprice' style='display:none' value='0' type='text'/>");
 					$("#btns").append("请输入保质期(天):<input id='goods_durability' type='text'/></br>");
 					$("#btns").append("请输入报警天数:<input id='goods_alarmdays' type='text'/></br>");
 					$("#btns").append("请输入备注:<input id='goods_remark' type='text'/></br>");
@@ -260,6 +263,12 @@
 						var galarmdays=$("#goods_alarmdays").val();
 						var gremark=$("#goods_remark").val();
 						var gmark=$("#goods_mark").val();
+						if(gtid==""||gname==""||gmnemonic==""||gdepart==""||gfactory==""||gsellprice==""||
+						gcostprice==""||gdurability==""||galarmdays==""||gremark==""||gmark=="")
+						{
+							alert("请输入完整");
+							return;
+						}
 						$.post("doAddGoods.action",{id:gtid,gname:gname,gmnemonic:gmnemonic,gdepart:gdepart
 						,gfactory:gfactory,gsellprice:gsellprice,gcostprice:gcostprice,gdurability:gdurability,
 						galarmdays:galarmdays,gremark:gremark,gmark:gmark},function(data)
@@ -338,6 +347,7 @@
 				{
 					btn="<input type='button' value='启用' onclick='enableMark(this)'/>"
 				}
+				
 				var str=trtr+obj.id+_tdtd+obj.name+_tdtd+obj.mark+_tdtd+btn+_td_tr;
 				
 				table.append(str);
@@ -345,7 +355,7 @@
 			senfe("goods","#F6F6F6","#FFFFFF");
 			pageplugin(10,5,"goods","pageplugin");
 		}
-		
+		//类别禁用
 		function disableMark(obj)
 		{
 			var goodstype=$(obj).parent().parent().children("td");
@@ -360,7 +370,7 @@
 			});
 			
 		}
-		
+		//类别启用
 		function enableMark(obj)
 		{
 			var goodstype=$(obj).parent().parent().children("td");
@@ -374,7 +384,7 @@
 				}
 			});
 		}
-		
+		//清空table
 		function tableClear(id)
 		{
 			$.each($("#"+id+" tr"),function()
@@ -382,6 +392,7 @@
 				$(this).remove();
 			});
 		}
+		
 	</script>
   </head>
   

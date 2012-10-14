@@ -237,6 +237,11 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
+		<!-- ajax商品类别列表-->
+		<action name="goodsTypeListByMark" class="Action.GoodsTypeAction" method="goodsTypeListByMark">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
 		<!-- ajax商品类别列表，查找父id为id的子类别列表-->
 		<action name="goodsTypeListByPId" class="Action.GoodsTypeAction" method="goodsTypeListByPId">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
@@ -267,22 +272,27 @@
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
+		<!-- ajax获取商品列表-->
+		<action name="goodsListByTypeMark" class="Action.GoodsAction" method="goodsListByTypeMark">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action> 
+		
 		<!-- ajax获取商品详细信息-->
 		<action name="goodsListById" class="Action.GoodsAction" method="goodsListById">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
-		<!-- 禁用商品-->
+		<!-- 禁用货品-->
 		<action name="disableGoods" class="Action.GoodsAction" method="disableGoods">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
-		<!-- 启用商品-->
+		<!-- 启用货品-->
 		<action name="enableGoods" class="Action.GoodsAction" method="enableGoods">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action> 
 		
-		<!-- 添加商品-->
+		<!-- 添加货品-->
 		<action name="doAddGoods" class="Action.GoodsAction" method="doAddGoods">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
@@ -321,6 +331,89 @@
 		<action name="goodsRateList" class="Action.GoodsAction" method="goodsRateList">
 			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
 		</action>
+		
+		<!-- 采购货品-->
+		<action name="purchaseIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adpurchaseindex.ftl</result>
+		</action>
+		
+		<!-- ajax采购货品-->
+		<action name="doAddPurchase" class="Action.PurchaseAction" method="doAddPurchase">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 采购列表-->
+		<action name="purchaseList" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adpurchaselist.ftl</result>
+		</action>
+		
+		<!-- ajax采购列表-->
+		<action name="doPurchaseList" class="Action.PurchaseAction" method="doPurchaseList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 采购明细-->
+		<action name="purchaseDetailList" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adpurchasedetaillist.ftl</result>
+		</action>
+		
+		<!-- ajax采购明细-->
+		<action name="doPurchaseDetailList" class="Action.PurchaseAction" method="doPurchaseDetailList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 入库列表-->
+		<action name="inputGoodsIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adinputgoodsindex.ftl</result>
+		</action>
+		
+		<!-- ajax入库列表-->
+		<action name="inputGoodsList" class="Action.InputGoodsAction" method="inputGoodsList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 入库明细列表-->
+		<action name="inputGoodsDetailIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adinputgoodsdetailindex.ftl</result>
+		</action>
+		
+		<!-- ajax入库明细列表-->
+		<action name="inputGoodsDetailList" class="Action.InputGoodsAction" method="inputGoodsDetailList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 入库操作-->
+		<action name="inputGoodsDeal" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adinputgoodsdeal.ftl</result>
+		</action>
+		
+		<!-- ajax入库操作-->
+		<action name="updateInputGoods" class="Action.InputGoodsAction" method="updateInputGoods">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 出库列表-->
+		<action name="outputGoodsIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adoutputgoodsindex.ftl</result>
+		</action>
+		
+		<!-- ajax出库列表-->
+		<action name="outputGoodsList" class="Action.OutputGoodsAction" method="outputGoodsList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		<!-- 出库明细列表-->
+		<action name="outputGoodsDetailIndex" class="Action.BaseAction" method="index">
+			<result name="success" type="freemarker">adoutputgoodsdetailindex.ftl</result>
+		</action>
+		
+		<!-- ajax出库明细列表-->
+		<action name="outputGoodsDetailList" class="Action.OutputGoodsAction" method="outputGoodsDetailList">
+			<result name="success">/AJAXTRAN/rsponseMsg.jsp</result>
+		</action>
+		
+		
+		
 	</package>
 </struts>
 

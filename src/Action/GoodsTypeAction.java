@@ -67,6 +67,25 @@ public class GoodsTypeAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	public String goodsTypeListByMark()
+	{
+		List<SolGoodstype> goodsTypeList=goodstypeservice.goodsTypeList("ÊÇ");
+		responseMsg="[";
+		for(int i=0;i<goodsTypeList.size();i++)
+		{
+			SolGoodstype goodstype=goodsTypeList.get(i);
+			responseMsg+="{ id:'type"+goodstype.getGoodstypeId()+"', pId:'type"+goodstype.getGoodstypeParent()
+						+"', name:'"+goodstype.getGoodstypeName()+"', open:true,icon:'../IMAGES/type.png'}";
+			if(i<goodsTypeList.size()-1)
+			{
+				responseMsg+=",";
+			}
+		}
+		responseMsg+="]";
+		return SUCCESS;
+	}
+	
+	
 	public String goodsTypeListByPId()
 	{
 		List<SolGoodstype> goodsTypeList=goodstypeservice.goodsTypeList(id);

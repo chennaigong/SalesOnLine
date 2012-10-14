@@ -81,7 +81,7 @@
 									//不是叶子节点，即子节点还是货品类别，而不含有货品
 									if(jsondata[0].isleaf=="是")
 									{
-										$.post("goodsListByType.action",{id:id.substr(4,id.length)},function(data)
+										$.post("goodsListByTypeMark.action",{id:id.substr(4,id.length)},function(data)
 										{
 											node.isParent=true;
 											

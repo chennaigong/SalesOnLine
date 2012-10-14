@@ -10,7 +10,7 @@
 	<script>
 		TOP.init({ 
 	       appKey :21062760,
-	       channelUrl : 'http://192.168.56.1:8080/SalesOnLine/admin/mainAcquireSession.action' 
+	       channelUrl : 'http://192.168.1.104:8080/SalesOnLine/admin/mainAcquireSession.action' 
 		});
 		$(document).ready
 		(

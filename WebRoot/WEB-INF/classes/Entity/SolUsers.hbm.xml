@@ -19,6 +19,18 @@
         <property name="userPassword" type="java.lang.String">
             <column name="user_password" length="50" />
         </property>
+        <set name="solInputgoodses" inverse="true">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="Entity.SolInputgoods" />
+        </set>
+        <set name="solOutputgoodses" inverse="true">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="Entity.SolOutputgoods" />
+        </set>
         <set name="solShopusers" inverse="true">
             <key>
                 <column name="user_id" />

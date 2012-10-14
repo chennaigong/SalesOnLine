@@ -43,11 +43,26 @@
         <property name="goodsMark" type="java.lang.String">
             <column name="goods_mark" length="10" />
         </property>
+        <property name="goodsNowquantity" type="java.lang.Integer">
+            <column name="goods_nowquantity" />
+        </property>
+        <set name="solPurchasedetails" inverse="true">
+            <key>
+                <column name="goods_id" />
+            </key>
+            <one-to-many class="Entity.SolPurchasedetail" />
+        </set>
         <set name="solTbgoodses" inverse="true">
             <key>
                 <column name="goods_id" />
             </key>
             <one-to-many class="Entity.SolTbgoods" />
+        </set>
+        <set name="solInputgoodsdetails" inverse="true">
+            <key>
+                <column name="goods_id" />
+            </key>
+            <one-to-many class="Entity.SolInputgoodsdetail" />
         </set>
     </class>
 </hibernate-mapping>

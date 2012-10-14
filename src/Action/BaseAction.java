@@ -4,6 +4,13 @@ import Service.FunctionRoleService;
 import Service.FunctionService;
 import Service.GoodsService;
 import Service.GoodsTypeService;
+import Service.InoutGoodsService;
+import Service.InputGoodsDetailService;
+import Service.InputGoodsService;
+import Service.OutputGoodsDetailService;
+import Service.OutputGoodsService;
+import Service.PurchaseDetailService;
+import Service.PurchaseService;
 import Service.RateService;
 import Service.RoleService;
 import Service.ShopService;
@@ -36,7 +43,14 @@ public class BaseAction extends ActionSupport{
 	protected GoodsService goodsservice;
 	protected TbGoodsService tbgoodsservice;
 	protected TradeOrderService tradeorderservice;
-
+	protected InputGoodsService inputgoodsservice;
+	protected OutputGoodsService outputgoodsservice;
+	protected InoutGoodsService inoutgoodsservice;
+	protected PurchaseService purchaseservice;
+	protected PurchaseDetailService purchasedetailservice;
+	protected InputGoodsDetailService inputgoodsdetailservice;
+	protected OutputGoodsDetailService outputgoodsdetailservice;
+	
 	protected String responseMsg;	//ajax∑µªÿ÷µ
 	protected String username;
 	protected String password;
@@ -114,6 +128,38 @@ public class BaseAction extends ActionSupport{
 	
 	public void setGoodsservice(GoodsService goodsservice) {
 		this.goodsservice = goodsservice;
+	}
+	
+	public InoutGoodsService getInoutgoodsservice() {
+		return inoutgoodsservice;
+	}
+
+	public void setInoutgoodsservice(InoutGoodsService inoutgoodsservice) {
+		this.inoutgoodsservice = inoutgoodsservice;
+	}
+	
+	public OutputGoodsService getOutputgoodsservice() {
+		return outputgoodsservice;
+	}
+
+	public void setOutputgoodsservice(OutputGoodsService outputgoodsservice) {
+		this.outputgoodsservice = outputgoodsservice;
+	}
+
+	public PurchaseService getPurchaseservice() {
+		return purchaseservice;
+	}
+
+	public void setPurchaseservice(PurchaseService purchaseservice) {
+		this.purchaseservice = purchaseservice;
+	}
+	
+	public InputGoodsService getInputgoodsservice() {
+		return inputgoodsservice;
+	}
+
+	public void setInputgoodsservice(InputGoodsService inputgoodsservice) {
+		this.inputgoodsservice = inputgoodsservice;
 	}
 	
 	public FunctionService getFunctionservice() {
@@ -208,5 +254,33 @@ public class BaseAction extends ActionSupport{
 	public void setShopuserservice(ShopUserService shopuserservice) {
 		this.shopuserservice = shopuserservice;
 	}
+
+	public PurchaseDetailService getPurchasedetailservice() {
+		return purchasedetailservice;
+	}
+
+	public void setPurchasedetailservice(PurchaseDetailService purchasedetailservice) {
+		this.purchasedetailservice = purchasedetailservice;
+	}
+
+	public InputGoodsDetailService getInputgoodsdetailservice() {
+		return inputgoodsdetailservice;
+	}
+
+	public void setInputgoodsdetailservice(
+			InputGoodsDetailService inputgoodsdetailservice) {
+		this.inputgoodsdetailservice = inputgoodsdetailservice;
+	}
+
+	public OutputGoodsDetailService getOutputgoodsdetailservice() {
+		return outputgoodsdetailservice;
+	}
+
+	public void setOutputgoodsdetailservice(
+			OutputGoodsDetailService outputgoodsdetailservice) {
+		this.outputgoodsdetailservice = outputgoodsdetailservice;
+	}
+
+	
 	
 }

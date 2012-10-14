@@ -106,6 +106,30 @@ $(document).ready(function(){
       </li>
       <li class="menu">
           <ul>
+		    <li class="button"><a href="#" class="T1">采购管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="purchaseIndex.action" target="main">-采购货品</a></li>
+                    <li><a href="purchaseList.action" target="main">-采购记录</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
+		    <li class="button"><a href="#" class="T1">出入库管理</a></li>
+
+            <li class="dropdown">
+                <ul>
+                    <li><a href="inputGoodsIndex.action" target="main">-入库列表</a></li>
+                    <li><a href="outputGoodsIndex.action" target="main">-出库列表</a></li>
+                </ul>
+			</li>
+          </ul>
+      </li>
+      <li class="menu">
+          <ul>
 		    <li class="button"><a href="#" class="T1">店铺商品管理</a></li>
 
             <li class="dropdown">

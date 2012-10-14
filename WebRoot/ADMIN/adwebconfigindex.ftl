@@ -6,6 +6,7 @@
 	<link href="../CSS/tab.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="../JS/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../JS/util.js"></script>
+	<script type="text/javascript" src="../JS/My97DatePicker/WdatePicker.js"></script>
 	<script type="text/javascript">
 		$(document).ready
 		(
@@ -20,6 +21,16 @@
 				 });
 				 $("#save").click(function()
 				 {
+				 	 if($("#defaultTime").val()=="")
+				 	 {
+				 	 	alert("请输入开始时间")
+				 	 	return;
+				 	 }
+				 	 if($("#threadInterval").val()=="")
+				 	 {
+				 	 	alert("请输入间隔时间")
+				 	 	return;
+				 	 }
 				 	 $.post("updateWebconfig.action",{defaultTime:$("#defaultTime").val(),threadInterval:$("#threadInterval").val()}, 
 				 	 function(data) {
 					 	 $.post("webconfigList.action", function(data) {
@@ -51,8 +62,8 @@
 	    </table>
 	</div>
 	<div class="con" style="margin-top:-2px;">
-	  	更新开始时间(没数据)：<input type="text" id="defaultTime" /><br/><br/>
-	  	同步的间隔时间：<input type="text" id="threadInterval"/><br/><br/>
+	  	更新开始时间(没数据)：<input type="text" id="defaultTime"  class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"/><br/><br/>
+	  	同步的间隔时间：<input type="text" id="threadInterval" /><br/><br/>
 	  	<input type="button" id="save" value="保存"/>
 	</div>
   </body>

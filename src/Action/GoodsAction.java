@@ -135,6 +135,37 @@ public class GoodsAction extends BaseAction{
 		return SUCCESS;
 	}
 	
+	public String goodsListByTypeMark()
+	{
+		List<SolGoods> goodsList=goodsservice.goodsListByType(id,"ÊÇ");
+		try 
+		{
+			JSONArray jsonArray=new JSONArray();
+			for(int i=0;i<goodsList.size();i++)
+			{
+				SolGoods goods=goodsList.get(i);
+				JSONObject jsonObject=new JSONObject();
+				jsonObject.put("id", goods.getGoodsId());
+				jsonObject.put("name", goods.getGoodsName());
+				jsonObject.put("mnemonic", goods.getGoodsMnemonic());
+				jsonObject.put("depart", goods.getGoodsDepart());
+				jsonObject.put("factory", goods.getGoodsFactory());
+				jsonObject.put("sellprice", goods.getGoodsSellprice());
+				jsonObject.put("costprice", goods.getGoodsCostprice());
+				jsonObject.put("durability", goods.getGoodsDurability());
+				jsonObject.put("alarmdays", goods.getGoodsAlarmdays());
+				jsonObject.put("remark", goods.getGoodsRemark());
+				jsonObject.put("mark", goods.getGoodsMark());
+				jsonArray.put(jsonObject);
+			}
+			responseMsg=jsonArray.toString();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return SUCCESS;
+	}
+	
 	public String goodsListById()
 	{
 		SolGoods goods=goodsservice.goodsListById(id);
@@ -153,6 +184,7 @@ public class GoodsAction extends BaseAction{
 			jsonObject.put("alarmdays", goods.getGoodsAlarmdays());
 			jsonObject.put("remark", goods.getGoodsRemark());
 			jsonObject.put("mark", goods.getGoodsMark());
+			jsonObject.put("nowquantity", goods.getGoodsNowquantity());
 			jsonArray.put(jsonObject);
 			responseMsg=jsonArray.toString();
 		}
@@ -184,13 +216,12 @@ public class GoodsAction extends BaseAction{
 			id=Integer.parseInt(goodstype.getGoodstypeParent());
 		}
 		responseMsg="1";
-		
 		return SUCCESS;
 	}
 	
 	public String doAddGoods()
 	{
-		goodsservice.addGoods(id,gname,gmnemonic,gdepart,gfactory,gsellprice,gcostprice,
+		goodsservice.addGoods(id,0,gname,gmnemonic,gdepart,gfactory,gsellprice,gcostprice,
 				gdurability,galarmdays,gremark,gmark);
 		responseMsg="1";
 		return SUCCESS;

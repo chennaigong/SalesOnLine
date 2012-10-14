@@ -41,6 +41,7 @@ public class LoginAction extends BaseAction
 				responseMsg="admin/mainIndex.action";
 				Map session=ActionContext.getContext().getSession();
 				session.put("role", "1");
+				session.put("username", username);
 			}
 		}
 		return SUCCESS;

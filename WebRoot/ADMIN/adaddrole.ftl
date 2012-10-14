@@ -36,8 +36,6 @@
 				
 				$("#add").click(function()
 				{
-					$.blockUI({ message: "正在处理..." });
-					
 					var name=$("#name").val();
 					if(name=="")
 					{

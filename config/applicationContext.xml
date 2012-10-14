@@ -48,6 +48,13 @@
                 <value>goodsservice</value>
                 <value>tbgoodsservice</value>
                 <value>tradeorderservice</value>
+                <value>inputgoodsservice</value>
+                <value>outputgoodsservice</value>
+                <value>inoutgoodsservice</value>
+                <value>purchaseservice</value>
+                <value>purchasedetailservice</value>
+                <value>inputgoodsdetailservice</value>
+                <value>outputgoodsdetailservice</value>
             </list>
             <!--  此处可增加其他需要自动创建事务代理的bean-->
 	    </property>
@@ -127,6 +134,41 @@
 	
 	<!-- 订单明细模块-->
 	<bean id="tradeorderservice" class="ServiceImpl.TradeOrderServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 货品入库-->
+	<bean id="inputgoodsservice" class="ServiceImpl.InputGoodsServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 货品入库明细-->
+	<bean id="inputgoodsdetailservice" class="ServiceImpl.InputGoodsDetailServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 货品出库-->
+	<bean id="outputgoodsservice" class="ServiceImpl.OutputGoodsServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 货品出库明细-->
+	<bean id="outputgoodsdetailservice" class="ServiceImpl.OutputGoodsDetailServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 货品出入库关系-->
+	<bean id="inoutgoodsservice" class="ServiceImpl.InoutGoodsServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 采购模块-->
+	<bean id="purchaseservice" class="ServiceImpl.PurchaseServiceImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	
+	<!-- 采购明细模块-->
+	<bean id="purchasedetailservice" class="ServiceImpl.PurchaseDetailServiceImpl">
 		<property name="basedao" ref="basedao"></property>
 	</bean>
 	

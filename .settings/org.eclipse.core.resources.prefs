@@ -1,4 +1,4 @@
-#Sat Aug 18 21:57:09 CST 2012
+#Sun Oct 14 12:14:59 CST 2012
 eclipse.preferences.version=1
 encoding//WebRoot/ADMIN/adacquiresession.ftl=UTF-8
 encoding//WebRoot/ADMIN/adaddfunction.ftl=UTF-8
@@ -10,8 +10,16 @@ encoding//WebRoot/ADMIN/adalltradeindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adfunctionindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adgoodsrateindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adgoodstypeindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adinputgoodsdeal.ftl=UTF-8
+encoding//WebRoot/ADMIN/adinputgoodsdetailindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adinputgoodsindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adlogisticsindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adlogisticssend.ftl=UTF-8
+encoding//WebRoot/ADMIN/adoutputgoodsdetailindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adoutputgoodsindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adpurchasedetaillist.ftl=UTF-8
+encoding//WebRoot/ADMIN/adpurchaseindex.ftl=UTF-8
+encoding//WebRoot/ADMIN/adpurchaselist.ftl=UTF-8
 encoding//WebRoot/ADMIN/adroleindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adshopindex.ftl=UTF-8
 encoding//WebRoot/ADMIN/adtbgoodsindex.ftl=UTF-8
